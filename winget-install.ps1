@@ -13,7 +13,8 @@ $PackageIds = @(
     "7zip.7zip",
     "flux.flux",
     "Malwarebytes.Malwarebytes",
-    "GitHub.cli"
+    "GitHub.cli",
+    "TheDocumentFoundation.LibreOffice"
 )
 
 foreach ($PackageId in $PackageIds)
