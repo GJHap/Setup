@@ -1,3 +1,3 @@
-Install-Module -Name Terminal-Icons
-Install-Module -Name PSReadLine -AllowPrerelease -Force
-Install-Module -Name posh-git -Force
+Install-Module -Name Terminal-Icons -Scope CurrentUser -AcceptLicense 
+Install-Module -Name PSReadLine -Scope CurrentUser -AllowPrerelease -AcceptLicense -Force
+Install-Module -Name posh-git -Scope CurrentUser -AcceptLicense
