@@ -1,2 +1,3 @@
-Install-Module -Name Terminal-Icons -Repository PSGallery
-Install-Module PSReadLine -AllowPrerelease -Force
+Install-Module -Name Terminal-Icons
+Install-Module -Name PSReadLine -AllowPrerelease -Force
+Install-Module -Name posh-git -Force
