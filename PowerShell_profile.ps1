@@ -7,3 +7,7 @@ Import-Module -Name posh-git
 Import-Module PSReadLine
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineOption -Colors @{
+    Parameter = [ConsoleColor]::Magenta
+    Operator = [ConsoleColor]::White
+}
