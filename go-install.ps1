@@ -1,0 +1,1 @@
+go install github.com/junegunn/fzf@latest

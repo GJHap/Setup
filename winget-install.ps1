@@ -14,7 +14,8 @@ $PackageIds = @(
     "flux.flux",
     "Malwarebytes.Malwarebytes",
     "GitHub.cli",
-    "TheDocumentFoundation.LibreOffice"
+    "TheDocumentFoundation.LibreOffice",
+    "GoLang.Go"
 )
 
 foreach ($PackageId in $PackageIds)
