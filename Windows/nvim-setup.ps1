@@ -1,1 +1,1 @@
-cp -F ../nvim ~/AppData/Local/
+cp -F -Recurse ../nvim ~/AppData/Local/

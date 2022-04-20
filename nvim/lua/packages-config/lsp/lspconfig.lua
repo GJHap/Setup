@@ -2,7 +2,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 local lspconfig = require('lspconfig')
 
-servers = { 'pyright', 'tsserver', 'eslint' }
+servers = { 'pyright', 'tsserver', 'eslint', 'cssls', 'html' }
 for _,server in pairs(servers) do
    lspconfig[server].setup
    {
