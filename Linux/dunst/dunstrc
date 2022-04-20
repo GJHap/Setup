@@ -1,0 +1,32 @@
+[global]
+   monitor = 0
+   
+   background = "#3F3F3FDD"
+   foreground = "#AAAAAADD"
+   highlight = "#AAAAAADD"
+   timeout = 5
+
+   frame_width = 0
+   width = (354, 400)
+   height = 100
+   corner_radius = 10
+
+   font = 'mononoki NF'
+   markup = full
+
+   icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
+
+   dmenu = wofi -d -p dunst:
+
+   browser = microsoft-edge-stable
+
+[change-volume]
+   appname = "change-volume"
+   history_ignore = true
+   format = "%b"
+
+[urgency_critical]
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
+    timeout = 0

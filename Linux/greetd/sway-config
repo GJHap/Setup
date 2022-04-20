@@ -1,0 +1,8 @@
+output * resolution --custom 1920x1080
+
+exec swayidle timeout 7200 'shutdown now'
+exec "gtkgreet -l -s /etc/greetd/gtkgreet.css; swaymsg exit"
+
+bindsym Mod4+s exec wlogout
+
+include /etc/sway/config.d/*

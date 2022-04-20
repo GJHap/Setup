@@ -3,6 +3,7 @@ $PackageIds = @(
     "Microsoft.WindowsTerminal",
     "JanDeDobbeleer.OhMyPosh",
     "Microsoft.VisualStudioCode",
+    "Neovim.Neovim",
     "Python.Python.3",
     "Microsoft.dotnet",
     "Rustlang.Rust.GNU",

@@ -1,0 +1,85 @@
+output * resolution --custom 2560x1440
+output * bg /usr/share/backgrounds/archlinux/mountain.jpg fill
+default_border pixel 1
+
+exec swayidle timeout 300 'swaylock -c 000000'
+exec swayidle timeout 1800 'loginctl terminate-user $USER'
+
+exec wl-paste -t text --watch clipman store
+exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
+
+set $mod Mod4
+set $term foot
+set $menu wofi --show drun --style ~/.config/wofi/style.css -x 0 -y 0
+
+bindsym $mod+1 exec $term
+bindsym $mod+2 exec firefox
+bindsym $mod+3 exec thunar
+bindsym $mod+4 exec thunderbird
+bindsym $mod+5 exec flatpak run com.spotify.Client
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+minus resize shrink height 10px
+bindsym $mod+equal resize grow height 10px
+bindsym $mod+comma resize shrink width 10px
+bindsym $mod+period resize grow width 10px
+
+bindsym $mod+control+1 workspace number 1
+bindsym $mod+control+2 workspace number 2
+bindsym $mod+control+3 workspace number 3
+bindsym $mod+control+4 workspace number 4
+bindsym $mod+control+5 workspace number 5
+bindsym $mod+control+6 workspace number 6
+bindsym $mod+control+7 workspace number 7
+bindsym $mod+control+8 workspace number 8
+bindsym $mod+control+9 workspace number 9
+bindsym $mod+control+0 workspace number 10
+
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+bindsym XF86AudioRaiseVolume exec ~/.config/sway/change-volume.sh -i 10
+bindsym XF86AudioLowerVolume exec ~/.config/sway/change-volume.sh -d 10
+bindsym XF86AudioMute exec ~/.config/sway/change-volume.sh -t
+
+bindsym XF86MonBrightnessUp exec brillo -q -A 5
+bindsym XF86MonBrightnessDown exec brillo -q -U 5
+
+bindsym Print exec grim
+bindsym $mod+Print exec slurp | grim -g -
+
+bindsym $mod+d exec $menu
+bindsym $mod+s exec wlogout
+bindsym $mod+w kill
+bindsym $mod+v exec clipman pick -t wofi
+bindsym $mod+f fullscreen
+bindsym $mod+r reload
+bindsym $mod+Shift+c splith
+bindsym $mod+Shift+r splitv
+bindsym $mod+Shift+t layout tabbed
+
+assign [app_id="thunderbird"] 3
+for_window [class="Spotify"] move window to workspace 5
+
+bar {
+    swaybar_command waybar
+}
+
+include /etc/sway/config.d/*
