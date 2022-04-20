@@ -40,7 +40,7 @@ local function tree()
 end
 
 local function telescope()
-   util.nnoremap('<C-,>', ':Telescope find_files<CR>')
+   util.nnoremap('<Leader>ff', ':Telescope find_files<CR>')
 end
 
 local function trouble()
