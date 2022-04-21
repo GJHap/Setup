@@ -12,6 +12,8 @@ require('packer').startup(function()
    use { 'ray-x/lsp_signature.nvim' }
    use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
    use { 'nvim-treesitter/nvim-treesitter' }
+   use { 'windwp/nvim-autopairs' }
+   use { 'windwp/nvim-ts-autotag' }
    
    use { 'mfussenegger/nvim-dap-python', requires = 'mfussenegger/nvim-dap' }
    use { "rcarriga/nvim-dap-ui", requires = "mfussenegger/nvim-dap" }
