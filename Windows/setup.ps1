@@ -4,6 +4,5 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";"
 
 Invoke-Expression './cargo-install.ps1'
 Invoke-Expression './go-install.ps1'
-Invoke-Expression './powershell-setup.ps1'
-Invoke-Expression './powershell-config-setup.ps1'
-Invoke-Expression './nvim-setup.ps1'
+Invoke-Expression './powershell-module-install.ps1'
+Invoke-Expression './cp-config.ps1'
