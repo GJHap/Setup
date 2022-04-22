@@ -16,7 +16,7 @@ bindsym $mod+1 exec $term
 bindsym $mod+2 exec firefox
 bindsym $mod+3 exec thunar
 bindsym $mod+4 exec thunderbird
-bindsym $mod+5 exec flatpak run com.spotify.Client
+bindsym $mod+5 exec spotify
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down

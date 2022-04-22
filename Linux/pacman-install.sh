@@ -19,7 +19,6 @@ pacman -S cups avahi \
      nodejs npm \
      fish \
      exa \
-     flatpak \
      grim slurp \
      gimp \
      dunst \

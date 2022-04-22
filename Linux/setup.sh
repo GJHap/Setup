@@ -4,5 +4,5 @@
 ./pacman-install.sh
 ./rust-install.sh
 ./yay-install.sh
-./flatpak-install.sh
-./enable-services.sh
+./systemd-enable.sh
+./snap-install.sh
