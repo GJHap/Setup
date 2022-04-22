@@ -1,5 +1,5 @@
 require('packer').startup(function()
-   use { 'wbthomason/packer.nvim', opt = true }
+   use { 'wbthomason/packer.nvim' }
    
    use { 'neovim/nvim-lspconfig' }
    use { 'simrat39/rust-tools.nvim' }
@@ -18,10 +18,12 @@ require('packer').startup(function()
    use { 'mfussenegger/nvim-dap-python', requires = 'mfussenegger/nvim-dap' }
    use { "rcarriga/nvim-dap-ui", requires = "mfussenegger/nvim-dap" }
   
+   use { 'lewis6991/gitsigns.nvim' }
+   use { 'tpope/vim-fugitive' }
    use { 'akinsho/toggleterm.nvim' }
    use { 'folke/tokyonight.nvim' }
    use { 'feline-nvim/feline.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
    use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
    use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' }
-  use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm install' }
+   use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm install' }
 end)

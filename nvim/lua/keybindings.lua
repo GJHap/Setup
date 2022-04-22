@@ -49,6 +49,16 @@ local function trouble()
    util.nnoremap('<Leader>lp', ':TroubleToggle document_diagnostics <CR>')
 end
 
+local function git()
+   util.nnoremap('<Leader>ga', ':Git add .<CR>')
+   util.nnoremap('<Leader>gs', ':Git status <CR>')
+   util.nnoremap('<Leader>gb', ':Git blame <CR>')
+   util.nnoremap('<Leader>gl', ':Git log <CR>')
+   util.nnoremap('<Leader>gpl', ':Git pull <CR>')
+   util.nnoremap('<Leader>gps', ':Git push <CR>')
+   util.nnoremap('<Leader>gc', ':Git commit <CR>')
+end
+
 tab()
 window()
 move_line()
@@ -57,3 +67,4 @@ saga()
 tree()
 telescope()
 trouble()
+git()
