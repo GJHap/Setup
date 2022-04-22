@@ -17,7 +17,8 @@ require('packer').startup(function()
    
    use { 'mfussenegger/nvim-dap-python', requires = 'mfussenegger/nvim-dap' }
    use { "rcarriga/nvim-dap-ui", requires = "mfussenegger/nvim-dap" }
-  
+
+   use { 'editorconfig/editorconfig-vim' }
    use { 'lewis6991/gitsigns.nvim' }
    use { 'tpope/vim-fugitive' }
    use { 'akinsho/toggleterm.nvim' }
