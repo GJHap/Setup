@@ -1,71 +1,71 @@
 {
-    "spacing": 10,
-    "modules-left": ["sway/workspaces"],
-    "modules-center": [],
-    "modules-right": ["cpu", "memory", "disk", "network", "battery", "pulseaudio", "clock"],
-   
-    "sway/workspaces": {
-        "format": "{icon}",
-        "format-icons": {
-            "1": "爵",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": ""
-        },
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": []
-        }
-    },
-    "cpu": {
-        "format": ""
-    },
-    "memory": {
-        "format": "",
-        "tooltip-format": "{percentage}% used\n{used:0.2f}GiB/{total:0.1f}GiB"
-    },
-    "disk": {
+   "spacing": 10,
+   "modules-left": ["sway/workspaces"],
+   "modules-center": [],
+   "modules-right": ["cpu", "memory", "disk", "network", "battery", "pulseaudio", "clock"],
+
+   "sway/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+         "1": "爵",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": ""
+      },
+      "persistent_workspaces": {
+         "1": [],
+         "2": [],
+         "3": [],
+         "4": [],
+         "5": []
+      }
+   },
+   "cpu": {
+      "format": ""
+   },
+   "memory": {
+      "format": "",
+      "tooltip-format": "{percentage}% used\n{used:0.2f}GiB/{total:0.1f}GiB"
+   },
+   "disk": {
       "format": "﫭",
       "tooltip-format": "{percentage_used}% used\n{used}/{total}"
-    },
-    "network": {
-       "format-wifi": "",
-       "format-ethernet": "",
-       "tooltip-format": "{ifname}",
-       "format-disconnected": "⚠"
-    },
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}",
-        "format-charging": "",
-        "format-plugged": "",
-        "format-icons": ["", "", "", "", "", "", "", "", "", ""],
-        "tooltip-format": "{capacity}% remaining"
-    },
-    "pulseaudio": {
-        "format": "{icon}  {format_source}",
-        "format-muted": "  {format_source}",
-        "format-bluetooth": "{icon}    {format_source}",
-        "format-bluetooth-muted": "  {icon}    {format_source}",
-        "format-source": "",
-        "format-source-muted": "",
-        "format-icons": {
-            "default": ["", "", ""]
-        },
-        "tooltip-format": "{desc}: {volume}%",
-        "on-click": "pavucontrol"
-    },
-    "clock": {
-        "format": "{:%m/%d/%Y %H:%M}",
-        "on-click": "evolution -c calendar"
-    }
+   },
+   "network": {
+      "format-wifi": "",
+      "format-ethernet": "",
+      "tooltip-format": "{ifname}",
+      "format-disconnected": "⚠"
+   },
+   "battery": {
+      "states": {
+         "good": 95,
+         "warning": 30,
+         "critical": 15
+      },
+      "format": "{icon}",
+      "format-charging": "",
+      "format-plugged": "",
+      "format-icons": ["", "", "", "", "", "", "", "", "", ""],
+      "tooltip-format": "{capacity}% remaining"
+   },
+   "pulseaudio": {
+      "format": "{icon}  {format_source}",
+      "format-muted": "  {format_source}",
+      "format-bluetooth": "{icon}    {format_source}",
+      "format-bluetooth-muted": "  {icon}    {format_source}",
+      "format-source": "",
+      "format-source-muted": "",
+      "format-icons": {
+         "default": ["", "", ""]
+      },
+      "tooltip-format": "{desc}: {volume}%",
+      "on-click": "pavucontrol"
+   },
+   "clock": {
+      "format": "{:%m/%d/%Y %H:%M}",
+      "on-click": "evolution -c calendar"
+   }
 }
 

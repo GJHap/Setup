@@ -1,22 +1,22 @@
 [merge]
-	tool = nvimdiff
+   tool = nvimdiff
 [mergetool]
-	prompt = false
+   prompt = false
 [mergetool "nvimdiff"]
-	cmd = neovide --nofork -- -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd J\"
+   cmd = neovide --nofork -- -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd J\"
 
 [diff]
-	tool = nvimdiff
+   tool = nvimdiff
 [difftool]
-	prompt = false
+   prompt = false
 [difftool "nvimdiff"]
-	cmd = neovide --nofork -- -d \"$LOCAL\" \"$REMOTE\"
+   cmd = neovide --nofork -- -d \"$LOCAL\" \"$REMOTE\"
 
 [fetch]
-	prune = true
+   prune = true
 
 [init]
-    defaultBranch = main
+   defaultBranch = main
 
 [core]
-	editor = neovide --nofork
+   editor = neovide --nofork

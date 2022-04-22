@@ -1,6 +1,6 @@
 require('packer').startup(function()
    use { 'wbthomason/packer.nvim' }
-   
+
    use { 'neovim/nvim-lspconfig' }
    use { 'simrat39/rust-tools.nvim' }
    use { 'tami5/lspsaga.nvim' }
@@ -14,7 +14,7 @@ require('packer').startup(function()
    use { 'nvim-treesitter/nvim-treesitter' }
    use { 'windwp/nvim-autopairs' }
    use { 'windwp/nvim-ts-autotag' }
-   
+
    use { 'mfussenegger/nvim-dap-python', requires = 'mfussenegger/nvim-dap' }
    use { "rcarriga/nvim-dap-ui", requires = "mfussenegger/nvim-dap" }
 

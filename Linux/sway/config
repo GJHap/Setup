@@ -79,7 +79,7 @@ assign [app_id="thunderbird"] 3
 for_window [class="Spotify"] move window to workspace 5
 
 bar {
-    swaybar_command waybar
+   swaybar_command waybar
 }
 
 include /etc/sway/config.d/*
