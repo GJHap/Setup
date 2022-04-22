@@ -24,7 +24,6 @@ pacman -S cups avahi \
      dunst \
      libreoffice-still \
      ufw \
-     firejail \
      usbguard \
      firefox
  
