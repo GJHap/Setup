@@ -10,4 +10,3 @@ cp sway ~/.config
 cp waybar ~/.config
 cp wlogout ~/.config
 cp wofi ~/.config
-
