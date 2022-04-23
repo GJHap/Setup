@@ -1,6 +1,6 @@
 require('feline').setup
 {
-   theme = require('tokyonight.colors').setup{},
+   theme = require('tokyonight.colors').setup(require('packages-config/tokyonight')),
    components =
    {
       active =
