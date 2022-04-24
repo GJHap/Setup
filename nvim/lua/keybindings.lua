@@ -1,9 +1,9 @@
 util = require('util')
 
 local function buffer()
-   util.nnoremap('<Leader>bn', ':bN <CR>')
-   util.nnoremap('<Leader>bp', ':bp <CR>')
-   util.nnoremap('<Leader>bd', ':bd <CR>')
+   util.nnoremap('<Leader>bl', ':bN <CR>')
+   util.nnoremap('<Leader>bh', ':bp <CR>')
+   util.nnoremap('<Leader>bw', ':bd <CR>')
 end
 
 local function dap()
@@ -12,7 +12,7 @@ local function dap()
    util.nnoremap('<F11>', ":lua require('dap').step_into()<CR>")
    util.nnoremap('<Leader>db', ":lua require('dap').toggle_breakpoint()<CR>")
    util.nnoremap('<Leader>dB', ":lua require('dap').toggle_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
-   util.nnoremap('<Leader>dq', ":lua require('dap').terminate()<CR>")
+   util.nnoremap('<Leader>dw', ":lua require('dap').terminate()<CR>")
    util.nnoremap('<Leader>dui', ":lua require('dapui').toggle()<CR>")
 end
 
@@ -41,8 +41,8 @@ local function saga()
 end
 
 local function tab()
-   util.nnoremap('<Leader>tn', ':tabnext <CR>')
-   util.nnoremap('<Leader>tp', ':tabprevious <CR>')
+   util.nnoremap('<Leader>tl', ':tabnext <CR>')
+   util.nnoremap('<Leader>th', ':tabprevious <CR>')
    util.nnoremap('<Leader>ta', ':tabnew <CR>')
    util.nnoremap('<Leader>tw', ':tabclose <CR>')
 end
