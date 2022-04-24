@@ -59,6 +59,12 @@ local function git()
    util.nnoremap('<Leader>gc', ':Git commit <CR>')
 end
 
+local function buffer()
+   util.nnoremap('<Leader>bn', ':bN <CR>')
+   util.nnoremap('<Leader>bp', ':bp <CR>')
+   util.nnoremap('<Leader>bd', ':bd <CR>')
+end
+
 tab()
 window()
 move_line()
@@ -68,3 +74,4 @@ tree()
 telescope()
 trouble()
 git()
+buffer()

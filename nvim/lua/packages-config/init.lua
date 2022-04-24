@@ -1,5 +1,6 @@
 require('packages-config/dap')
 require('packages-config/lsp')
+require('packages-config/bufferline')
 require('packages-config/feline')
 require('packages-config/gitsigns')
 require('packages-config/nvim-tree')
