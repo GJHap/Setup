@@ -1,23 +1,9 @@
 util = require('util')
 
-local function tab()
-   util.nnoremap('<Leader>tn', ':tabnext <CR>')
-   util.nnoremap('<Leader>tp', ':tabprevious <CR>')
-   util.nnoremap('<Leader>ta', ':tabnew <CR>')
-   util.nnoremap('<Leader>tw', ':tabclose <CR>')
-end
-
-local function window()
-   util.nnoremap('<Leader>ww', ':close <CR>')
-end
-
-local function move_line()
-   util.inoremap('<A-j>', '<Esc>:m .+1<CR>==gi')
-   util.nnoremap('<A-j>', ':m .+1<CR>==')
-   util.vnoremap('<A-j>', ":m '>+1<CR>gv=gv")
-   util.inoremap('<A-k>', '<Esc>:m .-2<CR>==gi')
-   util.nnoremap('<A-k>', ':m .-2<CR>==')
-   util.vnoremap('<A-k>', ":m '<-2<CR>gv=gv")
+local function buffer()
+   util.nnoremap('<Leader>bn', ':bN <CR>')
+   util.nnoremap('<Leader>bp', ':bp <CR>')
+   util.nnoremap('<Leader>bd', ':bd <CR>')
 end
 
 local function dap()
@@ -30,25 +16,6 @@ local function dap()
    util.nnoremap('<Leader>dui', ":lua require('dapui').toggle()<CR>")
 end
 
-local function saga()
-   util.nnoremap('<Leader>ca', ':Lspsaga code_action<CR>')
-   util.nnoremap('<Leader>rr', ':Lspsaga rename<CR>')
-end
-
-local function tree()
-   util.nnoremap('<Leader>tr', ':NvimTreeToggle<CR>')
-end
-
-local function telescope()
-   util.nnoremap('<Leader>ff', ':Telescope find_files<CR>')
-end
-
-local function trouble()
-   util.nnoremap('<Leader>lr', ':TroubleToggle lsp_references <CR>')
-   util.nnoremap('<Leader>ld', ':TroubleToggle lsp_definitions <CR>')
-   util.nnoremap('<Leader>lp', ':TroubleToggle document_diagnostics <CR>')
-end
-
 local function git()
    util.nnoremap('<Leader>ga', ':Git add .<CR>')
    util.nnoremap('<Leader>gs', ':Git status <CR>')
@@ -59,19 +26,47 @@ local function git()
    util.nnoremap('<Leader>gc', ':Git commit <CR>')
 end
 
-local function buffer()
-   util.nnoremap('<Leader>bn', ':bN <CR>')
-   util.nnoremap('<Leader>bp', ':bp <CR>')
-   util.nnoremap('<Leader>bd', ':bd <CR>')
+local function move_line()
+   util.inoremap('<A-j>', '<Esc>:m .+1<CR>==gi')
+   util.nnoremap('<A-j>', ':m .+1<CR>==')
+   util.vnoremap('<A-j>', ":m '>+1<CR>gv=gv")
+   util.inoremap('<A-k>', '<Esc>:m .-2<CR>==gi')
+   util.nnoremap('<A-k>', ':m .-2<CR>==')
+   util.vnoremap('<A-k>', ":m '<-2<CR>gv=gv")
 end
 
-tab()
-window()
-move_line()
-dap()
-saga()
-tree()
-telescope()
-trouble()
-git()
+local function saga()
+   util.nnoremap('<Leader>ca', ':Lspsaga code_action<CR>')
+   util.nnoremap('<Leader>rr', ':Lspsaga rename<CR>')
+end
+
+local function tab()
+   util.nnoremap('<Leader>tn', ':tabnext <CR>')
+   util.nnoremap('<Leader>tp', ':tabprevious <CR>')
+   util.nnoremap('<Leader>ta', ':tabnew <CR>')
+   util.nnoremap('<Leader>tw', ':tabclose <CR>')
+end
+
+local function tree()
+   util.nnoremap('<Leader>tr', ':NvimTreeToggle<CR>')
+end
+
+local function trouble()
+   util.nnoremap('<Leader>lr', ':TroubleToggle lsp_references <CR>')
+   util.nnoremap('<Leader>ld', ':TroubleToggle lsp_definitions <CR>')
+   util.nnoremap('<Leader>lp', ':TroubleToggle document_diagnostics <CR>')
+end
+
+local function telescope()
+   util.nnoremap('<Leader>ff', ':Telescope find_files<CR>')
+end
+
 buffer()
+dap()
+git()
+move_line()
+saga()
+tab()
+telescope()
+tree()
+trouble()
