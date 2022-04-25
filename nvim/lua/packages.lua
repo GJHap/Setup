@@ -19,6 +19,7 @@ require('packer').startup(function()
    use { 'mfussenegger/nvim-dap-python', requires = 'mfussenegger/nvim-dap' }
    use { "rcarriga/nvim-dap-ui", requires = "mfussenegger/nvim-dap" }
 
+   use { 'numToStr/Comment.nvim' }
    use { 'L3MON4D3/LuaSnip' }
    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
    use { 'editorconfig/editorconfig-vim' }
