@@ -1,3 +1,5 @@
+local nnoremap = require('util').nnoremap
+
 require('nvim-tree').setup(
 {
    view =
@@ -12,3 +14,5 @@ require('nvim-tree').setup(
       }
    }
 })
+
+nnoremap('<Leader>tr', ':NvimTreeToggle<CR>')

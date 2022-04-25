@@ -1,4 +1,5 @@
 local actions = require('telescope.actions')
+local nnoremap = require('util').nnoremap
 
 require('telescope').setup
 {
@@ -14,3 +15,5 @@ require('telescope').setup
       }
    }
 }
+
+nnoremap('<Leader>ff', ':Telescope find_files<CR>')
