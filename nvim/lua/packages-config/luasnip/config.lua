@@ -28,14 +28,16 @@ end)
 inoremap('<Tab>', function()
    if ls.jumpable(1) then
       ls.jump(1)
+   else
+      return '<Tab>'
    end
-end)
+end, { expr = true })
 
 inoremap('<S-Tab>', function()
    if ls.jumpable(-1) then
       ls.jump(-1)
    end
-end, { silent = true })
+end)
 
 inoremap('<C-c>', function()
    if ls.choice_active() then

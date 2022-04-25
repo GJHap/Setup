@@ -10,8 +10,11 @@ function vnoremap(lhs, rhs)
    set_keymap('v', lhs, rhs, { noremap = true })
 end
 
-function inoremap(lhs, rhs)
-   set_keymap('i', lhs, rhs, { noremap = true })
+function inoremap(lhs, rhs, opts)
+   opts = opts or {}
+   opts['noremap'] = true
+
+   set_keymap('i', lhs, rhs, opts)
 end
 
 return
