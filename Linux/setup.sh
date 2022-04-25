@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./cp-config.sh
+./setup-config.sh
 ./pacman-install.sh
 ./rust-install.sh
 ./yay-install.sh
