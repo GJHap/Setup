@@ -9,5 +9,3 @@ ln -sfn ~/dev/Config/Linux/sway ~/.config/sway
 ln -sfn ~/dev/Config/Linux/waybar ~/.config/waybar
 ln -sfn ~/dev/Config/Linux/wlogout ~/.config/wlogout
 ln -sfn ~/dev/Config/Linux/wofi ~/.config/wofi
-
-cp greetd/* /etc/greetd

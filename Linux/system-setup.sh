@@ -1,8 +1,8 @@
 #!/bin/bash
 
-./setup-config.sh
 ./pacman-install.sh
+cp -r greetd /etc/greetd
+
 ./rust-install.sh
-./yay-install.sh
 ./systemd-enable.sh
 ./snap-install.sh
