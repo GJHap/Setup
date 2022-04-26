@@ -6,7 +6,7 @@ systemctl enable cups.service \
    ufw.service \
    snapd.apparmor.service
 
-systemctl enable snapd.socket
-systemctl start snapd.socket
+systemctl enable --now snapd.socket
+sleep 1m # wait for the socket to be running so that ./snap-install.sh can run successfully
 
 ufw enable

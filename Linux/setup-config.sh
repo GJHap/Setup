@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir ~/.config
+
 ln -sfn ~/dev/Config/Linux/dunst ~/.config/dunst
 ln -sfn ~/dev/Config/Linux/fish ~/.config/fish
 ln -sfn ~/dev/Config/oh-my-posh-config.json ~/.config/fish/oh-my-posh-config.json
