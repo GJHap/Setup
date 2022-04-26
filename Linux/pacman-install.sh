@@ -11,8 +11,7 @@ pacman -S cups avahi \
    fzf \
    ripgrep \
    archlinux-wallpaper \
-   git \
-   base-devel \
+   git github-cli \
    man-db \
    rustup \
    python \
