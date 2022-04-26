@@ -5,4 +5,3 @@ cp greetd/* /etc/greetd
 
 ./rust-install.sh
 ./systemd-enable.sh
-./snap-install.sh
