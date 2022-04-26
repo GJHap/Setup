@@ -6,6 +6,7 @@ systemctl enable cups.service \
    ufw.service \
    snapd.apparmor.service
 
-systemctl enable --now snapd.socket
+systemctl enable snapd.socket
+systemctl start snapd.socket
 
 ufw enable
