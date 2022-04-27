@@ -25,4 +25,3 @@ pacman -S cups avahi \
    ufw \
    usbguard \
    firefox
-

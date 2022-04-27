@@ -12,6 +12,5 @@ yay -S greetd greetd-gtkgreet  \
    neovide-git nvim-packer-git \
    brillo \
    clipman \
-   wlogout \
-   snapd
-
+   wlogout  \
+   spotify
