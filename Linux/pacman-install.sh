@@ -3,7 +3,7 @@
 pacman -S cups avahi \
    bluez \
    pavucontrol pipewire pipewire-pulse pamixer \
-   wofi waybar sway swayidle swaylock \
+   wofi waybar sway swayidle swaylock xorg-xwayland \
    tlp \
    foot \
    thunderbird \

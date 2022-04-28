@@ -13,4 +13,4 @@ yay -S greetd greetd-gtkgreet  \
    brillo \
    clipman \
    wlogout  \
-   spotify
+   spotify-edge
