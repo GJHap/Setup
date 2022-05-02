@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pacman -S cups avahi \
-   bluez \
+   bluez bluez-utils \
    pavucontrol pipewire pipewire-pulse pamixer \
    wofi waybar sway swayidle swaylock xorg-xwayland \
    tlp \
