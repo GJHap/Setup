@@ -1,0 +1,8 @@
+profile {
+   output eDP-1 mode 3000x2000
+}
+
+profile {
+   output eDP-1 mode 3000x2000
+   output DP-2 mode 2560x1440
+}

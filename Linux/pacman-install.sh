@@ -24,4 +24,5 @@ pacman -S cups avahi \
    libreoffice-still \
    ufw \
    usbguard \
-   firefox
+   firefox \
+   kanshi

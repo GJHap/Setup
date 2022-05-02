@@ -1,4 +1,4 @@
-output * resolution --custom 2560x1440
+exec kanshi
 output * bg /usr/share/backgrounds/archlinux/mountain.jpg fill
 default_border pixel 1
 

@@ -1,5 +1,4 @@
-output * resolution --custom 1920x1080
-
+exec kanshi --config /etc/greetd/kanshi/config
 exec swayidle timeout 7200 'shutdown now'
 exec "gtkgreet -l -s /etc/greetd/gtkgreet.css; swaymsg exit"
 
