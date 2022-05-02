@@ -2,6 +2,6 @@ exec kanshi --config /etc/greetd/kanshi/config
 exec swayidle timeout 7200 'shutdown now'
 exec "gtkgreet -l -s /etc/greetd/gtkgreet.css; swaymsg exit"
 
-bindsym Mod4+s exec wlogout
+bindsym Mod4+s exec wlogout -l /etc/greetd/wlogout/layout -c /etc/greetd/wlogout/style.css
 
 include /etc/sway/config.d/*
