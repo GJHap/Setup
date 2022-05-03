@@ -13,4 +13,5 @@ yay -S greetd greetd-gtkgreet  \
    brillo \
    clipman \
    wlogout  \
-   spotify-edge
+   spotify-edge \
+   sway-audio-idle-inhibit-git
