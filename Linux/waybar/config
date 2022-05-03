@@ -35,7 +35,7 @@
    "network": {
       "format-wifi": "",
       "format-ethernet": "",
-      "tooltip-format": "{ifname}",
+      "tooltip-format": "{essid}",
       "format-disconnected": "⚠"
    },
    "battery": {
