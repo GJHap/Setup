@@ -17,9 +17,14 @@ function inoremap(lhs, rhs, opts)
    set_keymap('i', lhs, rhs, opts)
 end
 
+function tnoremap(lhs, rhs, opts)
+   set_keymap('t', lhs, rhs, { noremap = true })
+end
+
 return
 {
    nnoremap = nnoremap,
    vnoremap = vnoremap,
-   inoremap = inoremap
+   inoremap = inoremap,
+   tnoremap = tnoremap
 }

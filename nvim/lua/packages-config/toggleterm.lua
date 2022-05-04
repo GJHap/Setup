@@ -1,3 +1,5 @@
+local tnoremap = require('util').tnoremap
+
 require('toggleterm').setup
 {
    size = 10,
@@ -5,3 +7,5 @@ require('toggleterm').setup
    direction = 'horizontal',
    shade_terminals = false
 }
+
+tnoremap('<esc>', [[<C-\><C-n>]])
