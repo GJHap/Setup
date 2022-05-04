@@ -23,6 +23,5 @@ pacman -S cups avahi system-config-printer nss-mdns \
    dunst \
    libreoffice-still \
    ufw \
-   usbguard \
    firefox \
    kanshi
