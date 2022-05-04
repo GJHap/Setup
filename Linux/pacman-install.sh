@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -S cups avahi \
+pacman -S cups avahi system-config-printer nss-mdns \
    bluez bluez-utils \
    pavucontrol pipewire pipewire-pulse pamixer \
    wofi waybar sway swayidle swaylock xorg-xwayland \
