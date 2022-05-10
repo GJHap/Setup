@@ -1,7 +1,7 @@
 util = require('util')
 
 local function buffer()
-   util.nnoremap('<Leader>bl', ':bN <CR>')
+   util.nnoremap('<Leader>bl', ':bn <CR>')
    util.nnoremap('<Leader>bh', ':bp <CR>')
    util.nnoremap('<Leader>bw', ':bd <CR>')
 end
