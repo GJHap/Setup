@@ -3,6 +3,6 @@ profile {
 }
 
 profile {
-   output eDP-1 mode 3000x2000
+   output eDP-1 disable
    output DP-2 mode 2560x1440
 }
