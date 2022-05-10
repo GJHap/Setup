@@ -12,7 +12,11 @@ require('nvim-tree').setup(
             { key = '<Leader>sc', action = 'vsplit' }
          }
       }
-   }
+   },
+   update_focused_file =
+   {
+      enable = true,
+   },
 })
 
 nnoremap('<Leader>tr', ':NvimTreeToggle<CR>')
