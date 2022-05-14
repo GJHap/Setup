@@ -48,6 +48,10 @@ bindsym $mod+Shift+0 move container to workspace number 10
 bindsym XF86AudioRaiseVolume exec ~/.config/sway/change-volume.sh -i 10
 bindsym XF86AudioLowerVolume exec ~/.config/sway/change-volume.sh -d 10
 bindsym XF86AudioMute exec ~/.config/sway/change-volume.sh -t
+bindsym XF86AudioStop exec playerctl --all-players stop
+bindsym XF86AudioPlay exec playerctl --all-players play-pause
+bindsym XF86AudioNext exec playerctl --all-players next
+bindsym XF86AudioPrev exec playerctl --all-players previous
 
 bindsym XF86MonBrightnessUp exec brillo -q -A 5
 bindsym XF86MonBrightnessDown exec brillo -q -U 5
