@@ -5,7 +5,7 @@ pacman -S cups avahi system-config-printer nss-mdns \
    pavucontrol pipewire pipewire-pulse pamixer \
    wofi waybar sway swayidle swaylock xorg-xwayland \
    tlp \
-   foot \
+   wezterm \
    thunderbird \
    thunar \
    fzf \

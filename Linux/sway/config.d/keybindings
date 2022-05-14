@@ -1,5 +1,5 @@
 set $mod Mod4
-set $term foot
+set $term wezterm
 set $menu wofi --show drun --style ~/.config/wofi/style.css -x 0 -y 0
 
 bindsym $mod+1 exec $term
