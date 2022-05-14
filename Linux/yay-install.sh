@@ -14,4 +14,5 @@ yay -S greetd greetd-gtkgreet  \
    clipman \
    wlogout  \
    spotify-edge \
-   sway-audio-idle-inhibit-git
+   sway-audio-idle-inhibit-git \
+   kanshi-git

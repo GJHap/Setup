@@ -1,4 +1,6 @@
 exec kanshi
+exec_always kanshictl reload
+
 output * bg /usr/share/backgrounds/archlinux/mountain.jpg fill
 default_border pixel 1
 

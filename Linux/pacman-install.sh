@@ -24,5 +24,4 @@ pacman -S cups avahi system-config-printer nss-mdns \
    libreoffice-still \
    ufw \
    firefox \
-   kanshi \
    playerctl
