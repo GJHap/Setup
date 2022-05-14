@@ -10,6 +10,6 @@ ln -sfn ~/dev/Config/Linux/kanshi ~/.config/kanshi
 ln -sfn ~/dev/Config/nvim ~/.config/nvim
 ln -sfn ~/dev/Config/Linux/sway ~/.config/sway
 ln -sfn ~/dev/Config/Linux/waybar ~/.config/waybar
-ln -sfn ~/dev/Config/Linux/wezterm ~/.config/wezterm
+ln -sfn ~/dev/Config/wezterm ~/.config/wezterm
 ln -sfn ~/dev/Config/Linux/wlogout ~/.config/wlogout
 ln -sfn ~/dev/Config/Linux/wofi ~/.config/wofi
