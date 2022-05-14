@@ -1,3 +1,5 @@
+assign [app_id="firefox"] 1
+assign [app_id="org.wezfurlong.wezterm"] 2
 assign [app_id="thunderbird"] 3
 for_window [class="Spotify"] move window to workspace 5
 
