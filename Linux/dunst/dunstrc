@@ -1,6 +1,6 @@
 [global]
    monitor = 0
-   
+
    background = "#3F3F3FDD"
    foreground = "#AAAAAADD"
    highlight = "#AAAAAADD"
@@ -18,7 +18,7 @@
 
    dmenu = wofi -d -p dunst:
 
-   browser = microsoft-edge-stable
+   browser = firefox
 
 [change-volume]
    appname = "change-volume"
