@@ -11,13 +11,14 @@ require('packer').startup(function()
    use { 'saadparwaiz1/cmp_luasnip' }
    use { 'hrsh7th/nvim-cmp' }
    use { 'ray-x/lsp_signature.nvim' }
-   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
-   use { 'nvim-treesitter/nvim-treesitter' }
+   use { 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons' }
+   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
    use { 'windwp/nvim-autopairs' }
    use { 'windwp/nvim-ts-autotag' }
 
    use { 'mfussenegger/nvim-dap-python', requires = 'mfussenegger/nvim-dap' }
-   use { "rcarriga/nvim-dap-ui", requires = "mfussenegger/nvim-dap" }
+   use { 'rcarriga/nvim-dap-ui', requires = 'mfussenegger/nvim-dap' }
+   use { 'theHamsta/nvim-dap-virtual-text', requires =  { 'mfussenegger/nvim-dap', 'nvim-treesitter/nvim-treesitter' } }
 
    use { 'numToStr/Comment.nvim' }
    use { 'L3MON4D3/LuaSnip' }
