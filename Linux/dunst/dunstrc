@@ -7,16 +7,16 @@
    timeout = 5
 
    frame_width = 0
-   width = (354, 400)
+   width = (345, 400)
    height = 100
    corner_radius = 10
 
    font = 'mononoki NF'
    markup = full
 
-   icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
+   icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/legacy/:/usr/share/icons
 
-   dmenu = wofi -d -p dunst:
+   dmenu = wofi -d -p dunst
 
    browser = firefox
 
