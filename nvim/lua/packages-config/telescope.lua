@@ -16,4 +16,6 @@ require('telescope').setup
    }
 }
 
-nnoremap('<Leader>ff', ':Telescope find_files<CR>')
+nnoremap('<Leader>ff', ':Telescope find_files <CR>')
+nnoremap('<Leader>fb', ':Telescope buffers <CR>')
+nnoremap('<Leader>fg', ':Telescope live_grep<CR>')
