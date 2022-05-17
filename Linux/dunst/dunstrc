@@ -7,7 +7,7 @@
    timeout = 5
 
    frame_width = 0
-   width = (345, 400)
+   width = (347, 400)
    height = 100
    corner_radius = 10
 
