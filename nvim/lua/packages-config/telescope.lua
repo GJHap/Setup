@@ -19,3 +19,8 @@ require('telescope').setup
 nnoremap('<Leader>ff', ':Telescope find_files <CR>')
 nnoremap('<Leader>fb', ':Telescope buffers <CR>')
 nnoremap('<Leader>fg', ':Telescope live_grep<CR>')
+
+nnoremap('<Leader>lr', ':Telescope lsp_references <CR>')
+nnoremap('<Leader>lp', ':Telescope diagnostics <CR>')
+nnoremap('<Leader>li', ':Telescope lsp_implementations <CR>')
+nnoremap('<Leader>ld', ':Telescope lsp_definitions <CR>')

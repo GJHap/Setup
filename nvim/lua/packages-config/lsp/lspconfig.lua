@@ -16,6 +16,3 @@ for _,server in pairs(servers) do
    }
 end
 
-local nnoremap = require('util').nnoremap
-nnoremap('<Leader>df', ':lua vim.diagnostic.open_float() <CR>')
-

@@ -11,7 +11,6 @@ require('packer').startup(function()
    use { 'saadparwaiz1/cmp_luasnip' }
    use { 'hrsh7th/nvim-cmp' }
    use { 'ray-x/lsp_signature.nvim' }
-   use { 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons' }
    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
    use { 'windwp/nvim-autopairs' }
    use { 'windwp/nvim-ts-autotag' }
