@@ -1,4 +1,5 @@
 local function set_keymap(mode, lhs, rhs, opts)
+   opts['silent'] = true
    vim.keymap.set(mode, lhs, rhs, opts)
 end
 
