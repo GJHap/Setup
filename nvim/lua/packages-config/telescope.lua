@@ -5,6 +5,8 @@ require('telescope').setup
 {
    defaults =
    {
+      path_display = { shorten = { exclude = { -1, -2 } } },
+      wrap_results = true,
       mappings =
       {
          n =
