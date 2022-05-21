@@ -3,7 +3,11 @@ util = require('util')
 local function buffer()
    util.nnoremap('<Leader>bl', ':bn <CR>')
    util.nnoremap('<Leader>bh', ':bp <CR>')
-   util.nnoremap('<Leader>bw', ':bd <CR>')
+   util.nnoremap('<Leader>bq', ':bd <CR>')
+   util.nnoremap('<Leader>bqo', ':%bd|e#|bd# <CR>')
+   util.nnoremap('<Leader>bqa', ':%bd <CR>')
+   util.nnoremap('<Leader>bsc', ':vsplit <CR>')
+   util.nnoremap('<Leader>bsr', ':split <CR>')
 end
 
 local function git()
@@ -29,7 +33,7 @@ local function tab()
    util.nnoremap('<Leader>tl', ':tabnext <CR>')
    util.nnoremap('<Leader>th', ':tabprevious <CR>')
    util.nnoremap('<Leader>ta', ':tabnew <CR>')
-   util.nnoremap('<Leader>tw', ':tabclose <CR>')
+   util.nnoremap('<Leader>tq', ':tabclose <CR>')
 end
 
 buffer()
