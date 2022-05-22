@@ -18,11 +18,11 @@ require('telescope').setup
    }
 }
 
-nnoremap('<Leader>ff', ':Telescope find_files <CR>')
-nnoremap('<Leader>fb', ':Telescope buffers <CR>')
-nnoremap('<Leader>fg', ':Telescope live_grep<CR>')
-
-nnoremap('<Leader>lr', ':Telescope lsp_references <CR>')
-nnoremap('<Leader>lp', ':Telescope diagnostics <CR>')
-nnoremap('<Leader>li', ':Telescope lsp_implementations <CR>')
-nnoremap('<Leader>ld', ':Telescope lsp_definitions <CR>')
+local builtin = require('telescope.builtin')
+nnoremap('<Leader>ff', builtin.find_files)
+nnoremap('<Leader>fb', builtin.buffers)
+nnoremap('<Leader>fg', builtin.live_grep)
+nnoremap('<Leader>lr', builtin.lsp_references)
+nnoremap('<Leader>lp', builtin.diagnostics)
+nnoremap('<Leader>li', builtin.lsp_implementations)
+nnoremap('<Leader>ld', builtin.lsp_definitions)
