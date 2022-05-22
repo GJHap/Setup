@@ -6,13 +6,22 @@ local on_attach = function()
    })
 end
 
+local lsp_installer = require('nvim-lsp-installer')
+lsp_installer.setup()
+local servers = lsp_installer.get_installed_servers()
+
+local status, server_opts = pcall(require, 'packages-config/lsp/server-opts')
+if status then server_opts = server_opts.server_opts else server_opts = function(server, opts) return opts end end
+
 local lspconfig = require('lspconfig')
-servers = { 'pyright', 'tsserver', 'eslint', 'cssls', 'html' }
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 for _,server in pairs(servers) do
-   lspconfig[server].setup
+   opts =
    {
-      capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+      capabilities = capabilities,
       on_attach = on_attach
    }
-end
+
+   lspconfig[server.name].setup(server_opts(server.name, opts))
+   end
 
