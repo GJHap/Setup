@@ -11,12 +11,12 @@ lsp_installer.setup()
 local servers = lsp_installer.get_installed_servers()
 
 local status, server_opts = pcall(require, 'packages-config/lsp/server-opts')
-if status then server_opts = server_opts.server_opts else server_opts = function(server, opts) return opts end end
+if status then server_opts = server_opts.server_opts else server_opts = function(_, opts) return opts end end
 
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 for _,server in pairs(servers) do
-   opts =
+   local opts =
    {
       capabilities = capabilities,
       on_attach = on_attach

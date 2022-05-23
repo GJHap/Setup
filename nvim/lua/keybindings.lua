@@ -1,4 +1,4 @@
-util = require('util')
+local util = require('util')
 
 local function buffer()
    util.nnoremap('<Leader>bl', ':bn <CR>')
