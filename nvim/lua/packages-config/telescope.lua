@@ -6,7 +6,6 @@ require('telescope').setup
    defaults =
    {
       path_display = { shorten = { exclude = { -1, -2 } } },
-      wrap_results = true,
       mappings =
       {
          n =
@@ -14,6 +13,39 @@ require('telescope').setup
             ["<Leader>sc"] = actions.select_vertical,
             ["<Leader>sr"] = actions.select_horizontal
          }
+      },
+      vimgrep_arguments =
+      {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--trim"
+        },
+        layout_config =
+        {
+           height = 0.99,
+           width = 0.99
+        },
+        layout_strategy = "vertical",
+        dynamic_preview_title = true
+   },
+   pickers =
+   {
+      lsp_references =
+      {
+         trim_text = true
+      },
+      lsp_definitions =
+      {
+         trim_text = true
+      },
+      lsp_implementations =
+      {
+         trim_text = true
       }
    }
 }
