@@ -14,6 +14,7 @@ require('packer').startup(function(use)
    use { 'windwp/nvim-autopairs' }
    use { 'windwp/nvim-ts-autotag' }
    use { 'williamboman/nvim-lsp-installer' }
+   use { 'jose-elias-alvarez/null-ls.nvim' }
 
    use { 'mfussenegger/nvim-dap-python', requires = 'mfussenegger/nvim-dap' }
    use { 'rcarriga/nvim-dap-ui', requires = 'mfussenegger/nvim-dap' }

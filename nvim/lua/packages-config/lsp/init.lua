@@ -1,6 +1,7 @@
 require('packages-config/lsp/lsp-signature')
 require('packages-config/lsp/lspconfig')
 require('packages-config/lsp/lspsaga')
+require('packages-config/lsp/null-ls')
 require('packages-config/lsp/nvim-autopairs')
 require('packages-config/lsp/nvim-cmp')
 require('packages-config/lsp/nvim-treesitter')
