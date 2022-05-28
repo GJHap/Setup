@@ -4,3 +4,4 @@ exec_always kanshictl reload
 output * bg /usr/share/backgrounds/archlinux/mountain.jpg fill
 default_border pixel 1
 
+focus_follows_mouse no

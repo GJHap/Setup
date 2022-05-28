@@ -7,18 +7,16 @@
    "sway/workspaces": {
       "format": "{icon}",
       "format-icons": {
-         "1": "爵",
-         "2": "",
+         "1": "",
+         "2": "爵",
          "3": "",
-         "4": "",
-         "5": ""
+         "4": ""
       },
       "persistent_workspaces": {
          "1": [],
          "2": [],
          "3": [],
          "4": [],
-         "5": []
       }
    },
    "cpu": {
@@ -64,8 +62,7 @@
       "on-click": "pavucontrol"
    },
    "clock": {
-      "format": "{:%m/%d/%Y %H:%M}",
-      "on-click": "evolution -c calendar"
+      "format": "{:%m/%d/%g %I:%M %p}",
    }
 }
 
