@@ -6,8 +6,8 @@ local function buffer()
    util.nnoremap('<Leader>bq', ':bd <CR>')
    util.nnoremap('<Leader>bo', ':%bd|e#|bd# <CR>')
    util.nnoremap('<Leader>ba', ':%bd <CR>')
-   util.nnoremap('<Leader>bsc', ':vsplit <CR>')
-   util.nnoremap('<Leader>bsr', ':split <CR>')
+   util.nnoremap('<Leader>bc', ':vsplit <CR>')
+   util.nnoremap('<Leader>br', ':split <CR>')
 end
 
 local function git()
