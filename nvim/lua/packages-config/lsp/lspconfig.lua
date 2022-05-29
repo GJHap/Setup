@@ -1,4 +1,4 @@
-local on_attach = function()
+local on_attach = function(client, bufnr)
    vim.diagnostic.config(
    {
       virtual_text = false,
