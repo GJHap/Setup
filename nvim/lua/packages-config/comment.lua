@@ -1,19 +1,23 @@
-require('Comment').setup
-{
-   toggler =
+local prequire = require('util').prequire
+
+prequire('Comment', function(comment)
+   comment.setup
    {
-      line = '<Leader>clt',
-      block = '<Leader>cbt'
-   },
-   opleader =
-   {
-      line = '<Leader>cl',
-      block = '<Leader>cb'
-   },
-   extra =
-   {
-      above = '<Leader>clO',
-      below = '<Leader>clo',
-      eol = '<Leader>clA'
+      toggler =
+      {
+         line = '<Leader>clt',
+         block = '<Leader>cbt'
+      },
+      opleader =
+      {
+         line = '<Leader>cl',
+         block = '<Leader>cb'
+      },
+      extra =
+      {
+         above = '<Leader>clO',
+         below = '<Leader>clo',
+         eol = '<Leader>clA'
+      }
    }
-}
+end)

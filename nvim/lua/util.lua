@@ -1,6 +1,6 @@
 local function set_keymap(mode, lhs, rhs, opts)
    opts = opts or {}
-   opts['silent'] = true
+   opts.silent = true
 
    vim.keymap.set(mode, lhs, rhs, opts)
 end
@@ -21,10 +21,19 @@ local function tnoremap(lhs, rhs)
    set_keymap('t', lhs, rhs)
 end
 
+local function prequire(plugin, on_success)
+   local success, package = pcall(require, plugin)
+
+   if success then
+      on_success(package)
+   end
+end
+
 return
 {
    nnoremap = nnoremap,
    vnoremap = vnoremap,
    inoremap = inoremap,
-   tnoremap = tnoremap
+   tnoremap = tnoremap,
+   prequire = prequire
 }

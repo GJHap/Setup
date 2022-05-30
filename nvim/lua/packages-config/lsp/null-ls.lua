@@ -1,5 +1,10 @@
-local status, opts = pcall(require, 'packages-config/lsp/null-ls-opts')
+local prequire = require('util').prequire
 
-if status then opts = opts else opts = {} end
+prequire('null-ls', function(null_ls)
+   local opts = {}
+   prequire('packages-config/lsp/null-ls-opts', function(_opts)
+      opts = _opts
+   end)
 
-require('null-ls').setup(opts)
+   null_ls.setup(opts)
+end)

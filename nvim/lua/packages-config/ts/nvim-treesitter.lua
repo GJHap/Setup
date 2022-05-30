@@ -1,12 +1,17 @@
-require('nvim-treesitter.configs').setup
-{
-   highlight =
+local prequire = require('util').prequire
+
+prequire('nvim-treesitter.configs', function(treesitter)
+   treesitter.setup
    {
-      enable = true
-   },
-   rainbow =
-   {
-      enable = true,
-      extended_mode = true
+      highlight =
+      {
+         enable = true
+      },
+      rainbow =
+      {
+         enable = true,
+         extended_mode = true
+      }
    }
-}
+end)
+
