@@ -28,6 +28,8 @@ prequire('packer', function(packer)
       use { 'rcarriga/nvim-dap-ui', requires = 'mfussenegger/nvim-dap' }
       use { 'theHamsta/nvim-dap-virtual-text', requires =  { 'mfussenegger/nvim-dap', 'nvim-treesitter/nvim-treesitter' } }
 
+      use { 'ggandor/leap.nvim' }
+      use { 'lukas-reineke/indent-blankline.nvim' }
       use { 'numToStr/Comment.nvim' }
       use { 'ur4ltz/surround.nvim'}
       use { 'L3MON4D3/LuaSnip' }
