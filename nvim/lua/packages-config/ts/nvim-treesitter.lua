@@ -11,7 +11,11 @@ prequire('nvim-treesitter.configs', function(treesitter)
       {
          enable = true,
          extended_mode = true
-      }
+      },
+      autotag =
+      {
+         enable = true,
+      },
    }
 end)
 

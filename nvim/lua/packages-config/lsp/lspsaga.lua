@@ -21,4 +21,8 @@ prequire('lspsaga', function(lspsaga)
    prequire('lspsaga.diagnostic', function(show_line_diagnostics)
       nnoremap('<Leader>df', show_line_diagnostics.show_line_diagnostics)
    end)
+
+   prequire('lspsaga.hover', function(hover)
+      nnoremap('<Leader>k', hover.render_hover_doc)
+   end)
 end)
