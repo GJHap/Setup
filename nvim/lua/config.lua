@@ -8,4 +8,3 @@ vim.opt.showmode = false
 vim.opt.foldmethod = 'indent'
 vim.g.mapleader = ','
 vim.o.guifont = 'mononoki NF'
-vim.opt_local.formatoptions = {}
