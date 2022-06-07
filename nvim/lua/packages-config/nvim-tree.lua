@@ -14,10 +14,8 @@ prequire('nvim-tree', function(nvim_tree)
             }
          }
       },
-      update_focused_file =
-      {
-         enable = true,
-      },
+      update_focused_file = { enable = true },
+      hijack_directories = { enable = false }
    })
 
    local nnoremap = require('util').nnoremap
