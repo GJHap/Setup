@@ -26,25 +26,12 @@ prequire('feline', function(feline)
                   }
                },
                {
-                  provider = "file_info",
-                  left_sep = 'slant_left',
-                  right_sep = 'slant_right_2',
-                  opts =
-                  {
-                     type = 'base-only'
-                  },
-                  hl =
-                  {
-                     bg = 'blue0'
-                  }
-               },
-               {
                   provider = "git_branch",
                   left_sep = "slant_left",
                   right_sep = "slant_right_2",
                   hl =
                   {
-                     bg = 'dark3'
+                     bg = 'blue0'
                   }
                },
                {
@@ -71,21 +58,16 @@ prequire('feline', function(feline)
             },
             {
                {
-                  provider = 'file_format',
+                  provider = "file_info",
                   left_sep = 'slant_left',
                   right_sep = 'slant_right_2',
+                  opts =
+                  {
+                     type = 'base-only'
+                  },
                   hl =
                   {
                      bg = 'dark3'
-                  }
-               },
-               {
-                  provider = 'file_encoding',
-                  left_sep = 'slant_left',
-                  right_sep = 'slant_right_2',
-                  hl =
-                  {
-                     bg = 'blue0'
                   }
                },
                {
@@ -94,7 +76,7 @@ prequire('feline', function(feline)
                   right_sep = 'slant_right_2',
                   hl =
                   {
-                     bg = 'dark3'
+                     bg = 'blue0'
                   }
                },
                {
@@ -103,7 +85,7 @@ prequire('feline', function(feline)
                   right_sep = 'slant_right_2',
                   hl =
                   {
-                     bg = 'blue0'
+                     bg = 'dark3'
                   }
                },
             }
@@ -157,7 +139,7 @@ prequire('feline', function(feline)
                      },
                      hl =
                      {
-                        bg = 'blue0'
+                        bg = 'dark3'
                      }
                   }
                },
@@ -175,7 +157,7 @@ prequire('feline', function(feline)
                      },
                      hl =
                      {
-                        bg = 'blue0'
+                        bg = 'dark3'
                      }
                   }
                },
