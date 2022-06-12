@@ -15,6 +15,22 @@ prequire('telescope', function(telescope)
       }
    end)
 
+   local fixfolds = {}
+   prequire('telescope.actions.set', function(actions)
+      fixfolds =
+      {
+         hidden = true,
+         attach_mappings = function(_)
+            actions.select:enhance({
+               post = function()
+                  vim.cmd(":normal! zx")
+               end,
+            })
+            return true
+         end,
+      }
+   end)
+
    telescope.setup
    {
       defaults =
@@ -42,6 +58,10 @@ prequire('telescope', function(telescope)
       },
       pickers =
       {
+         buffers = fixfolds,
+         find_files = fixfolds,
+         live_grep = fixfolds,
+         diagnostics = fixfolds,
          lsp_references =
          {
             trim_text = true
