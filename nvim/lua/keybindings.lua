@@ -10,6 +10,10 @@ local function buffer()
    util.nnoremap('<Leader>br', ':split <CR>')
 end
 
+local function general()
+   util.nnoremap('<Leader>hq', ":nohlsearch <CR>")
+end
+
 local function git()
    util.nnoremap('<Leader>ga', ':Git add .<CR>')
    util.nnoremap('<Leader>gs', ':Git status <CR>')
@@ -37,6 +41,7 @@ local function tab()
 end
 
 buffer()
+general()
 git()
 move_line()
 tab()
