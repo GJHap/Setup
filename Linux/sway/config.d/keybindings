@@ -44,6 +44,8 @@ bindsym XF86AudioPlay exec playerctl --all-players play-pause
 bindsym XF86AudioNext exec playerctl --all-players next
 bindsym XF86AudioPrev exec playerctl --all-players previous
 
+bindsym XF86AudioMicMute exec pamixer --default-source -t
+
 bindsym XF86MonBrightnessUp exec brillo -q -A 5
 bindsym XF86MonBrightnessDown exec brillo -q -U 5
 
