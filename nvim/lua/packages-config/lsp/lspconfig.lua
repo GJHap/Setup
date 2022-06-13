@@ -4,6 +4,8 @@ local on_attach = function(client, bufnr)
       virtual_text = false,
       update_in_insert = true
    })
+
+   require('packages-config/lsp/server-configs/auto-format')(client, bufnr)
 end
 
 local prequire = require('util').prequire
