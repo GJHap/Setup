@@ -1,4 +1,3 @@
-return
-{
-   style = 'night'
+return {
+  style = 'night',
 }
