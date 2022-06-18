@@ -1,3 +1,3 @@
 return {
-  style = 'night',
+   style = 'night',
 }
