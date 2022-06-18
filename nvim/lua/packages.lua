@@ -31,6 +31,16 @@ prequire('packer', function(packer)
       requires = { 'mfussenegger/nvim-dap', 'nvim-treesitter/nvim-treesitter' },
     })
 
+    use({
+      'nvim-neotest/neotest',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'nvim-treesitter/nvim-treesitter',
+        'antoinemadec/FixCursorHold.nvim',
+      },
+    })
+    use({ 'haydenmeade/neotest-jest', requires = 'nvim-neotest/neotest' })
+
     use({ 'ggandor/leap.nvim' })
     use({ 'lukas-reineke/indent-blankline.nvim' })
     use({ 'numToStr/Comment.nvim' })
