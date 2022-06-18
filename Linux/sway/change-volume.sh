@@ -1,14 +1,21 @@
 #!/bin/bash
 
+get_volume_bar_character_count() {
+   echo $(python -c "import sys;volume=float(sys.argv[1]);character_count=round(volume/5);print(character_count);" $1)
+}
+
+get_volume_bar() {
+   character_count=$(get_volume_bar_character_count $1)
+   echo $(printf "%${character_count}s" | sed 's/ /━/g')
+}
+
 pamixer $@
 
 volume=$(pamixer --get-volume)
-volume_bar_character_count=$((volume / 5))
-volume_bar=$(printf "%${volume_bar_character_count}s" | sed 's/ /━/g')
+volume_bar=$(get_volume_bar $volume)
 
 remaining_volume=$((100-$volume))
-remaining_volume_bar_character_count=$((remaining_volume / 5))
-remaining_volume_bar=$(printf "%${remaining_volume_bar_character_count}s" | sed 's/ /━/g')
+remaining_volume_bar=$(get_volume_bar $remaining_volume)
 
 is_mute=$(pamixer --get-mute)
 icon='audio-on'
