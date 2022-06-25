@@ -3,9 +3,9 @@ set $term wezterm
 set $menu wofi --show drun -O alphabetical
 
 bindsym $mod+1 exec $term
-bindsym $mod+2 exec firefox
-bindsym $mod+3 exec thunderbird
-bindsym $mod+4 exec spotify --no-zygote
+bindsym $mod+2 exec flatpak run org.mozilla.firefox
+bindsym $mod+3 exec flatpak run org.mozilla.Thunderbird
+bindsym $mod+4 exec flatpak run com.spotify.Client --no-zygote
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down

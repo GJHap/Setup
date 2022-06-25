@@ -6,7 +6,6 @@ pacman -S cups avahi system-config-printer nss-mdns \
    wofi waybar sway swayidle swaylock xorg-xwayland \
    tlp \
    wezterm \
-   thunderbird \
    thunar \
    fzf \
    ripgrep \
@@ -23,7 +22,7 @@ pacman -S cups avahi system-config-printer nss-mdns \
    dunst \
    libreoffice-still \
    ufw \
-   firefox \
    playerctl \
    pacman-contrib \
-   fd
+   fd \
+   flatpak
