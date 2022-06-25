@@ -1,47 +1,74 @@
 local util = require('util')
+local nnoremap = util.nnoremap
+local vnoremap = util.vnoremap
+local inoremap = util.inoremap
 
 local function buffer()
-   util.nnoremap('<Leader>bl', ':bn <CR>')
-   util.nnoremap('<Leader>bh', ':bp <CR>')
-   util.nnoremap('<Leader>bq', ':bd <CR>')
-   util.nnoremap('<Leader>bo', ':%bd|e#|bd# <CR>')
-   util.nnoremap('<Leader>ba', ':%bd <CR>')
-   util.nnoremap('<Leader>bc', ':vsplit <CR>')
-   util.nnoremap('<Leader>br', ':split <CR>')
+   nnoremap('<Leader>bl', ':bn <CR>')
+   nnoremap('<Leader>bh', ':bp <CR>')
+   nnoremap('<Leader>bq', ':bd <CR>')
+   nnoremap('<Leader>bc', ':vsplit <CR>')
+   nnoremap('<Leader>br', ':split <CR>')
+
+   local function close_buffers(close_current)
+      local open_bufs = vim.api.nvim_list_bufs()
+      local current_buf = vim.api.nvim_get_current_buf()
+
+      for _, buf in pairs(open_bufs) do
+         local ft = vim.api.nvim_buf_get_option(buf, 'filetype')
+
+         if not ft:match('^toggleterm$') and (close_current or buf ~= current_buf) then
+            vim.api.nvim_buf_delete(buf, {})
+         end
+      end
+   end
+   nnoremap('<Leader>bo', function()
+      close_buffers(false)
+   end)
+   nnoremap('<Leader>ba', function()
+      close_buffers(true)
+   end)
 end
 
 local function general()
-   util.nnoremap('<Leader>hq', ':nohlsearch <CR>')
+   nnoremap('<Leader>hq', ':nohlsearch <CR>')
 end
 
 local function git()
-   util.nnoremap('<Leader>ga', ':Git add .<CR>')
-   util.nnoremap('<Leader>gs', ':Git status <CR>')
-   util.nnoremap('<Leader>gb', ':Git blame <CR>')
-   util.nnoremap('<Leader>gl', ':Git log <CR>')
-   util.nnoremap('<Leader>gh', ':Git pull <CR>')
-   util.nnoremap('<Leader>gl', ':Git push <CR>')
-   util.nnoremap('<Leader>gc', ':Git commit <CR>')
+   nnoremap('<Leader>ga', ':Git add .<CR>')
+   nnoremap('<Leader>gs', ':Git status <CR>')
+   nnoremap('<Leader>gb', ':Git blame <CR>')
+   nnoremap('<Leader>gl', ':Git log <CR>')
+   nnoremap('<Leader>gh', ':Git pull <CR>')
+   nnoremap('<Leader>gl', ':Git push <CR>')
+   nnoremap('<Leader>gc', ':Git commit <CR>')
 end
 
 local function move_line()
-   util.inoremap('<A-j>', '<Esc>:m .+1<CR>==gi')
-   util.nnoremap('<A-j>', ':m .+1<CR>==')
-   util.vnoremap('<A-j>', ":m '>+1<CR>gv=gv")
-   util.inoremap('<A-k>', '<Esc>:m .-2<CR>==gi')
-   util.nnoremap('<A-k>', ':m .-2<CR>==')
-   util.vnoremap('<A-k>', ":m '<-2<CR>gv=gv")
+   inoremap('<A-j>', '<Esc>:m .+1<CR>==gi')
+   nnoremap('<A-j>', ':m .+1<CR>==')
+   vnoremap('<A-j>', ":m '>+1<CR>gv=gv")
+   inoremap('<A-k>', '<Esc>:m .-2<CR>==gi')
+   nnoremap('<A-k>', ':m .-2<CR>==')
+   vnoremap('<A-k>', ":m '<-2<CR>gv=gv")
+end
+
+local function session()
+   local fpath = vim.fn.getcwd() .. '/.session.vim'
+   nnoremap('<Leader>sm', ':mksession! ' .. fpath .. '<CR>')
+   nnoremap('<Leader>sl', ':source ' .. fpath .. '<CR>')
 end
 
 local function tab()
-   util.nnoremap('<Leader>tl', ':tabnext <CR>')
-   util.nnoremap('<Leader>th', ':tabprevious <CR>')
-   util.nnoremap('<Leader>ta', ':tabnew <CR>')
-   util.nnoremap('<Leader>tq', ':tabclose <CR>')
+   nnoremap('<Leader>tl', ':tabnext <CR>')
+   nnoremap('<Leader>th', ':tabprevious <CR>')
+   nnoremap('<Leader>ta', ':tabnew <CR>')
+   nnoremap('<Leader>tq', ':tabclose <CR>')
 end
 
 buffer()
 general()
 git()
 move_line()
+session()
 tab()
