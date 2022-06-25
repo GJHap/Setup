@@ -27,6 +27,16 @@ prequire('cmp', function(cmp)
       snippet = snippet,
       formatting = formatting,
       mapping = {
+         ['<C-d>'] = function()
+            for _ = 1, 10 do
+               cmp.mapping.select_next_item()(nil)
+            end
+         end,
+         ['<C-u>'] = function()
+            for _ = 1, 10 do
+               cmp.mapping.select_prev_item()(nil)
+            end
+         end,
          ['<Tab>'] = cmp.mapping.select_next_item(),
          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
          ['<C-Space>'] = cmp.mapping.complete(),
