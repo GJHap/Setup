@@ -25,4 +25,5 @@ pacman -S cups avahi system-config-printer nss-mdns \
    ufw \
    firefox \
    playerctl \
-   pacman-contrib
+   pacman-contrib \
+   fd
