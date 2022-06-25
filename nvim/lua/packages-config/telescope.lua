@@ -9,6 +9,12 @@ prequire('telescope', function(telescope)
          n = {
             ['<Leader>sc'] = actions.select_vertical,
             ['<Leader>sr'] = actions.select_horizontal,
+            ['<C-d>'] = actions.results_scrolling_down,
+            ['<C-u>'] = actions.results_scrolling_up,
+         },
+         i = {
+            ['<C-d>'] = actions.results_scrolling_down,
+            ['<C-u>'] = actions.results_scrolling_up,
          },
       }
    end)
@@ -73,6 +79,13 @@ prequire('telescope', function(telescope)
       nnoremap('<Leader>lr', builtin.lsp_references)
       nnoremap('<Leader>lp', builtin.diagnostics)
       nnoremap('<Leader>li', builtin.lsp_implementations)
-      nnoremap('<Leader>ld', builtin.lsp_definitions)
+
+      nnoremap('<Leader>ldd', builtin.lsp_definitions)
+      nnoremap('<Leader>ldr', function()
+         builtin.lsp_definitions({ jump_type = 'split' })
+      end)
+      nnoremap('<Leader>ldc', function()
+         builtin.lsp_definitions({ jump_type = 'vsplit' })
+      end)
    end)
 end)
