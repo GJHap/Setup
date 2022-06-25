@@ -2,7 +2,9 @@ local prequire = require('util').prequire
 
 prequire('nvim-tree', function(nvim_tree)
    nvim_tree.setup({
+      update_cwd = true,
       view = {
+         adaptive_size = true,
          mappings = {
             list = {
                { key = '<Leader>sr', action = 'split' },
