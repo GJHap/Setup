@@ -35,6 +35,8 @@ format = "[ \\($hash$tag\\) ]($style)"
 
 [git_status]
 style = "bg:#C8A2C8 fg:#193549"
+ahead = "↑"
+behind = "↓"
 deleted = "ⅹ"
 untracked = "?"
 modified = "!"
