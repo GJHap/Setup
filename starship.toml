@@ -1,7 +1,7 @@
 add_newline = false
 
 format = """
-$status\
+$character\
 $directory\
 [](fg:#61AFEF bg:#C8A2C8)\
 $git_branch\
@@ -10,20 +10,11 @@ $git_status\
 [](fg:#C8A2C8) \
 """
 
-[status]
+[character]
 disabled = false
-symbol = """
-[](fg:#e91e63)\
-[ ](bg:#e91e63 fg:#f5f5dc)\
-[](fg:#e91e63 bg:#61AFEF)\
-"""
-success_symbol = """
-[](fg:#058b00)\
-[ ](bg:#058b00 fg:#f5f5dc)\
-[](fg:#058b00 bg:#61AFEF)\
-"""
-style=""
-format = "[$symbol]($style)"
+error_symbol = "[](fg:#1f2335 bg:#e91e63)[](fg:#e91e63 bg:#61AFEF)"
+success_symbol = "[](fg:#1f2335 bg:#058b00)[](fg:#058b00 bg:#61AFEF)"
+format = "$symbol"
 
 [directory]
 style = "bg:#61AFEF fg:#f5f5dc"
