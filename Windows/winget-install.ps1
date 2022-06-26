@@ -1,7 +1,7 @@
 $PackageIds = @(
       "Microsoft.PowerShell",
       "Microsoft.WindowsTerminal",
-      "JanDeDobbeleer.OhMyPosh",
+      "Starship.Starship",
       "Microsoft.VisualStudioCode",
       "Neovim.Neovim",
       "Python.Python.3",

@@ -25,4 +25,5 @@ pacman -S cups avahi system-config-printer nss-mdns \
    playerctl \
    pacman-contrib \
    fd \
-   flatpak
+   flatpak \
+   starship

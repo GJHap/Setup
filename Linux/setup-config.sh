@@ -4,7 +4,7 @@ mkdir ~/.config
 
 ln -sfn ~/dev/Config/Linux/dunst ~/.config/dunst
 ln -sfn ~/dev/Config/Linux/fish ~/.config/fish
-ln -sfn ~/dev/Config/oh-my-posh-config.json ~/.config/fish/oh-my-posh-config.json
+ln -sfn ~/dev/Config/starship.toml ~/.config/starship.toml
 ln -sfn ~/dev/Config/Linux/foot ~/.config/foot
 ln -sfn ~/dev/Config/Linux/kanshi ~/.config/kanshi
 ln -sfn ~/dev/Config/nvim ~/.config/nvim

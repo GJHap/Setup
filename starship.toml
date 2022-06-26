@@ -1,0 +1,51 @@
+add_newline = false
+
+format = """
+$status\
+$directory\
+[](fg:#61AFEF bg:#C8A2C8)\
+$git_branch\
+$git_commit\
+$git_status\
+[](fg:#C8A2C8) \
+"""
+
+[status]
+disabled = false
+symbol = """
+[](fg:#e91e63)\
+[ ](bg:#e91e63 fg:#f5f5dc)\
+[](fg:#e91e63 bg:#61AFEF)\
+"""
+success_symbol = """
+[](fg:#058b00)\
+[ ](bg:#058b00 fg:#f5f5dc)\
+[](fg:#058b00 bg:#61AFEF)\
+"""
+style=""
+format = "[$symbol]($style)"
+
+[directory]
+style = "bg:#61AFEF fg:#f5f5dc"
+read_only_style = "bg:#61AFEF fg:#f5f5dc"
+format = """
+[ $path ]($style)\
+[$read_only]($read_only_style)\
+"""
+
+[git_branch]
+always_show_remote = true
+format = "[ $symbol$branch(:$remote_branch) ]($style)"
+style = "bg:#C8A2C8 fg:#193549"
+
+[git_commit]
+style = "bg:#C8A2C8 fg:#193549"
+format = "[ \\($hash$tag\\) ]($style)"
+
+[git_status]
+style = "bg:#C8A2C8 fg:#193549"
+deleted = "ⅹ"
+untracked = "?"
+modified = "!"
+staged = ""
+format = '([\[$all_status$ahead_behind\]]($style))'
