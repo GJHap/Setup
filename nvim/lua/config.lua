@@ -7,6 +7,11 @@ vim.opt.termguicolors = true
 vim.opt.showmode = false
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.fillchars = { fold = ' ', foldopen = '', foldclose = '' }
+vim.opt.foldcolumn = '1'
+vim.opt.foldtext = 'getline(v:foldstart)'
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 vim.g.mapleader = ','
 vim.o.guifont = 'mononoki NF'
 vim.o.laststatus = 3
