@@ -8,6 +8,7 @@ rm -rf yay
 
 yay -S greetd greetd-gtkgreet  \
    brother-mfc-j4335dw \
+   neovim-git \
    nvim-packer-git \
    brillo \
    clipman \
