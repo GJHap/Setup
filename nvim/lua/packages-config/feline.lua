@@ -1,5 +1,16 @@
 local prequire = require('util').prequire
 
+local is_hydra_active = function()
+   return false
+end
+local hydra_name = function()
+   return ''
+end
+prequire('hydra.statusline', function(hydra)
+   is_hydra_active = hydra.is_active
+   hydra_name = hydra.get_name
+end)
+
 prequire('feline', function(feline)
    local theme = {}
    prequire('tokyonight.colors', function(colors)
@@ -9,6 +20,11 @@ prequire('feline', function(feline)
    feline.setup({
       theme = theme,
       force_inactive = {},
+      custom_providers = {
+         hydra = function()
+            return hydra_name()
+         end,
+      },
       components = {
          active = {
             {
@@ -20,6 +36,21 @@ prequire('feline', function(feline)
                   hl = {
                      bg = 'dark3',
                   },
+                  enabled = function()
+                     return not is_hydra_active()
+                  end,
+               },
+               {
+                  provider = 'hydra',
+                  icon = '',
+                  left_sep = 'slant_left',
+                  right_sep = 'slant_right_2',
+                  hl = {
+                     bg = 'dark3',
+                  },
+                  enabled = function()
+                     return is_hydra_active()
+                  end,
                },
                {
                   provider = 'git_branch',
