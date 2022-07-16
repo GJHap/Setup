@@ -14,4 +14,5 @@ yay -S greetd greetd-gtkgreet  \
    clipman \
    wlogout  \
    sway-audio-idle-inhibit-git \
-   kanshi-git
+   kanshi-git \
+   wob

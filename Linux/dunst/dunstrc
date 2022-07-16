@@ -20,11 +20,6 @@
 
    browser = firefox
 
-[change-volume]
-   appname = "change-volume"
-   history_ignore = true
-   format = "%b"
-
 [urgency_critical]
     background = "#900000"
     foreground = "#ffffff"
