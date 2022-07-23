@@ -29,6 +29,12 @@ local function move_line()
    vnoremap('<A-k>', ":m '<-2<CR>gv=gv")
 end
 
+local function session()
+   local fpath = vim.fn.getcwd() .. '/.session.vim'
+   nnoremap('<Leader>sm', ':mksession! ' .. fpath .. '<CR>')
+   nnoremap('<Leader>sl', ':source ' .. fpath .. '<CR>')
+end
+
 local function tab()
    nnoremap('<Leader>tl', ':tabnext <CR>')
    nnoremap('<Leader>th', ':tabprevious <CR>')
@@ -39,4 +45,5 @@ end
 general()
 git()
 move_line()
+session()
 tab()
