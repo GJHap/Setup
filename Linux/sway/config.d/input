@@ -1,9 +1,0 @@
-input type:touchpad
-{
-   natural_scroll enabled
-   tap enabled
-   accel_profile adaptive
-   dwt enabled
-   scroll_method two_finger
-   click_method button_areas
-}

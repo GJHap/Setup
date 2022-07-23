@@ -3,7 +3,7 @@ local action = wezterm.action
 
 return {
    enable_wayland = true,
-   font = wezterm.font('mononoki NF'),
+   font = wezterm.font('mononoki Nerd Font'),
    hide_tab_bar_if_only_one_tab = true,
    color_scheme = 'tokyonight',
    leader = { key = ',', mods = 'CTRL' },

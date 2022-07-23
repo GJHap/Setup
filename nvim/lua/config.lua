@@ -13,5 +13,5 @@ vim.opt.foldtext = 'getline(v:foldstart)'
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.g.mapleader = ','
-vim.o.guifont = 'mononoki NF'
+vim.o.guifont = 'mononoki Nerd Font'
 vim.o.laststatus = 3

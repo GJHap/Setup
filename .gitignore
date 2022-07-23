@@ -1,4 +1,3 @@
-Linux/fish/fish_variables
-Linux/fish/oh-my-posh-config.*
+fish/fish_variables
 nvim/plugin
 nvim/lua/packages-config/lsp/lsp-server-opts.lua
