@@ -110,6 +110,7 @@
       fzf
       ripgrep
       git
+      gh
       rustup
       nodejs
       fish
