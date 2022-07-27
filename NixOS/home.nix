@@ -113,7 +113,8 @@
       }
 
       #waybar {
-         color: #ffffff;
+         background: @theme_base_color;
+         color: @theme_text_color;
          transition-property: background-color;
          transition-duration: .5s;
       }
@@ -121,7 +122,7 @@
       #workspaces button {
          padding: 0 5px;
          background-color: transparent;
-         color: #ffffff;
+         color: @theme_text_color;
          box-shadow: inset 0 -3px transparent;
          border: none;
          border-radius: 0;
@@ -129,12 +130,12 @@
 
       #workspaces button:hover {
          background: rgba(0, 0, 0, 0.2);
-         box-shadow: inset 0 -3px #ffffff;
+         box-shadow: inset 0 -3px @theme_text_color;
       }
 
       #workspaces button.focused {
          background-color: #64727D;
-         box-shadow: inset 0 -3px #ffffff;
+         box-shadow: inset 0 -3px @theme_text_color;
       }
 
       #workspaces button.urgent {
@@ -149,7 +150,7 @@
       #network,
       #pulseaudio {
          padding: 0 10px;
-         color: #ffffff;
+         color: @theme_text_color;
       }
 
       #workspaces {
@@ -170,14 +171,14 @@
 
       @keyframes blink {
          to {
-            background-color: #ffffff;
+            background-color: @theme_text_color;
             color: #000000;
          }
       }
 
       #battery.critical:not(.charging) {
          background-color: #f53c3c;
-         color: #ffffff;
+         color: @theme_text_color;
          animation-name: blink;
          animation-duration: 0.5s;
          animation-timing-function: linear;
@@ -332,7 +333,7 @@
 
           "${modifier}+s" = "exec wlogout";
           "${modifier}+w" = "kill";
-          "${modifier}+v" = "exec clipman pick -t wofi";
+          "${modifier}+v" = "exec clipman pick -t wofi -T'-l 1'";
           "${modifier}+r" = "reload";
           "${modifier}+f" = "fullscreen";
           "${modifier}+g" = "floating toggle";

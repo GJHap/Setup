@@ -26,6 +26,7 @@
       systemd-boot = {
         enable = true;
         editor = false;
+        consoleMode = "max";
       };
       efi = {
         canTouchEfiVariables = true;
@@ -143,6 +144,7 @@
       stylua
       nixfmt
       clang
+      unzip
     ];
     variables = {
       EDITOR = "nvim";
