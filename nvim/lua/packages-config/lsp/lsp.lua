@@ -8,12 +8,8 @@ local on_attach = function(client, bufnr)
 end
 
 local prequire = require('util').prequire
-prequire('lspconfig', function(lspconfig)
-   local servers = {}
-   prequire('nvim-lsp-installer', function(lsp_install)
-      lsp_install.setup({})
-      servers = lsp_install.get_installed_servers()
-   end)
+prequire('mason-lspconfig', function(mason_lspconfig)
+   mason_lspconfig.setup({})
 
    local server_opts = function(_, opts)
       return opts
@@ -27,12 +23,15 @@ prequire('lspconfig', function(lspconfig)
       capabilities = cmp.update_capabilities(capabilities)
    end)
 
-   for _, server in pairs(servers) do
-      local opts = {
-         capabilities = capabilities,
-         on_attach = on_attach,
-      }
-
-      lspconfig[server.name].setup(server_opts(server.name, opts))
-   end
+   prequire('lspconfig', function(lspconfig)
+      mason_lspconfig.setup_handlers({
+         function(server_name)
+            local opts = {
+               capabilities = capabilities,
+               on_attach = on_attach,
+            }
+            lspconfig[server_name].setup(server_opts(server_name, opts))
+         end,
+      })
+   end)
 end)
