@@ -46,6 +46,7 @@ prequire('packer', function(packer)
       use('tiagovla/scope.nvim')
       use('famiu/bufdelete.nvim')
 
+      use({ 'stevearc/overseer.nvim' })
       use({ 'ggandor/leap.nvim' })
       use({ 'lukas-reineke/indent-blankline.nvim' })
       use({ 'numToStr/Comment.nvim' })
