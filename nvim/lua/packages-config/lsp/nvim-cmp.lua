@@ -7,7 +7,9 @@ prequire('cmp', function(cmp)
    }
 
    local snippet = {}
-   prequire('luasnip', function(luasnip)
+   local luasnip
+   prequire('luasnip', function(_luasnip)
+      luasnip = _luasnip
       table.insert(sources, 1, { name = 'luasnip' })
       snippet = {
          expand = function(args)
@@ -37,8 +39,24 @@ prequire('cmp', function(cmp)
                cmp.mapping.select_prev_item()(nil)
             end
          end,
-         ['<Tab>'] = cmp.mapping.select_next_item(),
-         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+         ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+               cmp.select_next_item()
+            elseif luasnip and luasnip.jumpable(1) then
+               luasnip.jump(1)
+            else
+               fallback()
+            end
+         end, { 'i' }),
+         ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+               cmp.select_prev_item()
+            elseif luasnip and luasnip.jumpable(-1) then
+               luasnip.jump(-1)
+            else
+               fallback()
+            end
+         end, { 'i' }),
          ['<C-Space>'] = cmp.mapping.complete(),
          ['<C-e>'] = cmp.mapping.close(),
          ['<CR>'] = cmp.mapping.confirm(),

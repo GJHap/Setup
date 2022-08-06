@@ -27,20 +27,6 @@ prequire('luasnip', function(luasnip)
       end
    end)
 
-   inoremap('<Tab>', function()
-      if luasnip.jumpable(1) then
-         luasnip.jump(1)
-      else
-         return '<Tab>'
-      end
-   end, { expr = true })
-
-   inoremap('<S-Tab>', function()
-      if luasnip.jumpable(-1) then
-         luasnip.jump(-1)
-      end
-   end)
-
    inoremap('<C-c>', function()
       if luasnip.choice_active() then
          luasnip.change_choice(1)
