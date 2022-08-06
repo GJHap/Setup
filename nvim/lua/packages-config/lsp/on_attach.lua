@@ -8,7 +8,7 @@ local lsp_formatting = function(bufnr)
 end
 
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
-local on_attach = function(client, bufnr)
+local auto_format = function(client, bufnr)
    if client.supports_method('textDocument/formatting') then
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
       vim.api.nvim_create_autocmd('BufWritePre', {
@@ -21,4 +21,11 @@ local on_attach = function(client, bufnr)
    end
 end
 
-return on_attach
+return function(client, bufnr)
+   vim.diagnostic.config({
+      virtual_text = false,
+      update_in_insert = true,
+   })
+
+   auto_format(client, bufnr)
+end
