@@ -2,10 +2,13 @@
 
 let
   swayConfig = pkgs.writeText "greetd-sway-config" ''
-    exec kanshi --config ${config.kanshiConfig}
+    bindswitch --reload --locked lid:on output eDP-1 disable
+    bindswitch --reload --locked lid:off output eDP-1 enable
+    exec_always ${config.swayDisplayReloadFix}
+
     exec swayidle -w \
-       timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-       timeout 1800 'systemctl suspend'
+      timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+      timeout 1800 'systemctl suspend'
 
     exec "gtkgreet -l -s ${style} -c sway; swaymsg exit"
 

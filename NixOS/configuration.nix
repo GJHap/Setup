@@ -3,7 +3,7 @@
     ./greetd.nix
     ./swayAudioIdleInhibit.nix
     ./wallpaper.nix
-    ./kanshiConfig.nix
+    ./swayDisplayReloadFix.nix
     ./hardware-configuration.nix
   ];
 
@@ -135,7 +135,6 @@
       wob
       greetd.greetd
       greetd.gtkgreet
-      kanshi
       dracula-theme
       glib
       gnome3.adwaita-icon-theme

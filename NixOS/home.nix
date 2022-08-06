@@ -1,5 +1,5 @@
 { pkgs, lib, config, ... }: {
-  imports = [ ./wallpaper.nix ./kanshiConfig.nix ];
+  imports = [ ./wallpaper.nix ./swayDisplayReloadFix.nix ];
 
   services.dunst = {
     enable = true;
@@ -209,6 +209,11 @@
     let wob_sock = "$XDG_RUNTIME_DIR/wob_volume.sock";
     in {
       enable = true;
+      extraConfig = ''
+          bindswitch --reload --locked lid:on output eDP-1 disable
+          bindswitch --reload --locked lid:off output eDP-1 enable
+        '';
+
       config = rec {
         modifier = "Mod4";
         menu = "wofi --show drun -O alphabetical -l 1";
@@ -234,7 +239,7 @@
             command = ''
               wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"'';
           }
-          { command = "kanshi -c ${config.kanshiConfig}"; }
+          { command = "${config.swayDisplayReloadFix}"; always = true; }
           {
             command = ''
               dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && \
@@ -250,10 +255,6 @@
               gsettings set $gnome_schema gtk-theme 'Dracula' && \
               gsettings set $gnome_schema cursor-theme 'capitaine-cursors'
             '';
-            always = true;
-          }
-          {
-            command = "kanshictl reload";
             always = true;
           }
           {
