@@ -4,7 +4,7 @@ prequire('dap', function(dap)
    dap.adapters.node2 = {
       type = 'executable',
       command = 'node',
-      args = { os.getenv('HOME') .. '/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js' },
+      args = { vim.fn.stdpath('data') .. '/mason/packages/node-debug2-adapter/out/src/nodeDebug.js' },
    }
 
    dap.configurations.javascript = {
