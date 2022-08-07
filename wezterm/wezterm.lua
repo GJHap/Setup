@@ -19,6 +19,8 @@ return {
       { key = 'l', mods = 'LEADER', action = action.ActivatePaneDirection('Right') },
       { key = 'k', mods = 'LEADER', action = action.ActivatePaneDirection('Up') },
       { key = 'j', mods = 'LEADER', action = action.ActivatePaneDirection('Down') },
+      { key = 'f', mods = 'LEADER', action = action.TogglePaneZoomState },
+      { key = 'q', mods = 'LEADER', action = action.CloseCurrentPane({ confirm = false }) },
    },
    key_tables = {
       resize = {
