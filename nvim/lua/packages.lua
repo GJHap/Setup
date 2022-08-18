@@ -49,6 +49,7 @@ prequire('packer', function(packer)
       use('tiagovla/scope.nvim')
       use('famiu/bufdelete.nvim')
 
+      use({ 'nvim-pack/nvim-spectre', requires = 'nvim-lua/plenary.nvim' })
       use({ 's1n7ax/nvim-window-picker' })
       use({ 'stevearc/overseer.nvim' })
       use({ 'ggandor/leap.nvim' })
