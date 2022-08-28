@@ -321,6 +321,7 @@
           "XF86AudioMute" =
             "exec pamixer --toggle-mute && ($(pamixer --get-mute) == true && echo 0 > ${wob_sock}) || pamixer --get-volume > ${wob_sock}";
           "XF86AudioStop" = "exec playerctl --all-players stop";
+          "XF86AudioPause" = "exec playerctl --all-players pause";
           "XF86AudioPlay" = "exec playerctl --all-players play-pause";
           "XF86AudioNext" = "exec playerctl --all-players next";
           "XF86AudioPrev" = "exec playerctl --all-players previous";
