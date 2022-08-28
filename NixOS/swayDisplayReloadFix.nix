@@ -13,7 +13,8 @@ in {
   options = {
     swayDisplayReloadFix = lib.mkOption {
       type = lib.types.package;
-      description = "Script to prevent Sway from enabling all displays on reload";
+      description =
+        "Script to prevent Sway from enabling all displays on reload";
       default = config;
     };
   };

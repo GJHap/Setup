@@ -210,9 +210,9 @@
     in {
       enable = true;
       extraConfig = ''
-          bindswitch --reload --locked lid:on output eDP-1 disable
-          bindswitch --reload --locked lid:off output eDP-1 enable
-        '';
+        bindswitch --reload --locked lid:on output eDP-1 disable
+        bindswitch --reload --locked lid:off output eDP-1 enable
+      '';
 
       config = rec {
         modifier = "Mod4";
@@ -239,7 +239,10 @@
             command = ''
               wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"'';
           }
-          { command = "${config.swayDisplayReloadFix}"; always = true; }
+          {
+            command = "${config.swayDisplayReloadFix}";
+            always = true;
+          }
           {
             command = ''
               dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && \
