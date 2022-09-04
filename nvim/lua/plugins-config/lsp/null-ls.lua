@@ -1,4 +1,4 @@
-local on_attach = require('packages-config/lsp/on_attach')
+local on_attach = require('plugins-config/lsp/on_attach')
 local prequire = require('util').prequire
 
 prequire('null-ls', function(null_ls)

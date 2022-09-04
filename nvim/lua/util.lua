@@ -22,10 +22,10 @@ local function tnoremap(lhs, rhs)
 end
 
 local function prequire(plugin, on_success)
-   local success, package = pcall(require, plugin)
+   local success, _plugin = pcall(require, plugin)
 
    if success then
-      on_success(package)
+      on_success(_plugin)
    end
 end
 

@@ -1,5 +1,0 @@
-require('packages-config/lsp/lsp-signature')
-require('packages-config/lsp/lsp')
-require('packages-config/lsp/lspsaga')
-require('packages-config/lsp/null-ls')
-require('packages-config/lsp/nvim-cmp')

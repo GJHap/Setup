@@ -1,5 +1,5 @@
 require('config')
-require('packages')
-require('packages-config')
+require('plugins')
+require('plugins-config')
 require('colorscheme')
 require('keybindings')
