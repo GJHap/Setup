@@ -94,7 +94,7 @@
     wrapperFeatures.gtk = true;
   };
 
-  fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "Mononoki" ]; }) ];
+  fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
   environment = {
     systemPackages = with pkgs; [

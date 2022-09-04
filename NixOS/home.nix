@@ -15,7 +15,7 @@
         height = 100;
         corner_radius = 10;
 
-        font = "mononoki Nerd Font";
+        font = "JetBrainsMono Nerd Font";
         markup = "full";
 
         icon_path =
@@ -109,7 +109,7 @@
 
     style = ''
       * {
-         font-family: 'mononoki Nerd Font';
+         font-family: 'JetBrainsMono Nerd Font';
       }
 
       #waybar {
