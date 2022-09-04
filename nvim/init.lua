@@ -1,4 +1,4 @@
-require('config')
+require('opt')
 require('plugins')
 require('plugins-config')
 require('colorscheme')
