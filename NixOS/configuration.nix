@@ -80,7 +80,7 @@
   users.users.ghapgood = {
     isNormalUser = true;
     description = "Gregory Hapgood";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" ];
     shell = pkgs.fish;
   };
 
@@ -89,12 +89,18 @@
     extraPortals = with pkgs; [ xdg-desktop-portal-wlr xdg-desktop-portal-gtk ];
   };
 
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
+  programs = {
+    sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+    };
+    dconf.enable = true;
   };
 
-  fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
+  fonts.fonts = with pkgs;
+    [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
+
+  virtualisation.libvirtd.enable = true;
 
   environment = {
     systemPackages = with pkgs; [
@@ -145,6 +151,7 @@
       nixfmt
       clang
       unzip
+      virt-manager
     ];
     variables = {
       EDITOR = "nvim";
