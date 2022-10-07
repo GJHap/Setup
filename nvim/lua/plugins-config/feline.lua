@@ -14,7 +14,7 @@ end)
 prequire('feline', function(feline)
    local theme = {}
    prequire('tokyonight.colors', function(colors)
-      theme = colors.setup(require('plugins-config/tokyonight'))
+      theme = colors.setup()
    end)
 
    feline.setup({
