@@ -4,7 +4,7 @@ local prequire = util.prequire
 prequire('hydra', function(Hydra)
    Hydra({
       name = 'BUFFER',
-      body = ',b',
+      body = '<Leader>b',
       config = {
          hint = false,
       },
