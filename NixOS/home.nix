@@ -19,7 +19,7 @@
         markup = "full";
 
         icon_path =
-          "${pkgs.gnome3.adwaita-icon-theme}/share/icons/Adwaita/16x16/status/:${pkgs.gnome3.adwaita-icon-theme}/share/icons/Adwaita/16x16/devices/:${pkgs.gnome3.adwaita-icon-theme}/share/icons/Adwaita/16x16/legacy/";
+          "${pkgs.gnome.adwaita-icon-theme}/share/icons/Adwaita/16x16/status/:${pkgs.gnome.adwaita-icon-theme}/share/icons/Adwaita/16x16/devices/:${pkgs.gnome.adwaita-icon-theme}/share/icons/Adwaita/16x16/legacy/";
 
         dmenu = "wofi -d -p dunst";
         browser = "firefox";

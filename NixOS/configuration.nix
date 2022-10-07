@@ -17,7 +17,7 @@
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
-    package = pkgs.nixFlakes;
+    package = pkgs.nixStable;
     extraOptions = "experimental-features = nix-command flakes";
   };
 
@@ -104,7 +104,7 @@
 
   environment = {
     systemPackages = with pkgs; [
-      neovim-nightly
+      neovim
       firefox
       thunderbird
       bluez
@@ -143,7 +143,7 @@
       greetd.gtkgreet
       dracula-theme
       glib
-      gnome3.adwaita-icon-theme
+      gnome.adwaita-icon-theme
       capitaine-cursors
       nixos-artwork.wallpapers.nineish-dark-gray
       config.swayAudioIdleInhibit
