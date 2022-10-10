@@ -7,22 +7,37 @@ prequire('dap', function(dap)
       args = { vim.fn.stdpath('data') .. '/mason/packages/node-debug2-adapter/out/src/nodeDebug.js' },
    }
 
+   local node2 = {
+      type = 'node2',
+      sourceMaps = true,
+      skipFiles = { '<node_internals>/**', '**/node_modules/**' },
+   }
+   local node_attach = vim.tbl_extend('error', node2, {
+      name = 'Attach to process',
+      request = 'attach',
+      processId = require('dap.utils').pick_process,
+   })
+   local node_launch = vim.tbl_extend('error', node2, {
+      name = 'Launch',
+      request = 'launch',
+      cwd = vim.fn.getcwd(),
+      protocol = 'inspector',
+      console = 'integratedTerminal',
+   })
+
    dap.configurations.javascript = {
-      {
-         name = 'Launch',
-         type = 'node2',
-         request = 'launch',
+      vim.tbl_extend('error', node_launch, {
          program = '${file}',
-         cwd = vim.fn.getcwd(),
-         sourceMaps = true,
-         protocol = 'inspector',
-         console = 'integratedTerminal',
-      },
-      {
-         name = 'Attach to process',
-         type = 'node2',
-         request = 'attach',
-         processId = require('dap.utils').pick_process,
-      },
+      }),
+      node_attach,
+   }
+
+   dap.configurations.typescript = {
+      vim.tbl_extend('error', node_launch, {
+         runtimeArgs = { '-r', 'ts-node/register' },
+         runtimeExecutable = 'node',
+         args = { '--inspect', '${file}' },
+      }),
+      node_attach,
    }
 end)
