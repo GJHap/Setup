@@ -17,6 +17,11 @@ prequire('mason', function(mason)
             function(server_name)
                lspconfig[server_name].setup({
                   capabilities = capabilities,
+                  handlers = {
+                     ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+                        border = 'single',
+                     }),
+                  },
                   on_attach = on_attach,
                })
             end,

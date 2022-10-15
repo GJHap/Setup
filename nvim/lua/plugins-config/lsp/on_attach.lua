@@ -27,5 +27,14 @@ return function(client, bufnr)
       update_in_insert = true,
    })
 
+   vim.keymap.set('n', '<Leader>k', vim.lsp.buf.hover, { buffer = bufnr })
+   vim.keymap.set('n', '<Leader>K', vim.lsp.buf.signature_help, { buffer = bufnr })
+   vim.keymap.set('n', '<Leader>rr', vim.lsp.buf.rename, { buffer = bufnr })
+   vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, { buffer = bufnr })
+   vim.keymap.set('n', '<Leader>df', function()
+      vim.diagnostic.open_float({ border = 'single' })
+   end, { buffer = bufnr })
+   vim.keymap.set('v', '<Leader>ca', vim.lsp.buf.code_action, { buffer = bufnr })
+
    auto_format(client, bufnr)
 end
