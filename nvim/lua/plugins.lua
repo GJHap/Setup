@@ -25,6 +25,8 @@ prequire('packer', function(packer)
       use({ 'windwp/nvim-autopairs', requires = 'nvim-treesitter/nvim-treesitter' })
       use({ 'windwp/nvim-ts-autotag', requires = 'nvim-treesitter/nvim-treesitter' })
       use({ 'folke/tokyonight.nvim', requires = 'nvim-treesitter/nvim-treesitter' })
+      use({ 'nvim-treesitter/nvim-treesitter-context', requires = 'nvim-treesitter/nvim-treesitter' })
+      use({ 'nvim-treesitter/nvim-treesitter-textobjects', requires = 'nvim-treesitter/nvim-treesitter' })
 
       use({ 'mfussenegger/nvim-dap' })
       use({ 'mfussenegger/nvim-dap-python', requires = 'mfussenegger/nvim-dap' })
