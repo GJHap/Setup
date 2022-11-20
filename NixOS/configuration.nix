@@ -127,7 +127,6 @@
       clipman
       wl-clipboard
       wlogout
-      spotify
       sway
       wayland
       wofi
@@ -152,6 +151,7 @@
       clang
       unzip
       virt-manager
+      python3Full
     ];
     variables = {
       EDITOR = "nvim";
