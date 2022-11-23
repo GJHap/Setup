@@ -20,7 +20,7 @@ prequire('dap', function(dap)
    local node_launch = vim.tbl_extend('error', node2, {
       name = 'Launch',
       request = 'launch',
-      cwd = vim.fn.getcwd(),
+      cwd = '${workspaceFolder}',
       protocol = 'inspector',
       console = 'integratedTerminal',
    })
