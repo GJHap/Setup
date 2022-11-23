@@ -1,4 +1,5 @@
 local prequire = require('util').prequire
+
 prequire('mason', function(mason)
-   mason.setup({})
+   mason.setup()
 end)
