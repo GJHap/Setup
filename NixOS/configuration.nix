@@ -117,7 +117,8 @@
       ripgrep
       git
       gh
-      rustup
+      rustc
+      cargo
       nodejs
       fish
       libreoffice
@@ -148,7 +149,7 @@
       config.swayAudioIdleInhibit
       stylua
       nixfmt
-      clang
+      gcc
       unzip
       virt-manager
       python3Full
@@ -159,5 +160,16 @@
     };
   };
 
-  system.stateVersion = "22.05";
+  system = {
+    activationScripts = {
+      bash = ''
+         ln -sfn ${pkgs.bash}/bin/bash /bin/
+         ln -sfn ${pkgs.bash}/bin/bash /usr/bin/
+      '';
+      ld = ''
+        ln -sfn $(cat ${pkgs.stdenv.cc}/nix-support/dynamic-linker) /lib64/
+      '';
+   };
+    stateVersion = "22.05";
+  };
 }
