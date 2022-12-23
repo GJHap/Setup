@@ -104,77 +104,79 @@
 
   environment = {
     systemPackages = with pkgs; [
-      neovim
-      firefox
-      thunderbird
       bluez
-      pavucontrol
-      pamixer
-      playerctl
-      wezterm
-      xfce.thunar
+      brillo
+      cargo
+      capitaine-cursors
+      clipman
+      dracula-theme
+      dunst
+      fd
+      firefox
+      fish
       fzf
-      ripgrep
+      gcc
       git
       gh
-      rustc
-      cargo
-      nodejs
-      fish
-      libreoffice
-      fd
-      starship
-      brillo
-      clipman
-      wl-clipboard
-      wlogout
-      sway
-      wayland
-      wofi
-      waybar
-      swayidle
-      swaylock
-      xwayland
-      dunst
-      grim slurp swappy
-      wob
-      greetd.greetd
-      greetd.gtkgreet
-      dracula-theme
       glib
       gnome.adwaita-icon-theme
-      capitaine-cursors
-      nixos-artwork.wallpapers.nineish-dark-gray
-      config.swayAudioIdleInhibit
+      greetd.greetd
+      greetd.gtkgreet
+      grim
+      hurl
+      libreoffice
+      neovim
+      nodejs
+      pamixer
+      pavucontrol
+      playerctl
+      python3Full
+      ripgrep
+      rustc
+      slurp
+      starship
       stylua
+      swappy
+      sway
+      config.swayAudioIdleInhibit
+      swayidle
+      swaylock
+      xfce.thunar
+      thunderbird
       nixfmt
-      gcc
       unzip
       virt-manager
-      python3Full
-      hurl
+      nixos-artwork.wallpapers.nineish-dark-gray
+      waybar
+      wayland
+      wezterm
+      wl-clipboard
+      wlogout
+      wob
+      wofi
+      xwayland
     ];
     variables = {
       EDITOR = "nvim";
       MOZ_ENABLE_WAYLAND = "1";
-      SDL_VIDEODRIVER="wayland";
-      _JAVA_AWT_WM_NONREPARENTING="1";
-      QT_QPA_PLATFORM="wayland";
-      XDG_CURRENT_DESKTOP="sway";
-      XDG_SESSION_DESKTOP="sway";
+      SDL_VIDEODRIVER = "wayland";
+      _JAVA_AWT_WM_NONREPARENTING = "1";
+      QT_QPA_PLATFORM = "wayland";
+      XDG_CURRENT_DESKTOP = "sway";
+      XDG_SESSION_DESKTOP = "sway";
     };
   };
 
   system = {
     activationScripts = {
       bash = ''
-         ln -sfn ${pkgs.bash}/bin/bash /bin/
-         ln -sfn ${pkgs.bash}/bin/bash /usr/bin/
+        ln -sfn ${pkgs.bash}/bin/bash /bin/
+        ln -sfn ${pkgs.bash}/bin/bash /usr/bin/
       '';
       ld = ''
         ln -sfn $(cat ${pkgs.stdenv.cc}/nix-support/dynamic-linker) /lib64/
       '';
-   };
+    };
     stateVersion = "22.05";
   };
 }
