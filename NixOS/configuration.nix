@@ -153,6 +153,7 @@
       unzip
       virt-manager
       python3Full
+      hurl
     ];
     variables = {
       EDITOR = "nvim";
