@@ -284,9 +284,8 @@
         }
         {
           command = ''
-            dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && \
-            systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr && \
-            systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+            exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK && \
+            dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
           '';
           always = true;
         }
