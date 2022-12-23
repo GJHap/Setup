@@ -136,8 +136,7 @@
       swaylock
       xwayland
       dunst
-      grim
-      slurp
+      grim slurp swappy
       wob
       greetd.greetd
       greetd.gtkgreet

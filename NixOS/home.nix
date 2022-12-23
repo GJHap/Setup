@@ -276,7 +276,8 @@
         { command = "wl-paste -t text --watch clipman store"; }
         {
           command = ''
-            wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"'';
+            wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
+          '';
         }
         {
           command = "${config.swayDisplayReloadFix}";
@@ -372,7 +373,7 @@
         "XF86MonBrightnessDown" = "exec brillo -q -U 5";
 
         "Print" = "exec grim";
-        "${modifier}+Print" = "exec slurp | grim -g -";
+        "${modifier}+Print" = ''exec grim -g "$(slurp)" - | swappy -f -'';
 
         "${modifier}+s" = "exec wlogout -l ${wlogoutLayout}";
         "${modifier}+w" = "kill";
