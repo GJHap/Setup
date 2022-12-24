@@ -40,9 +40,8 @@
       mainBar = {
         spacing = 10;
         modules-left = [ "sway/workspaces" ];
-        modules-center = [ ];
-        modules-right =
-          [ "cpu" "memory" "disk" "network" "battery" "pulseaudio" "clock" ];
+        modules-center = [ "clock" ];
+        modules-right = [ "network" "pulseaudio" "battery" ];
 
         "sway/workspaces" = {
           format = "{icon}";
@@ -60,26 +59,13 @@
           };
         };
 
-        "cpu" = { "format" = ""; };
-
-        "memory" = {
-          "format" = "";
-          "tooltip-format" = ''
-            {percentage}% used
-            {used:0.2f}GiB/{total:0.1f}GiB'';
-        };
-        "disk" = {
-          "format" = "﫭";
-          "tooltip-format" = ''
-            {percentage_used}% used
-            {used}/{total}'';
-        };
         "network" = {
           "format-wifi" = "";
           "format-ethernet" = "";
           "tooltip-format" = "{essid}";
           "format-disconnected" = "⚠";
         };
+
         "battery" = {
           "states" = {
             "good" = 95;
@@ -87,111 +73,107 @@
             "critical" = 15;
           };
           "format" = "{icon}";
-          "format-charging" = "";
-          "format-plugged" = "";
+          "format-charging" = "ﮣ";
+          "format-plugged" = "ﮣ";
           "format-icons" = [ "" "" "" "" "" "" "" "" "" "" ];
           "tooltip-format" = "{capacity}% remaining";
         };
+
         "pulseaudio" = {
-          "format" = "{icon}  {format_source}";
+          "format" = "{icon} {format_source}";
           "format-muted" = "  {format_source}";
-          "format-bluetooth" = "{icon}    {format_source}";
-          "format-bluetooth-muted" = "  {icon}    {format_source}";
+          "format-bluetooth" = "{icon}  {format_source}";
+          "format-bluetooth-muted" = "  {icon}  {format_source}";
           "format-source" = "";
           "format-source-muted" = "";
-          "format-icons" = { "default" = [ "" "" "" ]; };
+          "format-icons" = { "default" = [ " " " " " " ]; };
           "tooltip-format" = "{desc}: {volume}%";
           "on-click" = "pavucontrol";
         };
-        "clock" = { "format" = "{:%m/%d/%g %I:%M %p}"; };
+
+        "clock" = {
+          "format" = "{:%d %b %I:%M}";
+          "tooltip-format" = ''
+            <span size='large'>{:%Y %B}</span>
+
+            {calendar}'';
+          "today-format" = "<span weight='bold' color='#10b981'>{}</span>";
+          "format-calendar" = "<span weight='bold' color='#ecc6d9'>{}</span>";
+          "on-scroll" = { "calendar" = 1; };
+        };
       };
     };
 
     style = ''
+      @define-color waybar rgb(31, 41, 55);
+      @define-color text rgb(229, 231, 235);
+      @define-color module rgba(55, 65, 81, 0.7);
+      @define-color focused-workspace rgb(52, 211, 153);
+      @define-color hover rgba(75, 85, 99, 0.6);
+      @define-color critical rgb(248, 113, 113);
+      @define-color charging rgb(74, 222, 128);
+
       * {
          font-family: 'JetBrainsMono Nerd Font';
       }
 
       #waybar {
-         background: @theme_base_color;
-         color: @theme_text_color;
-         transition-property: background-color;
-         transition-duration: .5s;
+         background: @waybar;
+         border-radius: 10px;
+      }
+
+      .modules-left,
+      .modules-right {
+         border-radius: 10px;
+         background: @module;
       }
 
       #workspaces button {
          padding: 0 5px;
-         background-color: transparent;
-         color: @theme_text_color;
-         box-shadow: inset 0 -3px transparent;
-         border: none;
-         border-radius: 0;
       }
 
       #workspaces button:hover {
-         background: rgba(0, 0, 0, 0.2);
-         box-shadow: inset 0 -3px @theme_text_color;
+         background: @hover;
       }
 
       #workspaces button.focused {
-         background-color: #64727D;
-         box-shadow: inset 0 -3px @theme_text_color;
+         color: @focused-workspace;
       }
 
-      #workspaces button.urgent {
-         background-color: #eb4d4b;
+      #workspaces button.urgent,
+      #network.disconnected {
+         color: @critical;
+      }
+
+      #workspaces button,
+      #clock,
+      #battery,
+      #network,
+      #pulseaudio {
+         background: transparent;
+         border-radius: 10px;
+         color: @text;
       }
 
       #clock,
       #battery,
-      #cpu,
-      #memory,
-      #disk,
       #network,
       #pulseaudio {
          padding: 0 10px;
-         color: @theme_text_color;
       }
 
-      #workspaces {
-         margin: 0 4px;
+      #battery.charging {
+         color: @charging;
       }
 
-      .modules-left > widget:first-child > #workspaces {
-         margin-left: 0;
-      }
-
-      .modules-right > widget:last-child > #workspaces {
-         margin-right: 0;
-      }
-
-      #battery.charging, #battery.plugged {
-         background-color: #26A65B;
-      }
-
-      @keyframes blink {
+      @keyframes battery-critical {
          to {
-            background-color: @theme_text_color;
-            color: #000000;
+            color: @critical;
          }
       }
 
       #battery.critical:not(.charging) {
-         background-color: #f53c3c;
-         color: @theme_text_color;
-         animation-name: blink;
-         animation-duration: 0.5s;
-         animation-timing-function: linear;
-         animation-iteration-count: infinite;
-         animation-direction: alternate;
-      }
-
-      label:focus {
-         background-color: #000000;
-      }
-
-      #network.disconnected {
-         background-color: #f53c3c;
+         animation: battery-critical 1.5s linear 0s infinite alternate;
       }
     '';
   };
