@@ -1,4 +1,11 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  bg = "1F2937";
+  green = "10B981";
+  greenBorder = "34D399";
+  critical = "F87171";
+  text = "E5E7EB";
+in {
   imports = [ ./wallpaper.nix ./swayDisplayReloadFix.nix ];
 
   services.dunst = {
@@ -6,8 +13,9 @@
     settings = {
       global = {
         monitor = 0;
-        foreground = "#AAAAAADD";
-        highlight = "#AAAAAADD";
+        background = "#${bg}";
+        foreground = "#${text}";
+        separator_color = "foreground";
         timeout = 5;
 
         frame_width = 0;
@@ -26,9 +34,7 @@
       };
 
       urgency_critical = {
-        background = "#900000";
-        foreground = "#ffffff";
-        frame_color = "#ff0000";
+        foreground = "#${critical}";
         timeout = 0;
       };
     };
@@ -97,7 +103,7 @@
             <span size='large'>{:%Y %B}</span>
 
             {calendar}'';
-          "today-format" = "<span weight='bold' color='#10b981'>{}</span>";
+          "today-format" = "<span weight='bold' color='#${green}'>{}</span>";
           "format-calendar" = "<span weight='bold' color='#ecc6d9'>{}</span>";
           "on-scroll" = { "calendar" = 1; };
         };
@@ -105,20 +111,15 @@
     };
 
     style = ''
-      @define-color waybar rgb(31, 41, 55);
-      @define-color text rgb(229, 231, 235);
       @define-color module rgba(55, 65, 81, 0.7);
-      @define-color focused-workspace rgb(52, 211, 153);
       @define-color hover rgba(75, 85, 99, 0.6);
-      @define-color critical rgb(248, 113, 113);
-      @define-color charging rgb(74, 222, 128);
 
       * {
          font-family: 'JetBrainsMono Nerd Font';
       }
 
       #waybar {
-         background: @waybar;
+         background: #${bg};
          border-radius: 10px;
       }
 
@@ -137,12 +138,12 @@
       }
 
       #workspaces button.focused {
-         color: @focused-workspace;
+         color: #${green};
       }
 
       #workspaces button.urgent,
       #network.disconnected {
-         color: @critical;
+         color: #${critical};
       }
 
       #workspaces button,
@@ -152,7 +153,7 @@
       #pulseaudio {
          background: transparent;
          border-radius: 10px;
-         color: @text;
+         color: #${text};
       }
 
       #clock,
@@ -163,12 +164,12 @@
       }
 
       #battery.charging {
-         color: @charging;
+         color: #${green};
       }
 
       @keyframes battery-critical {
          to {
-            color: @critical;
+            color: #${critical};
          }
       }
 
@@ -403,14 +404,14 @@
       };
       wob = {
         text = ''
-          bar_color = 16a34aFF
-          background_color = 3F3F30FF
-          border_color = 86efacFF
+          bar_color = ${green}
+          background_color = ${bg}
+          border_color = ${greenBorder}
           height = 20
           border_size = 1
           bar_padding = 0
           margin = 10
-          anchor  top right
+          anchor = top right
         '';
       };
     };
