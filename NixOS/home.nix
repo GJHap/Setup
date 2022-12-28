@@ -286,7 +286,7 @@
             rm -f ${wob_sock} && \
             mkfifo ${wob_sock} && \
             tail -f ${wob_sock} | \
-            wob -a "top" -a "right" --bar-color "#16a34aFF" --background-color "#3F3F30FF" -H 20 -b 1 --border-color "#86efacFF" -p 0 -M 10
+            wob -c ~/.config/wob
           '';
           always = true;
         }
@@ -400,6 +400,18 @@
       nvim = {
         source =
           config.lib.file.mkOutOfStoreSymlink /home/ghapgood/dev/Config/nvim;
+      };
+      wob = {
+        text = ''
+          bar_color = 16a34aFF
+          background_color = 3F3F30FF
+          border_color = 86efacFF
+          height = 20
+          border_size = 1
+          bar_padding = 0
+          margin = 10
+          anchor  top right
+        '';
       };
     };
   };
