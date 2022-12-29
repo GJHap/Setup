@@ -268,8 +268,7 @@ in {
         }
         {
           command = ''
-            exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK && \
-            dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+            systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
           '';
           always = true;
         }
