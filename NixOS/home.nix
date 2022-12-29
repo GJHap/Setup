@@ -287,7 +287,7 @@ in {
             rm -f ${wob_sock} && \
             mkfifo ${wob_sock} && \
             tail -f ${wob_sock} | \
-            wob -c ~/.config/wob
+            wob
           '';
           always = true;
         }
@@ -413,6 +413,7 @@ in {
           margin = 10
           anchor = top right
         '';
+        target = "wob/wob.ini";
       };
     };
   };
