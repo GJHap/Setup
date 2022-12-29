@@ -5,6 +5,7 @@ let
     bindswitch --reload --locked lid:on output eDP-1 disable
     bindswitch --reload --locked lid:off output eDP-1 enable
     exec_always ${config.swayDisplayReloadFix}
+    exec_always systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
     exec swayidle -w \
       timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
@@ -16,7 +17,7 @@ let
   '';
 
   style = pkgs.writeText "greetd-style" ''
-       window {
+    window {
        background-size: cover;
        background-position: center;
        background-image: url("file://${config.wallpaper}")
