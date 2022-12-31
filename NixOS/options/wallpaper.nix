@@ -3,7 +3,6 @@
 let
   wallpaper =
     "${pkgs.nixos-artwork.wallpapers.nineish-dark-gray}/share/backgrounds/nixos/nix-wallpaper-nineish-dark-gray.png";
-
 in {
   options = {
     wallpaper = lib.mkOption {
@@ -13,4 +12,3 @@ in {
     };
   };
 }
-

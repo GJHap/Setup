@@ -1,9 +1,9 @@
 { config, pkgs, ... }: {
   imports = [
     ./greetd.nix
-    ./swayAudioIdleInhibit.nix
-    ./wallpaper.nix
-    ./swayDisplayReloadFix.nix
+    ../options/swayAudioIdleInhibit.nix
+    ../options/wallpaper.nix
+    ../options/swayDisplayReloadFix.nix
     ./hardware-configuration.nix
   ];
 

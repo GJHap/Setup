@@ -1,7 +1,6 @@
 { pkgs, lib, ... }:
 
 with pkgs;
-
 let
   swayAudioIdleInhibit = stdenv.mkDerivation {
     version = "0.1.1";
