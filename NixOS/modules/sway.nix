@@ -104,9 +104,8 @@ in {
         {
           command = ''
             swayidle -w \
-            timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-            timeout 1200 'swaylock -f -c 000000' \
-            timeout 1800 'loginctl terminate-user $USER' \
+            timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+            timeout 360 'swaylock -f -c 000000' \
             before-sleep 'swaylock -f -c 000000'
           '';
         }
