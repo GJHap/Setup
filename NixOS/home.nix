@@ -1,10 +1,11 @@
 { pkgs, lib, config, ... }:
 let
-  bg = "1F2937";
-  green = "10B981";
-  greenBorder = "34D399";
-  critical = "F87171";
-  text = "E5E7EB";
+  background = "282A36";
+  foreground = "F8F8F2";
+  green = "50FA7B";
+  critical = "FF5555";
+  sway-module = "374151";
+  sway-hover = "4B5563";
 in {
   imports = [ ./wallpaper.nix ./swayDisplayReloadFix.nix ];
 
@@ -13,8 +14,8 @@ in {
     settings = {
       global = {
         monitor = 0;
-        background = "#${bg}";
-        foreground = "#${text}";
+        background = "#${background}";
+        foreground = "#${foreground}";
         separator_color = "foreground";
         timeout = 5;
 
@@ -111,22 +112,19 @@ in {
     };
 
     style = ''
-      @define-color module rgba(55, 65, 81, 0.7);
-      @define-color hover rgba(75, 85, 99, 0.6);
-
       * {
          font-family: 'JetBrainsMono Nerd Font';
       }
 
       #waybar {
-         background: #${bg};
+         background: #${background};
          border-radius: 10px;
       }
 
       .modules-left,
       .modules-right {
          border-radius: 10px;
-         background: @module;
+         background: alpha(#${sway-module}, 0.7);
       }
 
       #workspaces button {
@@ -134,7 +132,7 @@ in {
       }
 
       #workspaces button:hover {
-         background: @hover;
+         background: alpha(#${sway-hover}, 0.6);
       }
 
       #workspaces button.focused {
@@ -153,7 +151,7 @@ in {
       #pulseaudio {
          background: transparent;
          border-radius: 10px;
-         color: #${text};
+         color: #${foreground};
       }
 
       #clock,
@@ -404,8 +402,8 @@ in {
       wob = {
         text = ''
           bar_color = ${green}
-          background_color = ${bg}
-          border_color = ${greenBorder}
+          background_color = ${background}
+          border_color = ${green}
           height = 20
           border_size = 1
           bar_padding = 0
