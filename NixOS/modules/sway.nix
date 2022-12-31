@@ -60,10 +60,20 @@ in {
       seat = { seat0 = { xcursor_theme = "capitaine-cursors 25"; }; };
       window = {
         border = 1;
+        hideEdgeBorders = "smart";
         commands = [{
           command = "move window to workspace 4";
           criteria = { title = "^Spotify"; };
         }];
+      };
+      colors = {
+        focused = {
+          background = "#285577";
+          border = "#4c7899";
+          childBorder = "#${config.colors.purple}";
+          indicator = "#2e9ef4";
+          text = "#ffffff";
+        };
       };
       bars = [{ command = "waybar"; }];
       startup = [

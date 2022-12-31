@@ -100,7 +100,7 @@
 
       #workspaces button.urgent,
       #network.disconnected {
-         color: #${config.colors.critical};
+         color: #${config.colors.red};
       }
 
       #workspaces button,
@@ -126,7 +126,7 @@
 
       @keyframes battery-critical {
          to {
-            color: #${config.colors.critical};
+            color: #${config.colors.red};
          }
       }
 

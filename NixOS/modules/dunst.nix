@@ -25,7 +25,7 @@
       };
 
       urgency_critical = {
-        foreground = "#${config.colors.critical}";
+        foreground = "#${config.colors.red}";
         timeout = 0;
       };
     };
