@@ -68,9 +68,12 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    avahi = {
+      enable = true;
+      nssmdns = true;
+    };
     tlp.enable = true;
     printing.enable = true;
-    avahi.enable = true;
     xserver.libinput.enable = true;
     power-profiles-daemon.enable = false;
     dbus.enable = true;
