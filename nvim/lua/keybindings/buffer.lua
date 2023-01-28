@@ -9,15 +9,15 @@ prequire('hydra', function(Hydra)
          hint = false,
       },
       heads = {
-         { 'l', ':bn <CR>' },
-         { 'h', ':bp <CR>' },
+         { 'l', ':bn <CR>', { desc = 'Next Buffer ' } },
+         { 'h', ':bp <CR>', { desc = 'Previous Buffer' } },
       },
    })
 end)
 
 local nnoremap = util.nnoremap
-nnoremap('<Leader>bc', ':vsplit <CR>')
-nnoremap('<Leader>br', ':split <CR>')
+nnoremap('<Leader>bc', ':vsplit <CR>', { desc = 'Split Column' })
+nnoremap('<Leader>br', ':split <CR>', { desc = 'Split Row' })
 
 local delete_buffer = function(bufnr)
    vim.api.nvim_buf_delete(bufnr, {})
@@ -27,7 +27,7 @@ prequire('bufdelete', function(bufdelete)
 end)
 nnoremap('<Leader>bq', function()
    delete_buffer(vim.api.nvim_get_current_buf())
-end)
+end, { desc = 'Close Buffer' })
 
 local function close_buffers(close_current)
    local open_bufs = vim.api.nvim_list_bufs()
@@ -45,7 +45,7 @@ local function close_buffers(close_current)
 end
 nnoremap('<Leader>bo', function()
    close_buffers(false)
-end)
+end, { desc = 'Close Other Buffers' })
 nnoremap('<Leader>ba', function()
    close_buffers(true)
-end)
+end, { desc = 'Close All Buffers' })

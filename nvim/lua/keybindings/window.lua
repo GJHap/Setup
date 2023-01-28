@@ -8,11 +8,11 @@ prequire('hydra', function(Hydra)
          hint = false,
       },
       heads = {
-         { '<', '<C-w>5<' },
-         { '>', '<C-w>5>' },
-         { '+', '<C-w>5+' },
-         { '-', '<C-w>5-' },
-         { '=', '<C-w>=' },
+         { '<', '<C-w>5<', { desc = 'Shrink Window Width' } },
+         { '>', '<C-w>5>', { desc = 'Grow Window Width' } },
+         { '+', '<C-w>5+', { desc = 'Grow Window Height' } },
+         { '-', '<C-w>5-', { desc = 'Shrink Window Height' } },
+         { '=', '<C-w>=', { desc = 'Equalize Window Dimensions' } },
       },
    })
 end)

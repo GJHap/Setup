@@ -25,11 +25,11 @@ prequire('luasnip', function(luasnip)
       if luasnip.expandable() then
          luasnip.expand()
       end
-   end)
+   end, { desc = 'Expand Snippet' })
 
    inoremap('<C-c>', function()
       if luasnip.choice_active() then
          luasnip.change_choice(1)
       end
-   end)
+   end, { desc = 'Choose Snippet Option' })
 end)

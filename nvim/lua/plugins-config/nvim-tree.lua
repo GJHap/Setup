@@ -17,5 +17,5 @@ prequire('nvim-tree', function(nvim_tree)
    })
 
    local nnoremap = require('util').nnoremap
-   nnoremap('<Leader>tt', nvim_tree.toggle)
+   nnoremap('<Leader>tt', nvim_tree.toggle, { desc = 'Toggle File Tree' })
 end)

@@ -1,6 +1,5 @@
 local util = require('util')
 local prequire = util.prequire
-local nnoremap = util.nnoremap
 
 prequire('telescope', function(telescope)
    local mappings = {}
@@ -159,19 +158,29 @@ prequire('telescope', function(telescope)
    })
 
    prequire('telescope.builtin', function(builtin)
-      nnoremap('<Leader>ff', builtin.find_files)
-      nnoremap('<Leader>fb', builtin.buffers)
-      nnoremap('<Leader>fg', builtin.live_grep)
-      nnoremap('<Leader>lr', builtin.lsp_references)
-      nnoremap('<Leader>lp', builtin.diagnostics)
-      nnoremap('<Leader>li', builtin.lsp_implementations)
-
-      nnoremap('<Leader>ldd', builtin.lsp_definitions)
+      local nnoremap = util.nnoremap
+      nnoremap('<Leader>ff', builtin.find_files, { desc = 'Find Files' })
+      nnoremap('<Leader>fb', builtin.buffers, { desc = 'Find Buffers' })
+      nnoremap('<Leader>fg', builtin.live_grep, { desc = 'Find Text' })
+      nnoremap('<Leader>fk', function()
+         builtin.keymaps({
+            layout_config = {
+               height = 0.40,
+               width = 0.99,
+               prompt_position = 'top',
+               anchor = 'N',
+            },
+         })
+      end, { desc = 'Find Keymaps' })
+      nnoremap('<Leader>lr', builtin.lsp_references, { desc = 'Find References' })
+      nnoremap('<Leader>lp', builtin.diagnostics, { desc = 'Find Diagnostic Errors' })
+      nnoremap('<Leader>li', builtin.lsp_implementations, { desc = 'Find Implementations' })
+      nnoremap('<Leader>ldd', builtin.lsp_definitions, { desc = 'Find Definitions' })
       nnoremap('<Leader>ldr', function()
          builtin.lsp_definitions({ jump_type = 'split' })
-      end)
+      end, { desc = 'Find Definitions (Split Row)' })
       nnoremap('<Leader>ldc', function()
          builtin.lsp_definitions({ jump_type = 'vsplit' })
-      end)
+      end, { desc = 'Find Definitions (Open Column)' })
    end)
 end)
