@@ -1,5 +1,0 @@
-require('plugins-config/dap/dap-node')
-require('plugins-config/dap/dap-python')
-require('plugins-config/dap/dap-virtual-text')
-require('plugins-config/dap/dap')
-require('plugins-config/dap/dapui')

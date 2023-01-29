@@ -1,5 +1,3 @@
-require('colorscheme')
 require('opt')
 require('keybindings')
-require('plugins')
-require('plugins-config')
+require('plugin-manager')

@@ -21,18 +21,9 @@ local function tnoremap(lhs, rhs, opts)
    set_keymap('t', lhs, rhs, opts)
 end
 
-local function prequire(plugin, on_success)
-   local success, _plugin = pcall(require, plugin)
-
-   if success then
-      on_success(_plugin)
-   end
-end
-
 return {
    nnoremap = nnoremap,
    vnoremap = vnoremap,
    inoremap = inoremap,
    tnoremap = tnoremap,
-   prequire = prequire,
 }
