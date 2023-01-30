@@ -1,3 +1,5 @@
+local navigation_keys = require('nvim-integration')
+
 local wezterm = require('wezterm')
 local action = wezterm.action
 
@@ -5,21 +7,20 @@ return {
    font = wezterm.font('JetBrainsMono Nerd Font'),
    hide_tab_bar_if_only_one_tab = true,
    color_scheme = 'tokyonight',
-   leader = { key = ',', mods = 'CTRL' },
    keys = {
-      { key = 'c', mods = 'LEADER', action = action.SplitHorizontal({ domain = 'CurrentPaneDomain' }) },
-      { key = 'r', mods = 'LEADER', action = action.SplitVertical({ domain = 'CurrentPaneDomain' }) },
+      { key = 'c', mods = 'ALT', action = action.SplitHorizontal({ domain = 'CurrentPaneDomain' }) },
+      { key = 'r', mods = 'ALT', action = action.SplitVertical({ domain = 'CurrentPaneDomain' }) },
       {
          key = 's',
-         mods = 'LEADER',
+         mods = 'ALT',
          action = action.ActivateKeyTable({ name = 'resize', one_shot = false, replace_current = true }),
       },
-      { key = 'h', mods = 'LEADER', action = action.ActivatePaneDirection('Left') },
-      { key = 'l', mods = 'LEADER', action = action.ActivatePaneDirection('Right') },
-      { key = 'k', mods = 'LEADER', action = action.ActivatePaneDirection('Up') },
-      { key = 'j', mods = 'LEADER', action = action.ActivatePaneDirection('Down') },
-      { key = 'f', mods = 'LEADER', action = action.TogglePaneZoomState },
-      { key = 'q', mods = 'LEADER', action = action.CloseCurrentPane({ confirm = false }) },
+      navigation_keys.left,
+      navigation_keys.down,
+      navigation_keys.up,
+      navigation_keys.right,
+      { key = 'f', mods = 'ALT', action = action.TogglePaneZoomState },
+      { key = 'q', mods = 'ALT', action = action.CloseCurrentPane({ confirm = false }) },
    },
    key_tables = {
       resize = {
