@@ -1,7 +1,5 @@
 local util = require('util')
 local nnoremap = util.nnoremap
-local vnoremap = util.vnoremap
-local inoremap = util.inoremap
 
 local function buffer()
    nnoremap('<Leader>bc', ':vsplit <CR>', { desc = 'Split Column' })
@@ -22,15 +20,6 @@ local function git()
    nnoremap('<Leader>gc', ':Git commit <CR>', { desc = 'Git Commit' })
 end
 
-local function move_line()
-   inoremap('<A-j>', '<Esc>:m .+1<CR>==gi', { desc = 'Move Line Down' })
-   nnoremap('<A-j>', ':m .+1<CR>==', { desc = 'Move Line Down' })
-   vnoremap('<A-j>', ":m '>+1<CR>gv=gv", { desc = 'Move Line Down' })
-   inoremap('<A-k>', '<Esc>:m .-2<CR>==gi', { desc = 'Move Line Up' })
-   nnoremap('<A-k>', ':m .-2<CR>==', { desc = 'Move Line Up' })
-   vnoremap('<A-k>', ":m '<-2<CR>gv=gv", { desc = 'Move Line Up' })
-end
-
 local function session()
    local fpath = vim.fn.getcwd() .. '/.session.vim'
    nnoremap('<Leader>sm', ':mksession! ' .. fpath .. '<CR>', { desc = 'Make Session' })
@@ -38,8 +27,6 @@ local function session()
 end
 
 local function tab()
-   nnoremap('<Leader>tl', ':tabnext <CR>', { desc = 'Next Tab' })
-   nnoremap('<Leader>th', ':tabprevious <CR>', { desc = 'Previous Tab' })
    nnoremap('<Leader>ta', ':tabnew <CR>', { desc = 'Add Tab' })
    nnoremap('<Leader>tq', ':tabclose <CR>', { desc = 'Close Tab' })
 end
@@ -47,6 +34,5 @@ end
 buffer()
 general()
 git()
-move_line()
 session()
 tab()
