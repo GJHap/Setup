@@ -3,8 +3,6 @@ return {
    lazy = true,
    event = 'BufReadPre',
    config = function()
-      local on_attach = require('plugins.config.lsp.on_attach')
-
       local null_ls = require('null-ls')
       null_ls.setup({
          sources = {
@@ -12,7 +10,7 @@ return {
             null_ls.builtins.formatting.stylua,
             null_ls.builtins.formatting.nixfmt,
          },
-         on_attach = on_attach,
+         on_attach = require('plugins.config.lsp.on_attach'),
       })
    end,
 }

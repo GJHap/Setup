@@ -17,13 +17,5 @@ return {
          require('Navigator').right()
       end)
    end,
-   config = function()
-      local ok, wezterm = pcall(function()
-         return require('Navigator.mux.wezterm'):new()
-      end)
-
-      require('Navigator').setup({
-         mux = ok and wezterm or 'auto',
-      })
-   end,
+   config = true,
 }

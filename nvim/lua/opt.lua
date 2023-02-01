@@ -13,6 +13,7 @@ vim.opt.foldcolumn = '1'
 vim.opt.foldtext = 'getline(v:foldstart)'
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.cursorline = true
 vim.g.mapleader = ','
 vim.o.guifont = 'JetBrainsMono Nerd Font'
 vim.o.laststatus = 3

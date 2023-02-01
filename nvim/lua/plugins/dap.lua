@@ -80,4 +80,13 @@ return {
       require('dap-python')
       require('nvim-dap-virtual-text')
    end,
+   dependencies = {
+      'mfussenegger/nvim-dap-python',
+      {
+         'theHamsta/nvim-dap-virtual-text',
+         dependencies = {
+            require('plugins.treesitter'),
+         },
+      },
+   },
 }
