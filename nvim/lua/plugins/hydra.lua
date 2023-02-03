@@ -4,14 +4,26 @@ return {
       local Hydra = require('hydra')
 
       Hydra({
+         name = 'Tab',
+         body = '<Leader>t',
+         config = {
+            hint = false,
+         },
+         heads = {
+            { 'l', '<cmd>tabnext <CR>', { desc = 'Next Tab', silent = true } },
+            { 'h', '<cmd>tabprevious <CR>', { desc = 'Previous Tab', silent = true } },
+         },
+      })
+
+      Hydra({
          name = 'BUFFER',
          body = '<Leader>b',
          config = {
             hint = false,
          },
          heads = {
-            { 'l', ':bn <CR>', { desc = 'Next Buffer ' } },
-            { 'h', ':bp <CR>', { desc = 'Previous Buffer' } },
+            { 'l', '<cmd>bn <CR>', { desc = 'Next Buffer' } },
+            { 'h', '<cmd>bp <CR>', { desc = 'Previous Buffer' } },
          },
       })
 
