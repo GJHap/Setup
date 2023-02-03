@@ -2,7 +2,8 @@ local wezterm = require('wezterm')
 local action = wezterm.action
 
 local function isViProcess(pane)
-   return pane:get_foreground_process_name():find('n?vim') ~= nil
+   local foreground_process_name = pane:get_foreground_process_name()
+   return foreground_process_name and foreground_process_name:find('n?vim') ~= nil
 end
 
 local function conditionalActivatePane(window, pane, pane_direction, vim_direction)
