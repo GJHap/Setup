@@ -4,7 +4,7 @@ return {
       local Hydra = require('hydra')
 
       Hydra({
-         name = 'Tab',
+         name = 'TAB',
          body = '<Leader>t',
          config = {
             hint = false,
