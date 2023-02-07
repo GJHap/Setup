@@ -1,33 +1,41 @@
-add_newline = false
-
 format = """
 $directory\
-[](fg:#61AFEF bg:#C8A2C8)\
+[](fg:blue0 bg:orange)\
 $git_branch\
 $git_commit\
 $git_status\
-[](fg:#C8A2C8) \
+[](fg:orange) \
 """
 
+add_newline = false
+
+palette = 'tokyonight'
+[palettes.tokyonight]
+bg_dark = "#1f2335"
+blue0 = "#3d59a1"
+fg = "#c0caf5"
+fg_gutter = "#3b4261"
+orange = "#ff9e64"
+
 [directory]
-style = "bg:#61AFEF fg:#f5f5dc"
-read_only_style = "bg:#61AFEF fg:#f5f5dc"
+style = "bg:blue0 fg:fg"
+read_only_style = "bg:blue0 fg:fg"
 format = """
-[](fg:#1f2335 bg:#61AFEF)[ $path ]($style)\
+[](fg:bg_dark bg:blue0)[ $path ]($style)\
 [$read_only]($read_only_style)\
 """
 
 [git_branch]
 always_show_remote = true
 format = "[ $symbol$branch(:$remote_branch) ]($style)"
-style = "bg:#C8A2C8 fg:#193549"
+style = "bg:orange fg:fg_gutter"
 
 [git_commit]
-style = "bg:#C8A2C8 fg:#193549"
+style = "bg:orange fg:fg_gutter"
 format = "[ \\($hash$tag\\) ]($style)"
 
 [git_status]
-style = "bg:#C8A2C8 fg:#193549"
+style = "bg:orange fg:fg_gutter"
 ahead = " ↑"
 behind = " ↓"
 deleted = ""
