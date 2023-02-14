@@ -21,6 +21,9 @@ return {
    end,
    config = function()
       require('neotest').setup({
+         quickfix = {
+            enabled = false,
+         },
          adapters = {
             require('neotest-jest'),
          },
