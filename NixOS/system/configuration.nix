@@ -93,11 +93,12 @@
   };
 
   programs = {
+    dconf.enable = true;
+    fish.enable = true;
     sway = {
       enable = true;
       wrapperFeatures.gtk = true;
     };
-    dconf.enable = true;
   };
 
   fonts.fonts = with pkgs;
@@ -116,7 +117,6 @@
       dunst
       fd
       firefox
-      fish
       fzf
       gcc
       git
