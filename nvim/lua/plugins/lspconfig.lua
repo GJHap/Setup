@@ -25,7 +25,7 @@ return {
                on_attach = on_attach,
             })
          end,
-         ['sumneko_lua'] = function(server_name)
+         ['lua_ls'] = function(server_name)
             lspconfig[server_name].setup({
                capabilities = capabilities,
                on_attach = on_attach,
