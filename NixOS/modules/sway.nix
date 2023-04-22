@@ -120,6 +120,7 @@ in {
           '';
         }
         { command = "sway-audio-idle-inhibit"; }
+        { command = "gammastep -l geoclue2 -t 6500k:3250k -m wayland"; }
       ];
       keybindings = {
         "${modifier}+1" = "exec ${terminal}";

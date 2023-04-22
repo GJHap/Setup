@@ -77,6 +77,7 @@
     xserver.libinput.enable = true;
     power-profiles-daemon.enable = false;
     dbus.enable = true;
+    geoclue2.enable = true;
   };
 
   security.rtkit.enable = true;
@@ -118,6 +119,7 @@
       fd
       firefox
       fzf
+      gammastep
       gcc
       git
       gh
