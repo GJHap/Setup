@@ -18,6 +18,15 @@ return {
             active = {
                {
                   {
+                     provider = 'macro',
+                     icon = '',
+                     left_sep = 'slant_left',
+                     right_sep = 'slant_right_2',
+                     hl = {
+                        bg = 'blue0',
+                     },
+                  },
+                  {
                      provider = 'vi_mode',
                      icon = '',
                      left_sep = 'slant_left',
@@ -69,6 +78,15 @@ return {
                   },
                },
                {
+                  {
+                     provider = 'search_count',
+                     icon = '',
+                     left_sep = 'slant_left',
+                     right_sep = 'slant_right_2',
+                     hl = {
+                        bg = 'blue0',
+                     },
+                  },
                   {
                      provider = 'file_info',
                      left_sep = 'slant_left',
