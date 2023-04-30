@@ -9,6 +9,6 @@ return {
       nnoremap('<Leader>gl', ':Git log <CR>', { desc = 'Git Log' })
       nnoremap('<Leader>gh', ':Git pull <CR>', { desc = 'Git Pull' })
       nnoremap('<Leader>gl', ':Git push <CR>', { desc = 'Git Push' })
-      nnoremap('<Leader>gc', ':Git commit <CR>', { desc = 'Git Commit' })
+      nnoremap('<Leader>gc', ':Git commit --no-verify <CR>', { desc = 'Git Commit' })
    end,
 }
