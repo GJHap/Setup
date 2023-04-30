@@ -1,6 +1,9 @@
 return {
    'folke/noice.nvim',
    config = true,
+   init = function()
+      vim.o.cmdheight = 0
+   end,
    opts = {
       lsp = {
          signature = {
