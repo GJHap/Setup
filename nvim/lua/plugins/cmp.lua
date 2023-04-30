@@ -52,27 +52,10 @@ return {
             { name = 'buffer' },
          }),
       })
-
-      cmp.setup.cmdline('/', {
-         mapping = cmp.mapping.preset.cmdline(),
-         sources = cmp.config.sources({
-            { name = 'buffer' },
-         }),
-      })
-
-      cmp.setup.cmdline(':', {
-         mapping = cmp.mapping.preset.cmdline(),
-         sources = cmp.config.sources({
-            { name = 'path' },
-            { name = 'cmdline' },
-         }),
-      })
    end,
    dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline',
       'onsails/lspkind.nvim',
       require('plugins.luasnip'),
    },
