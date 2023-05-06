@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  wob_sock = "$XDG_RUNTIME_DIR/wob_volume.sock";
+  wob_sock = "$XDG_RUNTIME_DIR/wob.sock";
   wlogoutLayout = pkgs.writeText "wlogout-config" ''
     {
        "label" : "lock",
@@ -172,8 +172,10 @@ in {
         "XF86AudioPrev" = "exec playerctl --all-players previous";
         "XF86AudioMicMute" = "exec pamixer --default-source -t";
 
-        "XF86MonBrightnessUp" = "exec brillo -q -A 5";
-        "XF86MonBrightnessDown" = "exec brillo -q -U 5";
+        "XF86MonBrightnessUp" = ''
+          exec brillo -q -A 5 && brillo -q | xargs python -c "import sys; print(round(float(sys.argv[1])))" > ${wob_sock}'';
+        "XF86MonBrightnessDown" = ''
+          exec brillo -q -U 5 && brillo -q | xargs python -c "import sys; print(round(float(sys.argv[1])))" > ${wob_sock}'';
 
         "Print" = "exec grim";
         "${modifier}+Print" = ''exec grim -g "$(slurp)" - | swappy -f -'';
