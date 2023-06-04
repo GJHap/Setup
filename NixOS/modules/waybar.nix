@@ -11,10 +11,10 @@
         "sway/workspaces" = {
           format = "{icon}";
           format-icons = {
-            "1" = "";
-            "2" = "爵";
-            "3" = "";
-            "4" = "";
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "4" = "󰽴";
           };
           persistent_workspaces = {
             "1" = [ ];
@@ -26,9 +26,9 @@
 
         "network" = {
           "format-wifi" = "";
-          "format-ethernet" = "";
+          "format-ethernet" = "󰈁";
           "tooltip-format" = "{essid}";
-          "format-disconnected" = "⚠";
+          "format-disconnected" = "";
         };
 
         "battery" = {
@@ -38,20 +38,20 @@
             "critical" = 15;
           };
           "format" = "{icon}";
-          "format-charging" = "ﮣ";
-          "format-plugged" = "ﮣ";
-          "format-icons" = [ "" "" "" "" "" "" "" "" "" "" ];
+          "format-charging" = "";
+          "format-plugged" = "";
+          "format-icons" = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
           "tooltip-format" = "{capacity}% remaining";
         };
 
         "pulseaudio" = {
           "format" = "{icon} {format_source}";
-          "format-muted" = "  {format_source}";
-          "format-bluetooth" = "{icon}  {format_source}";
-          "format-bluetooth-muted" = "  {icon}  {format_source}";
-          "format-source" = "";
-          "format-source-muted" = "";
-          "format-icons" = { "default" = [ " " " " " " ]; };
+          "format-muted" = "󰖁 {format_source}";
+          "format-bluetooth" = "{icon} 󰂱 {format_source}";
+          "format-bluetooth-muted" = "{icon} 󰂲 {format_source}";
+          "format-source" = "󰍬";
+          "format-source-muted" = "󰍭";
+          "format-icons" = { "default" = [ "󰕿" "󰖀" "󰕾" ]; };
           "tooltip-format" = "{desc}: {volume}%";
           "on-click" = "pavucontrol";
         };
