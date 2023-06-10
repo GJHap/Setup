@@ -52,6 +52,13 @@ return {
             { name = 'buffer' },
          }),
       })
+
+      cmp.setup.cmdline('/', {
+         mapping = cmp.mapping.preset.cmdline(),
+         sources = cmp.config.sources({
+            { name = 'buffer' },
+         }),
+      })
    end,
    dependencies = {
       'hrsh7th/cmp-nvim-lsp',
