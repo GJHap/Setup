@@ -54,7 +54,7 @@ in {
       focus = { followMouse = "no"; };
       assigns = {
         "1" = [{ app_id = "org.wezfurlong.wezterm"; }];
-        "2" = [{ app_id = "firefox"; }];
+        "2" = [ { app_id = "firefox"; } { app_id = "chromium-browser"; } ];
         "3" = [{ app_id = "thunderbird"; }];
       };
       seat = { seat0 = { xcursor_theme = "capitaine-cursors 25"; }; };
