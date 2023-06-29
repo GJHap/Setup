@@ -140,6 +140,8 @@ return {
                   ['<Leader>sr'] = actions.select_horizontal,
                   ['<C-d>'] = actions.results_scrolling_down,
                   ['<C-u>'] = actions.results_scrolling_up,
+                  ['<C-f>'] = actions.preview_scrolling_down,
+                  ['<C-b>'] = actions.preview_scrolling_up,
                   ['<CR>'] = select_items,
                   ['<Tab>'] = actions.toggle_selection + actions.move_selection_better,
                   ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_worse,
@@ -147,6 +149,8 @@ return {
                i = {
                   ['<C-d>'] = actions.results_scrolling_down,
                   ['<C-u>'] = actions.results_scrolling_up,
+                  ['<C-f>'] = actions.preview_scrolling_down,
+                  ['<C-b>'] = actions.preview_scrolling_up,
                   ['<CR>'] = select_items,
                   ['<Tab>'] = actions.toggle_selection + actions.move_selection_better,
                   ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_worse,
