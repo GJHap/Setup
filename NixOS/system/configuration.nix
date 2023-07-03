@@ -100,6 +100,12 @@
       enable = true;
       wrapperFeatures.gtk = true;
     };
+    gnupg = {
+      agent = {
+        enable = true;
+        pinentryFlavor = "qt";
+      };
+    };
   };
 
   fonts.fonts = with pkgs;
