@@ -10,7 +10,6 @@ return {
          },
          rainbow = {
             enable = true,
-            extended_mode = true,
          },
          autotag = {
             enable = true,
@@ -41,7 +40,7 @@ return {
       })
    end,
    dependencies = {
-      'p00f/nvim-ts-rainbow',
+      'HiPhish/nvim-ts-rainbow2',
       'windwp/nvim-autopairs',
       'windwp/nvim-ts-autotag',
       'nvim-treesitter/nvim-treesitter-context',
