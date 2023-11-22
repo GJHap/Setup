@@ -30,7 +30,7 @@ return {
       })
    end,
    dependencies = {
-      'haydenmeade/neotest-jest',
+      'nvim-neotest/neotest-jest',
       'nvim-lua/plenary.nvim',
       require('plugins.treesitter'),
       'antoinemadec/FixCursorHold.nvim',

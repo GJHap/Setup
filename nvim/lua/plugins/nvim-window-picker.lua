@@ -17,6 +17,12 @@ return {
             buftype = {},
          },
       },
-      other_win_hl_color = '#4493c8',
+      highlights = {
+         statusline = {
+            unfocused = {
+             bg = '#4493c8',
+            },
+         }
+      },
    },
 }

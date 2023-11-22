@@ -40,7 +40,12 @@ return {
       nnoremap('<Leader>ldc', function()
          require('telescope.builtin').lsp_definitions({ jump_type = 'vsplit' })
       end, { desc = 'Find Definitions (Open Column)' })
-   end,
+
+      vim.api.nvim_create_autocmd({ "BufEnter" }, {
+         pattern = { "*" },
+         command = "normal zx",
+      })
+end,
    config = function()
       local actions = require('telescope.actions')
 
@@ -118,18 +123,6 @@ return {
          multiopen(prompt_bufnr, 'default')
       end
 
-      local fixfolds = {
-         hidden = true,
-         attach_mappings = function(_)
-            require('telescope.actions.set').select:enhance({
-               post = function()
-                  vim.cmd(':normal! zx')
-               end,
-            })
-            return true
-         end,
-      }
-
       local telescope = require('telescope')
       telescope.setup({
          defaults = {
@@ -174,10 +167,6 @@ return {
             dynamic_preview_title = true,
          },
          pickers = {
-            buffers = fixfolds,
-            find_files = fixfolds,
-            live_grep = fixfolds,
-            diagnostics = fixfolds,
             lsp_references = {
                trim_text = true,
             },
