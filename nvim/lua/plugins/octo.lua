@@ -3,7 +3,7 @@ return {
    config = true,
    dependencies = {
       'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
+      require('plugins.telescope'),
       'kyazdani42/nvim-web-devicons',
    },
 }

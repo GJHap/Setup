@@ -8,9 +8,6 @@ return {
          highlight = {
             enable = true,
          },
-         rainbow = {
-            enable = true,
-         },
          autotag = {
             enable = true,
          },
@@ -40,7 +37,6 @@ return {
       })
    end,
    dependencies = {
-      'HiPhish/nvim-ts-rainbow2',
       'windwp/nvim-autopairs',
       'windwp/nvim-ts-autotag',
       'nvim-treesitter/nvim-treesitter-context',

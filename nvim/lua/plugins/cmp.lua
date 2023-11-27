@@ -1,15 +1,9 @@
 return {
    'hrsh7th/nvim-cmp',
    config = function()
-      local luasnip = require('luasnip')
       local cmp = require('cmp')
 
       cmp.setup({
-         snippet = {
-            expand = function(args)
-               luasnip.lsp_expand(args.body)
-            end,
-         },
          formatting = {
             format = require('lspkind').cmp_format(),
          },
@@ -27,8 +21,6 @@ return {
             ['<Tab>'] = cmp.mapping(function(fallback)
                if cmp.visible() then
                   cmp.select_next_item()
-               elseif luasnip and luasnip.jumpable(1) then
-                  luasnip.jump(1)
                else
                   fallback()
                end
@@ -36,8 +28,6 @@ return {
             ['<S-Tab>'] = cmp.mapping(function(fallback)
                if cmp.visible() then
                   cmp.select_prev_item()
-               elseif luasnip and luasnip.jumpable(-1) then
-                  luasnip.jump(-1)
                else
                   fallback()
                end
@@ -48,7 +38,6 @@ return {
          },
          sources = cmp.config.sources({
             { name = 'nvim_lsp' },
-            { name = 'luasnip' },
             { name = 'buffer' },
          }),
       })
@@ -64,6 +53,5 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'onsails/lspkind.nvim',
-      require('plugins.luasnip'),
    },
 }

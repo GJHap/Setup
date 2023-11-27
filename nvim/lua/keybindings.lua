@@ -19,6 +19,8 @@ end
 local function tab()
    nnoremap('<Leader>ta', ':tabnew <CR>', { desc = 'Add Tab' })
    nnoremap('<Leader>tq', ':tabclose <CR>', { desc = 'Close Tab' })
+   nnoremap('<Leader>tl', ':tabnext <CR>', { desc = 'Close Tab' })
+   nnoremap('<Leader>th', ':tabprev <CR>', { desc = 'Close Tab' })
 end
 
 buffer()
