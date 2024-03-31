@@ -1,44 +1,5 @@
 { pkgs, config, ... }:
-let
-  wob_sock = "$XDG_RUNTIME_DIR/wob.sock";
-  wlogoutLayout = pkgs.writeText "wlogout-config" ''
-    {
-       "label" : "lock",
-       "action" : "swaylock -f -c 000000",
-       "text" : "Lock",
-       "keybind" : "l"
-    }
-    {
-       "label" : "hibernate",
-       "action" : "systemctl hibernate",
-       "text" : "Hibernate",
-       "keybind" : "h"
-    }
-    {
-       "label" : "logout",
-       "action" : "loginctl terminate-user $USER",
-       "text" : "Logout",
-       "keybind" : "e"
-    }
-    {
-       "label" : "shutdown",
-       "action" : "systemctl poweroff",
-       "text" : "Shutdown",
-       "keybind" : "s"
-    }
-    {
-       "label" : "suspend",
-       "action" : "systemctl suspend",
-       "text" : "Suspend",
-       "keybind" : "u"
-    }
-    {
-       "label" : "reboot",
-       "action" : "systemctl reboot",
-       "text" : "Reboot",
-       "keybind" : "r"
-    }
-  '';
+let wob_sock = "$XDG_RUNTIME_DIR/wob.sock";
 in {
   wayland.windowManager.sway = {
     enable = true;
@@ -180,7 +141,7 @@ in {
         "Print" = "exec grim";
         "${modifier}+Print" = ''exec grim -g "$(slurp)" - | swappy -f -'';
 
-        "${modifier}+s" = "exec wlogout -l ${wlogoutLayout}";
+        "${modifier}+s" = "exec ${config.wofiLogout}";
         "${modifier}+w" = "kill";
         "${modifier}+v" = "exec clipman pick -t wofi -T'-l 1'";
         "${modifier}+r" = "reload";

@@ -48,6 +48,7 @@ return {
             lualine_a = {
                macro,
                'mode',
+               'branch',
                {
                   'diagnostics',
                   colored = false,

@@ -1,9 +1,8 @@
 { config, pkgs, ... }: {
   imports = [
-    ./greetd.nix
-    ../options/swayAudioIdleInhibit.nix
     ../options/wallpaper.nix
     ../options/swayDisplayReloadFix.nix
+    ../options/wofi-logout.nix
     ./hardware-configuration.nix
   ];
 
@@ -28,12 +27,8 @@
         editor = false;
         consoleMode = "max";
       };
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
-      };
+      efi = { canTouchEfiVariables = true; };
     };
-    kernelPackages = pkgs.linuxPackages_latest;
     tmp = { cleanOnBoot = true; };
   };
 
@@ -72,6 +67,10 @@
       enable = true;
       nssmdns = true;
     };
+    greetd = {
+      enable = true;
+      settings = { default_session = { command = "agreety --cmd sway"; }; };
+    };
     tlp.enable = true;
     printing.enable = true;
     xserver.libinput.enable = true;
@@ -108,13 +107,14 @@
     };
   };
 
-  fonts.fonts = with pkgs;
+  fonts.packages = with pkgs;
     [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
   virtualisation.libvirtd.enable = true;
 
   environment = {
     systemPackages = with pkgs; [
+      anki
       bluez
       brillo
       cargo
@@ -133,9 +133,7 @@
       glib
       gnome.adwaita-icon-theme
       greetd.greetd
-      greetd.gtkgreet
       grim
-      hurl
       libreoffice
       neovim
       nodejs
@@ -150,7 +148,7 @@
       stylua
       swappy
       sway
-      config.swayAudioIdleInhibit
+      sway-audio-idle-inhibit
       swayidle
       swaylock
       xfce.thunar
