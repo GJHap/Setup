@@ -15,7 +15,11 @@ in {
       focus = { followMouse = "no"; };
       assigns = {
         "1" = [{ app_id = "org.wezfurlong.wezterm"; }];
-        "2" = [ { app_id = "firefox"; } { app_id = "chromium-browser"; } ];
+        "2" = [
+          { app_id = "firefox"; }
+          { app_id = "chromium-browser"; }
+          { app_id = "brave-browser"; }
+        ];
         "3" = [{ app_id = "thunderbird"; }];
       };
       seat = { seat0 = { xcursor_theme = "capitaine-cursors 25"; }; };
@@ -85,9 +89,9 @@ in {
       ];
       keybindings = {
         "${modifier}+1" = "exec ${terminal}";
-        "${modifier}+2" = "exec firefox";
+        "${modifier}+2" = "exec brave";
         "${modifier}+3" = "exec thunderbird";
-        "${modifier}+4" = "exec firefox --new-window https://open.spotify.com";
+        "${modifier}+4" = "exec brave --new-window https://open.spotify.com";
 
         "${modifier}+d" = "exec ${menu}";
 
@@ -161,7 +165,12 @@ in {
           click_method = "button_areas";
         };
       };
-      output = { "*" = { bg = "${config.wallpaper} fill"; }; };
+      output = {
+        "*" = {
+          bg =
+            "${pkgs.nixos-artwork.wallpapers.nineish-dark-gray}/share/backgrounds/nixos/nix-wallpaper-nineish-dark-gray.png fill";
+        };
+      };
     };
   };
 }

@@ -21,7 +21,7 @@
           "${pkgs.gnome.adwaita-icon-theme}/share/icons/Adwaita/16x16/status/:${pkgs.gnome.adwaita-icon-theme}/share/icons/Adwaita/16x16/devices/:${pkgs.gnome.adwaita-icon-theme}/share/icons/Adwaita/16x16/legacy/";
 
         dmenu = "wofi -d -p dunst";
-        browser = "firefox";
+        browser = "brave";
       };
 
       urgency_critical = {

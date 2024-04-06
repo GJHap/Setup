@@ -34,18 +34,18 @@ return {
       nnoremap('<Leader>ldd', function()
          require('telescope.builtin').lsp_definitions()
       end, { desc = 'Find Definitions' })
-      nnoremap('<Leader>ldr', function()
+      nnoremap('<Leader>ld-', function()
          require('telescope.builtin').lsp_definitions({ jump_type = 'split' })
       end, { desc = 'Find Definitions (Split Row)' })
-      nnoremap('<Leader>ldc', function()
+      nnoremap('<Leader>ld|', function()
          require('telescope.builtin').lsp_definitions({ jump_type = 'vsplit' })
       end, { desc = 'Find Definitions (Open Column)' })
 
-      vim.api.nvim_create_autocmd({ "BufEnter" }, {
-         pattern = { "*" },
-         command = "normal zx",
+      vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+         pattern = { '*' },
+         command = 'normal zx',
       })
-end,
+   end,
    config = function()
       local actions = require('telescope.actions')
 
@@ -129,8 +129,8 @@ end,
             path_display = { shorten = { exclude = { -1, -2 } } },
             mappings = {
                n = {
-                  ['<Leader>sc'] = actions.select_vertical,
-                  ['<Leader>sr'] = actions.select_horizontal,
+                  ['<Leader>|'] = actions.select_vertical,
+                  ['<Leader>-'] = actions.select_horizontal,
                   ['<C-d>'] = actions.results_scrolling_down,
                   ['<C-u>'] = actions.results_scrolling_up,
                   ['<C-f>'] = actions.preview_scrolling_down,

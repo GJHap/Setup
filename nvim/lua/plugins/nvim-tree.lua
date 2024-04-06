@@ -20,8 +20,8 @@ return {
          local api = require('nvim-tree.api')
          api.config.mappings.default_on_attach(bufnr)
 
-         nnoremap('<Leader>sr', api.node.open.horizontal, { buffer = bufnr })
-         nnoremap('<Leader>sc', api.node.open.vertical, { buffer = bufnr })
+         nnoremap('<Leader>-', api.node.open.horizontal, { buffer = bufnr })
+         nnoremap('<Leader>|', api.node.open.vertical, { buffer = bufnr })
       end,
    },
 

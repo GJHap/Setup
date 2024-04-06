@@ -20,9 +20,9 @@ return {
       highlights = {
          statusline = {
             unfocused = {
-             bg = '#4493c8',
+               bg = '#4493c8',
             },
-         }
+         },
       },
    },
 }

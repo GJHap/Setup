@@ -1,6 +1,5 @@
 { pkgs, lib, config, ... }: {
   imports = [
-    ../options/wallpaper.nix
     ../options/swayDisplayReloadFix.nix
     ../options/wofi-logout.nix
     ../options/colors.nix

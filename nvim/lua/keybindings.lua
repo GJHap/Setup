@@ -2,8 +2,8 @@ local util = require('util')
 local nnoremap = util.nnoremap
 
 local function buffer()
-   nnoremap('<Leader>bc', ':vsplit <CR>', { desc = 'Split Column' })
-   nnoremap('<Leader>br', ':split <CR>', { desc = 'Split Row' })
+   nnoremap('<Leader>|', ':vsplit <CR>', { desc = 'Split Column' })
+   nnoremap('<Leader>-', ':split <CR>', { desc = 'Split Row' })
 end
 
 local function general()

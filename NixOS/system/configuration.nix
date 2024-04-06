@@ -1,10 +1,5 @@
 { config, pkgs, ... }: {
-  imports = [
-    ../options/wallpaper.nix
-    ../options/swayDisplayReloadFix.nix
-    ../options/wofi-logout.nix
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   nix = {
     settings = {
@@ -116,10 +111,10 @@
     systemPackages = with pkgs; [
       anki
       bluez
+      brave
       brillo
       cargo
       capitaine-cursors
-      chromium
       clipman
       dracula-theme
       dunst
@@ -128,15 +123,14 @@
       fzf
       gammastep
       gcc
-      git
       gh
+      git
       glib
       gnome.adwaita-icon-theme
       greetd.greetd
       grim
-      libreoffice
+      lf
       neovim
-      nodejs
       pamixer
       pavucontrol
       playerctl
@@ -145,15 +139,13 @@
       rustc
       slurp
       starship
-      stylua
       swappy
       sway
       sway-audio-idle-inhibit
       swayidle
       swaylock
-      xfce.thunar
       thunderbird
-      nixfmt
+      tmux
       unzip
       virt-manager
       nixos-artwork.wallpapers.nineish-dark-gray

@@ -43,6 +43,7 @@ return {
       lualine.setup({
          options = {
             theme = 'tokyonight',
+            globalstatus = true,
          },
          sections = {
             lualine_a = {
