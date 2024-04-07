@@ -5,6 +5,7 @@
     fzf
     gh
     git
+    jq
     lf
     neovim
     ripgrep
