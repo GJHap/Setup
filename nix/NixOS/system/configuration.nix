@@ -74,7 +74,11 @@
     geoclue2.enable = true;
   };
 
-  security.rtkit.enable = true;
+  security = {
+    pam.services.swaylock = { };
+    rtkit.enable = true;
+  };
+
   users.users.ghapgood = {
     isNormalUser = true;
     description = "Gregory Hapgood";
@@ -84,16 +88,13 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-wlr xdg-desktop-portal-gtk ];
+    wlr.enable = true;
+    config.common.default = "*";
   };
 
   programs = {
     dconf.enable = true;
     fish.enable = true;
-    sway = {
-      enable = true;
-      wrapperFeatures.gtk = true;
-    };
     gnupg = {
       agent = {
         enable = true;
@@ -108,56 +109,7 @@
   virtualisation.libvirtd.enable = true;
 
   environment = {
-    systemPackages = with pkgs; [
-      anki
-      bluez
-      brave
-      brillo
-      cargo
-      capitaine-cursors
-      clipman
-      dracula-theme
-      dunst
-      fd
-      firefox
-      fzf
-      gammastep
-      gcc
-      gh
-      git
-      glib
-      gnome.adwaita-icon-theme
-      greetd.greetd
-      grim
-      lf
-      neovim
-      pamixer
-      pavucontrol
-      playerctl
-      python3Full
-      ripgrep
-      rustc
-      slurp
-      starship
-      swappy
-      sway
-      sway-audio-idle-inhibit
-      swayidle
-      swaylock
-      thunderbird
-      tmux
-      unzip
-      virt-manager
-      nixos-artwork.wallpapers.nineish-dark-gray
-      waybar
-      wayland
-      wezterm
-      wl-clipboard
-      wlogout
-      wob
-      wofi
-      xwayland
-    ];
+    systemPackages = with pkgs; [ greetd.greetd ];
     variables = {
       EDITOR = "nvim";
       _JAVA_AWT_WM_NONREPARENTING = "1";
@@ -165,8 +117,6 @@
       NIXOS_OZONE_WL = "1";
       QT_QPA_PLATFORM = "wayland";
       SDL_VIDEODRIVER = "wayland";
-      XDG_CURRENT_DESKTOP = "sway";
-      XDG_SESSION_DESKTOP = "sway";
     };
   };
 

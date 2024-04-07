@@ -1,5 +1,4 @@
 { pkgs, lib, ... }:
-
 let
   config = pkgs.writeScript "swayDisplayReloadFix.sh" ''
     #! ${pkgs.stdenv.shell}

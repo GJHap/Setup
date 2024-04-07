@@ -18,12 +18,12 @@
         ghapgood = lib.nixosSystem {
           inherit system pkgs;
           modules = [
-            ./system/configuration.nix
+            ./NixOS/system/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.ghapgood = { imports = [ ./home ]; };
+              home-manager.users.ghapgood = import ./NixOS/home-manager.nix;
             }
           ];
         };

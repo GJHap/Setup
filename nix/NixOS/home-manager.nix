@@ -1,0 +1,50 @@
+{ pkgs, ... }: {
+  imports = [
+    ../home-manager/common
+    ../home-manager/clipman.nix
+    ../home-manager/dunst.nix
+    ../home-manager/gtk.nix
+    ../home-manager/mimeApps.nix
+    ../home-manager/sway.nix
+    ../home-manager/swayidle.nix
+    ../home-manager/swaylock.nix
+    ../home-manager/waybar.nix
+    ../home-manager/wezterm.nix
+    ../home-manager/wob.nix
+    ../home-manager/wofi.nix
+    ./options/colors.nix
+    ./options/swayDisplayReloadFix.nix
+    ./options/wofi-logout.nix
+  ];
+
+  home.packages = with pkgs; [
+    anki
+    bluez
+    brave
+    brillo
+    cargo
+    capitaine-cursors
+    dracula-theme
+    firefox
+    gcc
+    glib
+    grim
+    gnome.adwaita-icon-theme
+    nixos-artwork.wallpapers.nineish-dark-gray
+    python3Full
+    playerctl
+    pavucontrol
+    pamixer
+    rustc
+    swappy
+    slurp
+    sway-audio-idle-inhibit
+    thunderbird
+    virt-manager
+    wl-clipboard
+    wob
+    wayland
+    wezterm
+    xwayland
+  ];
+}

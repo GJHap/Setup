@@ -3,6 +3,8 @@ let wob_sock = "$XDG_RUNTIME_DIR/wob.sock";
 in {
   wayland.windowManager.sway = {
     enable = true;
+    wrapperFeatures.gtk = true;
+    systemd.enable = true;
     extraConfig = ''
       bindswitch --reload --locked lid:on output eDP-1 disable
       bindswitch --reload --locked lid:off output eDP-1 enable
@@ -10,7 +12,7 @@ in {
 
     config = rec {
       modifier = "Mod4";
-      menu = "wofi --show drun -O alphabetical -l 1";
+      menu = "wofi --show drun -O alphabetical";
       terminal = "wezterm";
       focus = { followMouse = "no"; };
       assigns = {
@@ -40,22 +42,10 @@ in {
           text = "#ffffff";
         };
       };
-      bars = [{ command = "waybar"; }];
+      bars = [ ];
       startup = [
-        { command = "wl-paste -t text --watch clipman store"; }
-        {
-          command = ''
-            wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
-          '';
-        }
         {
           command = "${config.swayDisplayReloadFix}";
-          always = true;
-        }
-        {
-          command = ''
-            systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-          '';
           always = true;
         }
         {
@@ -76,16 +66,7 @@ in {
           '';
           always = true;
         }
-        {
-          command = ''
-            swayidle -w \
-            timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-            timeout 360 'swaylock -f -c 000000' \
-            before-sleep 'swaylock -f -c 000000'
-          '';
-        }
         { command = "sway-audio-idle-inhibit"; }
-        { command = "gammastep -l geoclue2 -t 6500k:3250k -m wayland"; }
       ];
       keybindings = {
         "${modifier}+1" = "exec ${terminal}";
@@ -147,7 +128,7 @@ in {
 
         "${modifier}+s" = "exec ${config.wofiLogout}";
         "${modifier}+w" = "kill";
-        "${modifier}+v" = "exec clipman pick -t wofi -T'-l 1'";
+        "${modifier}+v" = "exec clipman pick -t wofi";
         "${modifier}+r" = "reload";
         "${modifier}+f" = "fullscreen";
         "${modifier}+g" = "floating toggle";

@@ -1,6 +1,7 @@
 { config, ... }: {
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
     settings = {
       mainBar = {
         spacing = 10;
