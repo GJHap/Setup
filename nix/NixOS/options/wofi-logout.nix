@@ -24,9 +24,8 @@ let
 in {
   options = {
     wofiLogout = lib.mkOption {
-      type = lib.types.package;
-      description = "Script to display a logout screen using wofi";
       default = config;
+      type = lib.types.package;
     };
   };
 }

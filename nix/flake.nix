@@ -6,13 +6,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-
   outputs = { self, nixpkgs, home-manager }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
       lib = nixpkgs.lib;
-
     in {
       nixosConfigurations = {
         ghapgood = lib.nixosSystem {
@@ -21,9 +19,11 @@
             ./NixOS/system/configuration.nix
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.ghapgood = import ./NixOS/home-manager.nix;
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.ghapgood = import ./NixOS/home-manager.nix;
+              };
             }
           ];
         };

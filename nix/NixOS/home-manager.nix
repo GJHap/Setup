@@ -2,6 +2,7 @@
   imports = [
     ../home-manager/common
     ../home-manager/clipman.nix
+    ../home-manager/direnv.nix
     ../home-manager/dunst.nix
     ../home-manager/gtk.nix
     ../home-manager/mimeApps.nix
@@ -16,7 +17,6 @@
     ./options/swayDisplayReloadFix.nix
     ./options/wofi-logout.nix
   ];
-
   home.packages = with pkgs; [
     anki
     bluez

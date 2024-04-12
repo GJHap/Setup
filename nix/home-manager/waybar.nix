@@ -1,14 +1,58 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
   programs.waybar = {
     enable = true;
     systemd.enable = true;
     settings = {
       mainBar = {
-        spacing = 10;
-        modules-left = [ "sway/workspaces" ];
-        modules-center = [ "clock" ];
-        modules-right = [ "network" "pulseaudio" "battery" ];
+        battery = {
+          states = {
+            good = 95;
+            warning = 30;
+            critical = 15;
+          };
+          format = "{icon}";
+          format-charging = "";
+          format-icons = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+          format-plugged = "";
+          tooltip-format = "{capacity}% remaining";
+        };
+        clock = {
+          format = "{:%d %b %I:%M}";
+          calendar = {
+            format = {
+              months = "<span weight='bold' color='#ecc6d9'>{}</span>";
+              today =
+                "<span weight='bold' color='#${config.colors.green}'>{}</span>";
+            };
+            mode = "year";
+            mode-mon-col = 3;
+          };
+          tooltip-format = ''
+            <span size='large'>{:%Y %B}</span>
 
+            {calendar}'';
+        };
+        modules-center = [ "clock" ];
+        modules-left = [ "sway/workspaces" ];
+        modules-right = [ "network" "pulseaudio" "battery" ];
+        network = {
+          format-ethernet = "󰈁";
+          format-disconnected = "";
+          format-wifi = "";
+          tooltip-format = "{essid}";
+        };
+        pulseaudio = {
+          format = "{icon} {format_source}";
+          format-bluetooth = "{icon} 󰂱 {format_source}";
+          format-bluetooth-muted = "{icon} 󰂲 {format_source}";
+          format-icons = { "default" = [ "󰕿" "󰖀" "󰕾" ]; };
+          format-muted = "󰖁 {format_source}";
+          format-source = "󰍬";
+          format-source-muted = "󰍭";
+          on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+          tooltip-format = "{desc}: {volume}%";
+        };
+        spacing = 10;
         "sway/workspaces" = {
           format = "{icon}";
           format-icons = {
@@ -23,50 +67,6 @@
             "3" = [ ];
             "4" = [ ];
           };
-        };
-
-        "network" = {
-          "format-wifi" = "";
-          "format-ethernet" = "󰈁";
-          "tooltip-format" = "{essid}";
-          "format-disconnected" = "";
-        };
-
-        "battery" = {
-          "states" = {
-            "good" = 95;
-            "warning" = 30;
-            "critical" = 15;
-          };
-          "format" = "{icon}";
-          "format-charging" = "";
-          "format-plugged" = "";
-          "format-icons" = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
-          "tooltip-format" = "{capacity}% remaining";
-        };
-
-        "pulseaudio" = {
-          "format" = "{icon} {format_source}";
-          "format-muted" = "󰖁 {format_source}";
-          "format-bluetooth" = "{icon} 󰂱 {format_source}";
-          "format-bluetooth-muted" = "{icon} 󰂲 {format_source}";
-          "format-source" = "󰍬";
-          "format-source-muted" = "󰍭";
-          "format-icons" = { "default" = [ "󰕿" "󰖀" "󰕾" ]; };
-          "tooltip-format" = "{desc}: {volume}%";
-          "on-click" = "pavucontrol";
-        };
-
-        "clock" = {
-          "format" = "{:%d %b %I:%M}";
-          "tooltip-format" = ''
-            <span size='large'>{:%Y %B}</span>
-
-            {calendar}'';
-          "today-format" =
-            "<span weight='bold' color='#${config.colors.green}'>{}</span>";
-          "format-calendar" = "<span weight='bold' color='#ecc6d9'>{}</span>";
-          "on-scroll" = { "calendar" = 1; };
         };
       };
     };

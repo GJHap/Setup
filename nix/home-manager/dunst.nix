@@ -3,27 +3,22 @@
     enable = true;
     settings = {
       global = {
-        monitor = 0;
         background = "#${config.colors.background}";
-        foreground = "#${config.colors.foreground}";
-        separator_color = "foreground";
-        timeout = 5;
-
-        frame_width = 0;
-        width = "(350, 400)";
-        height = 100;
+        browser = "brave";
         corner_radius = 10;
-
+        dmenu = "wofi -d -p dunst";
         font = "JetBrainsMono Nerd Font";
-        markup = "full";
-
+        foreground = "#${config.colors.foreground}";
+        frame_width = 0;
+        height = 100;
         icon_path =
           "${pkgs.gnome.adwaita-icon-theme}/share/icons/Adwaita/16x16/status/:${pkgs.gnome.adwaita-icon-theme}/share/icons/Adwaita/16x16/devices/:${pkgs.gnome.adwaita-icon-theme}/share/icons/Adwaita/16x16/legacy/";
-
-        dmenu = "wofi -d -p dunst";
-        browser = "brave";
+        markup = "full";
+        monitor = 0;
+        separator_color = "foreground";
+        timeout = 5;
+        width = "(350, 400)";
       };
-
       urgency_critical = {
         foreground = "#${config.colors.red}";
         timeout = 0;

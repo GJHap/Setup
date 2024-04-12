@@ -2,19 +2,7 @@
 let wob_sock = "$XDG_RUNTIME_DIR/wob.sock";
 in {
   wayland.windowManager.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-    systemd.enable = true;
-    extraConfig = ''
-      bindswitch --reload --locked lid:on output eDP-1 disable
-      bindswitch --reload --locked lid:off output eDP-1 enable
-    '';
-
     config = rec {
-      modifier = "Mod4";
-      menu = "wofi --show drun -O alphabetical";
-      terminal = "wezterm";
-      focus = { followMouse = "no"; };
       assigns = {
         "1" = [{ app_id = "org.wezfurlong.wezterm"; }];
         "2" = [
@@ -24,15 +12,7 @@ in {
         ];
         "3" = [{ app_id = "thunderbird"; }];
       };
-      seat = { seat0 = { xcursor_theme = "capitaine-cursors 25"; }; };
-      window = {
-        border = 1;
-        hideEdgeBorders = "smart";
-        commands = [{
-          command = "move window to workspace 4";
-          criteria = { title = "^Spotify"; };
-        }];
-      };
+      bars = [ ];
       colors = {
         focused = {
           background = "#285577";
@@ -42,32 +22,17 @@ in {
           text = "#ffffff";
         };
       };
-      bars = [ ];
-      startup = [
-        {
-          command = "${config.swayDisplayReloadFix}";
-          always = true;
-        }
-        {
-          command = ''
-            export XDG_DATA_DIRS=${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:$XDG_DATA_DIRS && \
-            gnome_schema=org.gnome.desktop.interface && \
-            gsettings set $gnome_schema gtk-theme 'Dracula' && \
-            gsettings set $gnome_schema cursor-theme 'capitaine-cursors'
-          '';
-          always = true;
-        }
-        {
-          command = ''
-            rm -f ${wob_sock} && \
-            mkfifo ${wob_sock} && \
-            tail -f ${wob_sock} | \
-            wob
-          '';
-          always = true;
-        }
-        { command = "sway-audio-idle-inhibit"; }
-      ];
+      focus = { followMouse = "no"; };
+      input = {
+        "type:touchpad" = {
+          accel_profile = "adaptive";
+          click_method = "button_areas";
+          dwt = "enabled";
+          natural_scroll = "enabled";
+          scroll_method = "two_finger";
+          tap = "enabled";
+        };
+      };
       keybindings = {
         "${modifier}+1" = "exec ${terminal}";
         "${modifier}+2" = "exec brave";
@@ -136,22 +101,56 @@ in {
         "${modifier}+Shift+c" = "splith";
         "${modifier}+Shift+r" = "splitv";
       };
-      input = {
-        "type:touchpad" = {
-          natural_scroll = "enabled";
-          tap = "enabled";
-          accel_profile = "adaptive";
-          dwt = "enabled";
-          scroll_method = "two_finger";
-          click_method = "button_areas";
-        };
-      };
+      modifier = "Mod4";
+      menu = "wofi --show drun -O alphabetical";
       output = {
         "*" = {
           bg =
             "${pkgs.nixos-artwork.wallpapers.nineish-dark-gray}/share/backgrounds/nixos/nix-wallpaper-nineish-dark-gray.png fill";
         };
       };
+      seat = { seat0 = { xcursor_theme = "capitaine-cursors 25"; }; };
+      startup = [
+        {
+          always = true;
+          command = "${config.swayDisplayReloadFix}";
+        }
+        {
+          always = true;
+          command = ''
+            export XDG_DATA_DIRS=${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:$XDG_DATA_DIRS && \
+            gnome_schema=org.gnome.desktop.interface && \
+            gsettings set $gnome_schema gtk-theme 'Dracula' && \
+            gsettings set $gnome_schema cursor-theme 'capitaine-cursors'
+          '';
+        }
+        {
+          always = true;
+          command = ''
+            rm -f ${wob_sock} && \
+            mkfifo ${wob_sock} && \
+            tail -f ${wob_sock} | \
+            wob
+          '';
+        }
+        { command = "sway-audio-idle-inhibit"; }
+      ];
+      terminal = "wezterm";
+      window = {
+        border = 1;
+        commands = [{
+          command = "move window to workspace 4";
+          criteria = { title = "^Spotify"; };
+        }];
+        hideEdgeBorders = "smart";
+      };
     };
+    enable = true;
+    extraConfig = ''
+      bindswitch --reload --locked lid:on output eDP-1 disable
+      bindswitch --reload --locked lid:off output eDP-1 enable
+    '';
+    systemd.enable = true;
+    wrapperFeatures.gtk = true;
   };
 }

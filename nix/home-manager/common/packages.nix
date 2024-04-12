@@ -9,7 +9,6 @@
     lf
     neovim
     ripgrep
-    starship
     tmux
     unzip
   ];

@@ -5,19 +5,19 @@
   in {
     enable = true;
     events = [{
-      event = "before-sleep";
       command = "${swaylock} -f";
+      event = "before-sleep";
     }];
     timeouts = [
       {
-        timeout = 300;
         command = ''${swaymsg} "output * dpms off"'';
         resumeCommand = ''${swaymsg} "output * dpms on"'';
+        timeout = 300;
       }
       {
-        timeout = 360;
         command = "${swaylock} -f";
         resumeCommand = ''${swaymsg} "output * dpms on"'';
+        timeout = 360;
       }
     ];
   };

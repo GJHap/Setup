@@ -1,113 +1,16 @@
 { config, pkgs, ... }: {
   imports = [ ./hardware-configuration.nix ];
-
-  nix = {
-    settings = {
-      auto-optimise-store = true;
-      allowed-users = [ "ghapgood" ];
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-    package = pkgs.nixStable;
-    extraOptions = "experimental-features = nix-command flakes";
-  };
-
   boot = {
     loader = {
-      systemd-boot = {
-        enable = true;
-        editor = false;
-        consoleMode = "max";
-      };
       efi = { canTouchEfiVariables = true; };
+      systemd-boot = {
+        consoleMode = "max";
+        editor = false;
+        enable = true;
+      };
     };
     tmp = { cleanOnBoot = true; };
   };
-
-  networking = {
-    hostName = "ghapgood";
-    networkmanager.enable = true;
-  };
-
-  time.timeZone = "America/Chicago";
-  i18n.defaultLocale = "en_US.utf8";
-
-  hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = false;
-    };
-    cpu.intel.updateMicrocode = true;
-    opengl.enable = true;
-    pulseaudio.enable = false;
-    brillo.enable = true;
-  };
-
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
-  };
-
-  services = {
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-    avahi = {
-      enable = true;
-      nssmdns = true;
-    };
-    greetd = {
-      enable = true;
-      settings = { default_session = { command = "agreety --cmd sway"; }; };
-    };
-    tlp.enable = true;
-    printing.enable = true;
-    xserver.libinput.enable = true;
-    power-profiles-daemon.enable = false;
-    dbus.enable = true;
-    geoclue2.enable = true;
-  };
-
-  security = {
-    pam.services.swaylock = { };
-    rtkit.enable = true;
-  };
-
-  users.users.ghapgood = {
-    isNormalUser = true;
-    description = "Gregory Hapgood";
-    extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" ];
-    shell = pkgs.fish;
-  };
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    config.common.default = "*";
-  };
-
-  programs = {
-    dconf.enable = true;
-    fish.enable = true;
-    gnupg = {
-      agent = {
-        enable = true;
-        pinentryFlavor = "qt";
-      };
-    };
-  };
-
-  fonts.packages = with pkgs;
-    [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
-
-  virtualisation.libvirtd.enable = true;
-
   environment = {
     systemPackages = with pkgs; [ greetd.greetd ];
     variables = {
@@ -119,7 +22,75 @@
       SDL_VIDEODRIVER = "wayland";
     };
   };
-
+  fonts.packages = with pkgs;
+    [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
+  hardware = {
+    bluetooth = { enable = true; };
+    brillo.enable = true;
+    cpu.intel.updateMicrocode = true;
+    opengl.enable = true;
+    pulseaudio.enable = false;
+  };
+  i18n.defaultLocale = "en_US.utf8";
+  networking = {
+    hostName = "ghapgood";
+    networkmanager.enable = true;
+  };
+  nix = {
+    extraOptions = "experimental-features = nix-command flakes";
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+    package = pkgs.nixStable;
+    settings = {
+      auto-optimise-store = true;
+      allowed-users = [ "ghapgood" ];
+    };
+  };
+  programs = {
+    dconf.enable = true;
+    fish.enable = true;
+    gnupg = {
+      agent = {
+        enable = true;
+        pinentryFlavor = "qt";
+      };
+    };
+  };
+  powerManagement = { cpuFreqGovernor = "powersave"; };
+  security = {
+    pam.services.swaylock = { };
+    rtkit.enable = true;
+  };
+  services = {
+    avahi = {
+      enable = true;
+      nssmdns = true;
+    };
+    dbus.enable = true;
+    geoclue2.enable = true;
+    gnome.gnome-keyring.enable = true;
+    greetd = {
+      enable = true;
+      settings = { default_session = { command = "agreety --cmd sway"; }; };
+    };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+    power-profiles-daemon.enable = false;
+    printing.enable = true;
+    tlp.enable = true;
+    xserver.libinput.enable = true;
+  };
+  sound = {
+    enable = true;
+    mediaKeys.enable = true;
+  };
   system = {
     activationScripts = {
       bash = ''
@@ -131,5 +102,18 @@
       '';
     };
     stateVersion = "22.05";
+  };
+  time.timeZone = "America/Chicago";
+  users.users.ghapgood = {
+    description = "Gregory Hapgood";
+    extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" ];
+    isNormalUser = true;
+    shell = pkgs.fish;
+  };
+  virtualisation.libvirtd.enable = true;
+  xdg.portal = {
+    enable = true;
+    config.common.default = "*";
+    wlr.enable = true;
   };
 }
