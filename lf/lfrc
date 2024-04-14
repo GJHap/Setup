@@ -1,5 +1,4 @@
 cmd touch $touch $*
-cmd open $xdg-open $f
 
 map D delete
 map a push :touch<space>

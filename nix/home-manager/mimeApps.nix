@@ -15,6 +15,7 @@
       "text/csv" = [ nvim ];
       "text/html" = [ brave ];
       "text/javascript" = [ nvim ];
+      "text/markdown" = [ nvim ];
       "text/plain" = [ nvim ];
       "text/vnd.trolltech.linguist" = [ nvim ];
       "x-scheme-handler/http" = [ brave ];
