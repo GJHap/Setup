@@ -1,9 +1,15 @@
 local util = require('util')
 local nnoremap = util.nnoremap
+local vnoremap = util.vnoremap
 
 local function buffer()
    nnoremap('<Leader>|', ':vsplit <CR>', { desc = 'Split Column' })
    nnoremap('<Leader>-', ':split <CR>', { desc = 'Split Row' })
+end
+
+local function comment()
+   nnoremap('<Leader>cl', ':normal gcc<CR>')
+   vnoremap('<Leader>cl', ':normal gcc<CR>')
 end
 
 local function general()
@@ -24,6 +30,7 @@ local function tab()
 end
 
 buffer()
+comment()
 general()
 session()
 tab()

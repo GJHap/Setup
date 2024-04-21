@@ -1,13 +1,12 @@
 return {
    'hrsh7th/nvim-cmp',
    config = function()
-      local luasnip = require('luasnip')
       local cmp = require('cmp')
 
       cmp.setup({
          snippet = {
             expand = function(args)
-               luasnip.lsp_expand(args.body)
+               vim.snippet.expand(args.body)
             end,
          },
          formatting = {
@@ -59,8 +58,6 @@ return {
    dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
-      'saadparwaiz1/cmp_luasnip',
       'onsails/lspkind.nvim',
-      require('plugins.luasnip'),
    },
 }
