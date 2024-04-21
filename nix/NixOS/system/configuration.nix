@@ -12,13 +12,14 @@
     tmp = { cleanOnBoot = true; };
   };
   environment = {
-    systemPackages = with pkgs; [ greetd.greetd ];
+    systemPackages = with pkgs; [ greetd.greetd vulkan-validation-layers ];
     variables = {
       _JAVA_AWT_WM_NONREPARENTING = "1";
       MOZ_ENABLE_WAYLAND = "1";
       NIXOS_OZONE_WL = "1";
       QT_QPA_PLATFORM = "wayland";
       SDL_VIDEODRIVER = "wayland";
+      WLR_RENDERER = "vulkan";
     };
   };
   fonts.packages = with pkgs;
@@ -51,12 +52,7 @@
   programs = {
     dconf.enable = true;
     fish.enable = true;
-    gnupg = {
-      agent = {
-        enable = true;
-        pinentryFlavor = "qt";
-      };
-    };
+    gnupg = { agent = { enable = true; }; };
   };
   powerManagement = { cpuFreqGovernor = "powersave"; };
   security = {
@@ -66,7 +62,7 @@
   services = {
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
     };
     dbus.enable = true;
     geoclue2.enable = true;

@@ -30,6 +30,7 @@
     glib
     grim
     gnome.adwaita-icon-theme
+    htop
     nixos-artwork.wallpapers.nineish-dark-gray
     python3Full
     playerctl

@@ -3,12 +3,12 @@
     enable = true;
     settings = {
       global = {
-        background = "#${config.colors.background}";
+        background = "#${config.colors.dracula.background}";
         browser = "brave";
         corner_radius = 10;
         dmenu = "wofi -d -p dunst";
         font = "JetBrainsMono Nerd Font";
-        foreground = "#${config.colors.foreground}";
+        foreground = "#${config.colors.dracula.foreground}";
         frame_width = 0;
         height = 100;
         icon_path =
@@ -20,7 +20,7 @@
         width = "(350, 400)";
       };
       urgency_critical = {
-        foreground = "#${config.colors.red}";
+        foreground = "#${config.colors.dracula.red}";
         timeout = 0;
       };
     };

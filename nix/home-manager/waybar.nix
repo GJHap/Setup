@@ -22,7 +22,7 @@
             format = {
               months = "<span weight='bold' color='#ecc6d9'>{}</span>";
               today =
-                "<span weight='bold' color='#${config.colors.green}'>{}</span>";
+                "<span weight='bold' color='#${config.colors.dracula.green}'>{}</span>";
             };
             mode = "year";
             mode-mon-col = 3;
@@ -77,7 +77,7 @@
       }
 
       #waybar {
-         background: #${config.colors.background};
+         background: #${config.colors.dracula.background};
          border-radius: 10px;
       }
 
@@ -96,12 +96,12 @@
       }
 
       #workspaces button.focused {
-         color: #${config.colors.green};
+         color: #${config.colors.dracula.green};
       }
 
       #workspaces button.urgent,
       #network.disconnected {
-         color: #${config.colors.red};
+         color: #${config.colors.dracula.red};
       }
 
       #workspaces button,
@@ -111,7 +111,7 @@
       #pulseaudio {
          background: transparent;
          border-radius: 10px;
-         color: #${config.colors.foreground};
+         color: #${config.colors.dracula.foreground};
       }
 
       #clock,
@@ -122,12 +122,12 @@
       }
 
       #battery.charging {
-         color: #${config.colors.green};
+         color: #${config.colors.dracula.green};
       }
 
       @keyframes battery-critical {
          to {
-            color: #${config.colors.red};
+            color: #${config.colors.dracula.red};
          }
       }
 
