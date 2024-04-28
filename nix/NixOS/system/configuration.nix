@@ -13,14 +13,6 @@
   };
   environment = {
     systemPackages = with pkgs; [ greetd.greetd vulkan-validation-layers ];
-    variables = {
-      _JAVA_AWT_WM_NONREPARENTING = "1";
-      MOZ_ENABLE_WAYLAND = "1";
-      NIXOS_OZONE_WL = "1";
-      QT_QPA_PLATFORM = "wayland";
-      SDL_VIDEODRIVER = "wayland";
-      WLR_RENDERER = "vulkan";
-    };
   };
   fonts.packages = with pkgs;
     [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
@@ -52,9 +44,13 @@
   programs = {
     dconf.enable = true;
     fish.enable = true;
-    gnupg = { agent = { enable = true; }; };
+    gnupg = {
+      agent = {
+        enable = true;
+        pinentryPackage = pkgs.pinentry-gnome3;
+      };
+    };
   };
-  powerManagement = { cpuFreqGovernor = "powersave"; };
   security = {
     pam.services.swaylock = { };
     rtkit.enable = true;
@@ -66,20 +62,31 @@
     };
     dbus.enable = true;
     geoclue2.enable = true;
-    gnome.gnome-keyring.enable = true;
     greetd = {
       enable = true;
-      settings = { default_session = { command = "agreety --cmd sway"; }; };
+      settings = {
+        default_session = {
+          command = ''agreety --cmd "systemd-cat --identifier=sway sway"'';
+        };
+      };
     };
     pipewire = {
       enable = true;
       alsa.enable = true;
-      alsa.support32Bit = true;
+      jack.enable = true;
       pulse.enable = true;
     };
     power-profiles-daemon.enable = false;
     printing.enable = true;
-    tlp.enable = true;
+    tlp = {
+      enable = true;
+      settings = {
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+        PLATFORM_PROFILE_ON_AC = "performance";
+        PLATFORM_PROFILE_ON_BAT = "low-power";
+      };
+    };
     xserver.libinput.enable = true;
   };
   sound = {
@@ -108,6 +115,7 @@
   virtualisation.libvirtd.enable = true;
   xdg.portal = {
     enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gnome ];
     config.common.default = "*";
     wlr.enable = true;
   };

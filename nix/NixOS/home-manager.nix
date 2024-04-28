@@ -4,6 +4,8 @@
     ../home-manager/clipman.nix
     ../home-manager/direnv.nix
     ../home-manager/dunst.nix
+    ../home-manager/gammastep.nix
+    ../home-manager/gnome-keyring.nix
     ../home-manager/gtk.nix
     ../home-manager/mimeApps.nix
     ../home-manager/sway.nix
@@ -30,6 +32,7 @@
     glib
     grim
     gnome.adwaita-icon-theme
+    gnome.seahorse
     htop
     nixos-artwork.wallpapers.nineish-dark-gray
     python3Full
@@ -43,7 +46,6 @@
     thunderbird
     virt-manager
     wl-clipboard
-    wob
     wayland
     wezterm
     xwayland

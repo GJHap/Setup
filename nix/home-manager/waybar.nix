@@ -61,7 +61,7 @@
             "3" = "";
             "4" = "󰽴";
           };
-          persistent_workspaces = {
+          persistent-workspaces = {
             "1" = [ ];
             "2" = [ ];
             "3" = [ ];

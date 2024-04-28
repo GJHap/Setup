@@ -141,6 +141,16 @@ in {
       bindswitch --reload --locked lid:on output eDP-1 disable
       bindswitch --reload --locked lid:off output eDP-1 enable
     '';
+    extraSessionCommands = ''
+      export _JAVA_AWT_WM_NONREPARENTING=1
+      export MOZ_ENABLE_WAYLAND="1"
+      export NIXOS_OZONE_WL="1"
+      export SDL_VIDEODRIVER=wayland
+      export QT_QPA_PLATFORM=wayland
+      export WLR_RENDERER="vulkan"
+      export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/keyring/ssh
+      export XDG_CURRENT_DESKTOP=sway
+    '';
     systemd.enable = true;
     wrapperFeatures.gtk = true;
   };
