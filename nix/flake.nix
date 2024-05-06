@@ -14,6 +14,7 @@
       pkgs = import nixpkgs {
         inherit overlays;
         inherit system;
+        config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
     in {

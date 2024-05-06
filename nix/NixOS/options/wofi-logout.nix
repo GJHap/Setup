@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ lib, pkgs, ... }:
 let
   config = pkgs.writeScript "wofi-logout.sh" ''
     #! ${pkgs.stdenv.shell}

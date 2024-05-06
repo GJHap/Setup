@@ -8,6 +8,7 @@
     ../home-manager/gnome-keyring.nix
     ../home-manager/gtk.nix
     ../home-manager/mimeApps.nix
+    ../home-manager/sway-audio-idle-inhibit.nix
     ../home-manager/sway.nix
     ../home-manager/swayidle.nix
     ../home-manager/swaylock.nix
@@ -42,12 +43,10 @@
     rustc
     swappy
     slurp
-    sway-audio-idle-inhibit
     thunderbird
     virt-manager
     wl-clipboard
     wayland
-    wezterm
     xwayland
   ];
 }

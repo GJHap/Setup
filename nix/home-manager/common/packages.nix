@@ -1,15 +1,3 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [
-    fd
-    fish
-    fzf
-    gh
-    git
-    jq
-    lf
-    neovim
-    ripgrep
-    tmux
-    unzip
-  ];
+  home.packages = with pkgs; [ fd fzf gh git jq ripgrep unzip zip ];
 }

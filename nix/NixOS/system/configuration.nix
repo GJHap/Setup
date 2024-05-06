@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [ ./hardware-configuration.nix ];
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       efi = { canTouchEfiVariables = true; };
       systemd-boot = {
@@ -50,6 +51,7 @@
         pinentryPackage = pkgs.pinentry-gnome3;
       };
     };
+    steam = { enable = true; };
   };
   security = {
     pam.services.swaylock = { };
@@ -115,7 +117,6 @@
   virtualisation.libvirtd.enable = true;
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gnome ];
     config.common.default = "*";
     wlr.enable = true;
   };

@@ -124,7 +124,6 @@ in {
             gsettings set $gnome_schema cursor-theme 'capitaine-cursors'
           '';
         }
-        { command = "sway-audio-idle-inhibit"; }
       ];
       terminal = "wezterm";
       window = {
