@@ -2,15 +2,7 @@ return {
    'nvim-lualine/lualine.nvim',
    config = function()
       local lualine = require('lualine')
-
-      local function macro()
-         local recording_register = vim.fn.reg_recording()
-         if recording_register == '' then
-            return ''
-         else
-            return 'Recording @' .. recording_register
-         end
-      end
+      local noice = require('noice')
 
       local function winbarActive()
          local function is_window_float(window)
@@ -47,7 +39,10 @@ return {
          },
          sections = {
             lualine_a = {
-               macro,
+               {
+                  noice.api.status.mode.get,
+                  cond = noice.api.status.mode.has,
+               },
                'mode',
                'branch',
                {

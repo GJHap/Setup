@@ -28,14 +28,14 @@ return {
       routes = {
          {
             filter = {
-               event = 'msg_show',
-               kind = 'search_count',
-            },
-            opts = { skip = true },
-         },
-         {
-            filter = {
-               warning = true,
+               any = {
+                  { event = 'msg_show', kind = 'search_count' },
+                  {
+                     event = 'msg_show',
+                     kind = '',
+                     find = 'written',
+                  },
+               },
             },
             opts = { skip = true },
          },
