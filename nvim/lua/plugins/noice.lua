@@ -20,6 +20,9 @@ return {
             ['vim.lsp.util.stylize_markdown'] = true,
          },
       },
+      messages = {
+         view = 'mini',
+      },
       presets = {
          bottom_search = true,
          command_palette = true,
@@ -30,11 +33,6 @@ return {
             filter = {
                any = {
                   { event = 'msg_show', kind = 'search_count' },
-                  {
-                     event = 'msg_show',
-                     kind = '',
-                     find = 'written',
-                  },
                },
             },
             opts = { skip = true },
