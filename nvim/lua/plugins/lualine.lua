@@ -3,6 +3,7 @@ return {
    config = function()
       local lualine = require('lualine')
       local noice = require('noice')
+      local colors = require('tokyonight.colors').setup({ transform = true })
 
       local function winbarActive()
          local function is_window_float(window)
@@ -32,6 +33,21 @@ return {
          return window_count > 1
       end
 
+      local separator_left = { separator = { left = '' } }
+      local separator_right = { separator = { right = '' } }
+
+      local teal_component = { color = { fg = colors.fg_gutter, bg = colors.teal } }
+      local teal_component_right = vim.tbl_extend('keep', separator_left, teal_component)
+      local teal_component_left = vim.tbl_extend('keep', separator_right, teal_component)
+
+      local dark_component = { color = { fg = colors.fg, bg = colors.dark3 } }
+      local dark_component_right = vim.tbl_extend('keep', separator_left, dark_component)
+      local dark_component_left = vim.tbl_extend('keep', separator_right, dark_component)
+
+      local orange_component = { color = { fg = colors.fg_gutter, bg = colors.orange } }
+      local orange_component_right = vim.tbl_extend('keep', separator_left, orange_component)
+      local orange_component_left = vim.tbl_extend('keep', separator_right, orange_component)
+
       lualine.setup({
          options = {
             theme = 'tokyonight',
@@ -39,12 +55,13 @@ return {
          },
          sections = {
             lualine_a = {
-               {
-                  noice.api.status.mode.get,
-                  cond = noice.api.status.mode.has,
-               },
-               'mode',
-               'branch',
+               vim.tbl_extend(
+                  'keep',
+                  { noice.api.status.mode.get, cond = noice.api.status.mode.has },
+                  orange_component_left
+               ),
+               vim.tbl_extend('keep', { 'mode' }, teal_component_left),
+               vim.tbl_extend('keep', { 'branch' }, dark_component_left),
                {
                   'diagnostics',
                   colored = false,
@@ -55,9 +72,9 @@ return {
             lualine_x = {},
             lualine_y = {},
             lualine_z = {
-               'searchcount',
-               'location',
-               'progress',
+               vim.tbl_extend('keep', { 'searchcount' }, orange_component_right),
+               vim.tbl_extend('keep', { 'location' }, teal_component_right),
+               vim.tbl_extend('keep', { 'progress' }, dark_component_right),
             },
          },
          winbar = {
@@ -85,24 +102,6 @@ return {
             lualine_x = {},
             lualine_y = {},
             lualine_z = {},
-         },
-         tabline = {
-            lualine_a = {
-               {
-                  'buffers',
-                  symbols = {
-                     alternate_file = '',
-                  },
-               },
-            },
-            lualine_z = {
-               {
-                  'tabs',
-                  symbols = {
-                     modified = ' ●',
-                  },
-               },
-            },
          },
       })
    end,
