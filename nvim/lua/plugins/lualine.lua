@@ -48,6 +48,8 @@ return {
       local orange_component_right = vim.tbl_extend('keep', separator_left, orange_component)
       local orange_component_left = vim.tbl_extend('keep', separator_right, orange_component)
 
+      local bg_component = { color = { bg = colors.bg_dark } }
+
       lualine.setup({
          options = {
             theme = 'tokyonight',
@@ -62,10 +64,7 @@ return {
                ),
                vim.tbl_extend('keep', { 'mode' }, teal_component_left),
                vim.tbl_extend('keep', { 'branch' }, dark_component_left),
-               {
-                  'diagnostics',
-                  colored = false,
-               },
+               vim.tbl_extend('keep', { 'diagnostics', colored = true }, bg_component),
             },
             lualine_b = {},
             lualine_c = {},
