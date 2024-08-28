@@ -31,6 +31,7 @@ return {
    end,
    dependencies = {
       'nvim-neotest/neotest-jest',
+      'nvim-neotest/nvim-nio',
       'nvim-lua/plenary.nvim',
       require('plugins.treesitter'),
       'antoinemadec/FixCursorHold.nvim',

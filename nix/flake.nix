@@ -9,7 +9,7 @@
   };
   outputs = { self, home-manager, neovim-nightly-overlay, nixpkgs }:
     let
-      overlays = [ neovim-nightly-overlay.overlay ];
+      overlays = [ neovim-nightly-overlay.overlays.default ];
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit overlays;

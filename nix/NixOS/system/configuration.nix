@@ -21,7 +21,7 @@
     bluetooth = { enable = true; };
     brillo.enable = true;
     cpu.intel.updateMicrocode = true;
-    opengl.enable = true;
+    graphics.enable = true;
     pulseaudio.enable = false;
   };
   i18n.defaultLocale = "en_US.utf8";
@@ -72,6 +72,7 @@
         };
       };
     };
+    libinput.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -89,11 +90,6 @@
         PLATFORM_PROFILE_ON_BAT = "low-power";
       };
     };
-    xserver.libinput.enable = true;
-  };
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
   };
   system = {
     activationScripts = {

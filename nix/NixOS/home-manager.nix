@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
-    ../home-manager/common
+    ../home-manager/common-gui
+    ../home-manager/common-tui
     ../home-manager/clipman.nix
     ../home-manager/direnv.nix
     ../home-manager/dunst.nix
@@ -13,7 +14,6 @@
     ../home-manager/swayidle.nix
     ../home-manager/swaylock.nix
     ../home-manager/waybar.nix
-    ../home-manager/wezterm.nix
     ../home-manager/wob.nix
     ../home-manager/wofi.nix
     ./options/colors.nix
@@ -21,6 +21,7 @@
     ./options/wofi-logout.nix
   ];
   home.packages = with pkgs; [
+    adwaita-icon-theme
     anki
     bluez
     brave
@@ -32,15 +33,15 @@
     gcc
     glib
     grim
-    gnome.adwaita-icon-theme
-    gnome.seahorse
     htop
     nixos-artwork.wallpapers.nineish-dark-gray
+    obsidian
     python3Full
     playerctl
     pavucontrol
     pamixer
     rustc
+    seahorse
     swappy
     slurp
     thunderbird

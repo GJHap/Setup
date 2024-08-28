@@ -146,7 +146,7 @@ in {
       export NIXOS_OZONE_WL="1"
       export SDL_VIDEODRIVER=wayland
       export QT_QPA_PLATFORM=wayland
-      export WLR_RENDERER="vulkan"
+      export WLR_RENDERER=vulkan,gles2,pixman
       export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/keyring/ssh
       export XDG_CURRENT_DESKTOP=sway
     '';

@@ -12,7 +12,7 @@
         frame_width = 0;
         height = 100;
         icon_path =
-          "${pkgs.gnome.adwaita-icon-theme}/share/icons/Adwaita/16x16/status/:${pkgs.gnome.adwaita-icon-theme}/share/icons/Adwaita/16x16/devices/:${pkgs.gnome.adwaita-icon-theme}/share/icons/Adwaita/16x16/legacy/";
+          "${pkgs.adwaita-icon-theme}/share/icons/Adwaita/16x16/status/:${pkgs.adwaita-icon-theme}/share/icons/Adwaita/16x16/devices/:${pkgs.adwaita-icon-theme}/share/icons/Adwaita/16x16/legacy/";
         markup = "full";
         monitor = 0;
         separator_color = "foreground";
