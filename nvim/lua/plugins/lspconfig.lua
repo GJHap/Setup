@@ -3,12 +3,6 @@ return {
    lazy = true,
    event = 'BufReadPre',
    config = function()
-      local signs = { Error = '', Warn = '', Hint = '', Info = '' }
-      for type, icon in pairs(signs) do
-         local hl = 'DiagnosticSign' .. type
-         vim.fn.sign_define(hl, { text = icon, texthl = hl })
-      end
-
       local on_attach = require('plugins.config.lsp.on_attach')
       local lspconfig = require('lspconfig')
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -23,6 +17,21 @@ return {
                   }),
                },
                on_attach = on_attach,
+            })
+         end,
+         ['efm'] = function(server_name)
+            local languages = require('plugins.config.lsp.efm')
+            lspconfig[server_name].setup({
+               capabilities = capabilities,
+               on_attach = on_attach,
+               init_options = { documentFormatting = true },
+               root_dir = vim.loop.cwd,
+               filetypes = vim.tbl_keys(languages),
+               settings = {
+                  rootMarkers = { '.git/' },
+                  lintDebounce = '500ms',
+                  languages = languages,
+               },
             })
          end,
          ['lua_ls'] = function(server_name)

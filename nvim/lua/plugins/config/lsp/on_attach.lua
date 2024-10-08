@@ -1,12 +1,3 @@
-local lsp_formatting = function(bufnr)
-   vim.lsp.buf.format({
-      filter = function(client)
-         return client.name == 'null-ls'
-      end,
-      bufnr = bufnr,
-   })
-end
-
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 local auto_format = function(client, bufnr)
    if client.supports_method('textDocument/formatting') then
@@ -15,7 +6,9 @@ local auto_format = function(client, bufnr)
          group = augroup,
          buffer = bufnr,
          callback = function()
-            lsp_formatting(bufnr)
+            vim.lsp.buf.format({
+               bufnr = bufnr,
+            })
          end,
       })
    end
@@ -25,6 +18,20 @@ return function(client, bufnr)
    vim.diagnostic.config({
       virtual_text = false,
       update_in_insert = true,
+      signs = {
+         text = {
+            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.WARN] = '',
+            [vim.diagnostic.severity.HINT] = '',
+            [vim.diagnostic.severity.INFO] = '',
+         },
+         numhl = {
+            [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+            [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+            [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+            [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+         },
+      },
    })
 
    vim.keymap.set('n', '<Leader>k', vim.lsp.buf.hover, { buffer = bufnr })
