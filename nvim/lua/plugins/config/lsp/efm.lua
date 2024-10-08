@@ -1,5 +1,5 @@
 local function getConfig(localPath)
-   local basePath = 'plugins.config.lsp.efm'
+   local basePath = 'efmls-configs.formatters'
    return require(basePath .. '.' .. localPath)
 end
 

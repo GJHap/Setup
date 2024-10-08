@@ -24,7 +24,7 @@ return {
             lspconfig[server_name].setup({
                capabilities = capabilities,
                on_attach = on_attach,
-               init_options = { documentFormatting = true },
+               init_options = { documentFormatting = true, documentRangeFormatting = true },
                root_dir = vim.loop.cwd,
                filetypes = vim.tbl_keys(languages),
                settings = {
