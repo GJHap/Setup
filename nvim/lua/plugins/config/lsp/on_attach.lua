@@ -8,6 +8,9 @@ local auto_format = function(client, bufnr)
          callback = function()
             vim.lsp.buf.format({
                bufnr = bufnr,
+               filter = function(client)
+                  return client.name == 'efm'
+               end,
             })
          end,
       })
