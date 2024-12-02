@@ -15,8 +15,7 @@
   environment = {
     systemPackages = with pkgs; [ greetd.greetd vulkan-validation-layers ];
   };
-  fonts.packages = with pkgs;
-    [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
   hardware = {
     bluetooth = { enable = true; };
     brillo.enable = true;
@@ -103,7 +102,7 @@
     };
     stateVersion = "22.05";
   };
-  time.timeZone = "America/Chicago";
+  time.timeZone = "America/Los_Angeles";
   users.users.ghapgood = {
     description = "Gregory Hapgood";
     extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" ];
