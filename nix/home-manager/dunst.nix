@@ -1,6 +1,7 @@
 { pkgs, config, ... }: {
   services.dunst = {
     enable = true;
+    package = pkgs.dunst.override { withX11 = false; };
     settings = {
       global = {
         background = "#${config.colors.dracula.background}";
