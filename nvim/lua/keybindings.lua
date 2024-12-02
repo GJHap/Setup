@@ -16,12 +16,6 @@ local function general()
    nnoremap('<Leader>hq', ':nohlsearch <CR>', { desc = 'Disable Search Highlight' })
 end
 
-local function session()
-   local fpath = vim.fn.getcwd() .. '/.session.vim'
-   nnoremap('<Leader>sm', ':mksession! ' .. fpath .. '<CR>', { desc = 'Make Session' })
-   nnoremap('<Leader>sl', ':source ' .. fpath .. '<CR>', { desc = 'Load Session' })
-end
-
 local function tab()
    nnoremap('<Leader>ta', ':tabnew <CR>', { desc = 'Add Tab' })
    nnoremap('<Leader>tq', ':tabclose <CR>', { desc = 'Close Tab' })
@@ -32,5 +26,4 @@ end
 buffer()
 comment()
 general()
-session()
 tab()
