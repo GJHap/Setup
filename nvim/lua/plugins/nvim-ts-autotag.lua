@@ -1,5 +1,5 @@
 return {
-   'nvim-ts-autotag',
+   'windwp/nvim-ts-autotag',
    config = true,
    dependencies = {
       require('plugins.treesitter'),
