@@ -51,6 +51,7 @@
       };
     };
     steam = { enable = true; };
+    zsh.enable = true;
   };
   security = {
     pam.services.swaylock = { };
@@ -107,7 +108,7 @@
     description = "Gregory Hapgood";
     extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" ];
     isNormalUser = true;
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
   };
   virtualisation.libvirtd.enable = true;
   xdg.portal = {
