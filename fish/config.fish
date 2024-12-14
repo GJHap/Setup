@@ -1,3 +1,7 @@
+if test -f ~/.config/fish/pre.fish
+   source ~/.config/fish/pre.fish
+end
+
 if status is-interactive; and type -q tmux; and not set -q TMUX; tmux new-session -A -s main; end
 
 set -x EDITOR nvim
