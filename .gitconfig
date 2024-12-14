@@ -15,6 +15,10 @@
 [fetch]
    prune = true
 
+[alias]
+   amend = commit --amend
+   server-branch = !git checkout -b $1 && git push -u origin
+
 [init]
    defaultBranch = main
 
