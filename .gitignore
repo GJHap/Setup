@@ -3,3 +3,5 @@ fish/pre.fish
 nvim/plugin
 tmux/plugins
 .direnv/
+zsh/zsh/pre.zsh
+zsh/zsh/post.zsh
