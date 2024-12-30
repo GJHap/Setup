@@ -5,3 +5,5 @@ tmux/plugins
 .direnv/
 zsh/zsh/pre.zsh
 zsh/zsh/post.zsh
+nix/Darwin/home-manager/extras.nix
+nix/NixOS/home-manager/extras.nix

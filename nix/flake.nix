@@ -6,32 +6,48 @@
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, home-manager, neovim-nightly-overlay, nixpkgs }:
+  outputs = { self, home-manager, neovim-nightly-overlay, nix-darwin, nixpkgs }:
     let
-      overlays = [ neovim-nightly-overlay.overlays.default ];
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit overlays;
-        inherit system;
-        config.allowUnfree = true;
-      };
-      lib = nixpkgs.lib;
-    in {
-      nixosConfigurations = {
-        ghapgood = lib.nixosSystem {
-          inherit system pkgs;
+      buildSystem = { basePath, systemFn, system, hmFn }:
+        systemFn {
+          inherit system;
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ neovim-nightly-overlay.overlays.default ];
+            config.allowUnfree = true;
+          };
           modules = [
-            ./NixOS/system/configuration.nix
-            home-manager.nixosModules.home-manager
+            "${self}/${basePath}/system/configuration.nix"
+            hmFn
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.ghapgood = import ./NixOS/home-manager.nix;
+                users.ghapgood = import "${self}/${basePath}/home-manager";
               };
             }
           ];
+        };
+    in {
+      darwinConfigurations = {
+        darwin = buildSystem {
+          basePath = "Darwin";
+          systemFn = nix-darwin.lib.darwinSystem;
+          system = "x86_64-darwin";
+          hmFn = home-manager.darwinModules.home-manager;
+        };
+      };
+      nixosConfigurations = {
+        nixos = buildSystem {
+          basePath = "NixOS";
+          systemFn = nixpkgs.lib.nixosSystem;
+          system = "x86_64-linux";
+          hmFn = home-manager.nixosModules.home-manager;
         };
       };
     };

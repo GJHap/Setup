@@ -1,5 +1,9 @@
 { config, pkgs, ... }: {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../shared/fonts.nix
+    ../../shared/nix.nix
+  ];
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
@@ -15,7 +19,6 @@
   environment = {
     systemPackages = with pkgs; [ greetd.greetd vulkan-validation-layers ];
   };
-  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
   hardware = {
     bluetooth = { enable = true; };
     brillo.enable = true;
@@ -27,19 +30,6 @@
   networking = {
     hostName = "ghapgood";
     networkmanager.enable = true;
-  };
-  nix = {
-    extraOptions = "experimental-features = nix-command flakes";
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-    package = pkgs.nixStable;
-    settings = {
-      auto-optimise-store = true;
-      allowed-users = [ "ghapgood" ];
-    };
   };
   programs = {
     dconf.enable = true;
@@ -104,11 +94,12 @@
     stateVersion = "22.05";
   };
   time.timeZone = "America/Los_Angeles";
-  users.users.ghapgood = {
-    description = "Gregory Hapgood";
-    extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" ];
-    isNormalUser = true;
-    shell = pkgs.zsh;
+  users = {
+    users = {
+      ghapgood = (pkgs.callPackage ../../shared/user.nix { }).config // {
+        extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" ];
+      };
+    };
   };
   virtualisation.libvirtd.enable = true;
   xdg.portal = {
