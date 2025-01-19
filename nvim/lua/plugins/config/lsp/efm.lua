@@ -3,21 +3,22 @@ local function getConfig(localPath)
    return require(basePath .. '.' .. localPath)
 end
 
-local stylua = getConfig('stylua')
 local prettier = getConfig('prettier')
+local stylua = getConfig('stylua')
 local nixfmt = getConfig('nixfmt')
 
 return {
-   lua = { stylua },
-   typescript = { prettier },
-   javascript = { prettier },
-   typescriptreact = { prettier },
-   javascriptreact = { prettier },
-   yaml = { prettier },
-   json = { prettier },
-   html = { prettier },
-   scss = { prettier },
    css = { prettier },
+   graphql = { prettier },
+   html = { prettier },
+   javascript = { prettier },
+   javascriptreact = { prettier },
+   json = { prettier },
+   lua = { stylua },
    markdown = { prettier },
    nix = { nixfmt },
+   scss = { prettier },
+   typescript = { prettier },
+   typescriptreact = { prettier },
+   yaml = { prettier },
 }
