@@ -1,9 +1,10 @@
+.direnv/
 fish/fish_variables
 fish/pre.fish
-nvim/plugin
-tmux/plugins
-.direnv/
-zsh/zsh/pre.zsh
-zsh/zsh/post.zsh
 nix/Darwin/home-manager/extras.nix
 nix/NixOS/home-manager/extras.nix
+nvim/plugin
+scripts/bin/ignored
+tmux/plugins
+zsh/zsh/pre.zsh
+zsh/zsh/post.zsh
