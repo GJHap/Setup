@@ -10,6 +10,7 @@ source ~/zsh/alias.zsh
 source ~/zsh/style.zsh
 source ~/zsh/theme.zsh
 source ~/zsh/prompt.zsh
+source ~/zsh/path.zsh
 
 if [[ -f ~/zsh/post.zsh ]]; then
   source ~/zsh/post.zsh
